@@ -1,5 +1,5 @@
 # 29cm_nextjs_clonecoding
-> react, nextjs, tailwinds, storybook
+> react, nextjs, tailwinds, storybook, shadcn/ui
 
 ## 1. develop 브랜치
 ##### 페이지 작업 시 사용하는 브랜치
