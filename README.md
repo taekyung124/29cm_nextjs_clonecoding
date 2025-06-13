@@ -11,12 +11,12 @@
 ### 페이지 작업 시
 
 #### 작업 directory
-```angular2html
+```
 cd 29cm
 ```
 
 #### 실행
-```angular2html
+```
 npm run dev
 ```
 > localhost:3000
@@ -26,12 +26,12 @@ npm run dev
 ### 가이드 작업 시
 
 #### 작업 directory
-```angular2html
+```
 cd storybook
 ```
 
 #### 실행
-```angular2html
+```
 npm run storybook
 ```
 > localhost:6006
