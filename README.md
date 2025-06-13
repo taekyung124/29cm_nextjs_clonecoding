@@ -1,8 +1,10 @@
 # 29cm_nextjs_clonecoding
-> react, nextjs, tailwinds, storybook
+> react, nextjs, tailwinds, storybook, shadcn/ui
 
-## 1. develop 브랜치
-##### 페이지 작업 시 사용하는 브랜치
+## develop 브랜치
+##### 가이드 / 페이지 작업 시 사용
+
+#### 페이지 작업 시
 
 ### 작업 directory
 ```angular2html
@@ -16,8 +18,7 @@ npm run dev
 > localhost:3000
 
 
-## 2. docs/storybook 브랜치
-##### 페이지 작업 시 사용하는 브랜치
+#### 가이드 작업 시
 
 ### 작업 directory
 ```angular2html
