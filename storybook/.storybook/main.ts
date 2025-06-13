@@ -2,27 +2,21 @@ import type { StorybookConfig } from "@storybook/nextjs-vite";
 
 const config: StorybookConfig = {
   "stories": [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    '../src/components/ui/**/*.stories.@(tsx|mdx)'
   ],
   "addons": [
     "@chromatic-com/storybook",
     "@storybook/addon-docs",
     "@storybook/addon-onboarding",
     "@storybook/addon-a11y",
-    "@storybook/addon-vitest",
-    "@storybook/addon-essentials",
+    "@storybook/addon-vitest"
   ],
   "framework": {
     "name": "@storybook/nextjs-vite",
     "options": {}
   },
   "staticDirs": [
-    "..\\public"
+    "../public"
   ],
-  viteFinal: async (config) => {
-    // Tailwind 처리
-    return config;
-  },
 };
 export default config;
