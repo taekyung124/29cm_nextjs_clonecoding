@@ -1,3 +1,4 @@
+import '../public/fonts/pretendard-1.3.9/pretendard.css';
 import '@/styles/globals.scss';
 import type { Preview } from '@storybook/nextjs-vite';
 
