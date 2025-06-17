@@ -1,6 +1,5 @@
 @use 'variables';
 
-
 // float하는 상위 DOM에 선언
 @mixin clearfix {
     &:after {
