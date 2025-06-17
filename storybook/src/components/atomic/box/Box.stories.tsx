@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Box } from './Box';
+import { Box }
+
+	from './Box';
 
 const meta = {
     title: 'Atomic/Box',
     component: Box,
     parameters: {
-    layout: 'centered',
+    layout: 'padded',
     },
     tags: ['autodocs'],
 
@@ -18,24 +20,28 @@ type Story = StoryObj<typeof meta>;
 export const Xs: Story = {
 	args: {
 		size : 'xs',
+		children : 'xs box입니다.'
 	}
 }
 
 export const Sm: Story = {
 	args: {
 		size: 'sm',
+		children : 'xs box입니다.'
 	}
 }
 
 export const Md: Story = {
 	args: {
 		size: 'md',
+		children : 'xs box입니다.'
 	}
 }
 
 export const Lg: Story = {
 	args: {
 		size: 'lg',
+		children : 'xs box입니다.'
 	}
 }
 

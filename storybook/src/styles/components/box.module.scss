@@ -2,46 +2,43 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
 
-.box {
-	&Xs {
-		padding: 12px;
-	}
+.boxxs {
+	padding: 12px;
+}
+.boxsm {
+	padding: 16px;
+}
 
-	&Sm {
-		padding: 16px;
-	}
+.boxmd {
+	padding: 20px;
+}
 
-	&Md {
-		padding: 20px;
-	}
+.boxlg {
+	padding: 30px;
+}
 
-	&Lg {
-		padding: 30px;
-	}
+.boxgray {
+	background-color: $colorGray06;
+	border-radius: 4px;
+}
 
-	&Gray {
-		background-color: $colorGray06;
-		border-radius: 4px;
-	}
+.boxgrayline {
+	background-color: $colorWhite;
+	border: 1px solid $colorGray05;
+	border-radius: 4px;
+}
 
-	&GrayLine {
-		background-color: $colorWhite;
-		border: 1px solid $colorGray05;
-		border-radius: 4px;
-	}
+.boxwhite {
+	background-color: $colorWhite;
+	border-radius: 4px;
+}
 
-	&White {
-		background-color: $colorWhite;
-		border-radius: 4px;
-	}
+.boxgreen {
+	background-color: #EFF6F6;
+	border-radius: 4px;
+}
 
-	&Green {
-		background-color: #EFF6F6;
-		border-radius: 4px;
-	}
-
-	&Red {
-		background-color: #FBF5F5;
-		border-radius: 4px;
-	}
+.boxred {
+	background-color: #FBF5F5;
+	border-radius: 4px;
 }

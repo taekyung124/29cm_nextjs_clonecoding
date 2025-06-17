@@ -2,16 +2,18 @@ import styles from '@/styles/components.module.scss';
 
 export interface BoxProps {
 	size? : 'xs' | 'sm' | 'md' | 'lg';
-	color? : 'gray' | 'gray-line' | 'white' | 'green' | 'red';
+	color? : 'gray' | 'grayline' | 'white' | 'green' | 'red';
 	mt? : string;
 	boxScroll? : boolean;
+	children?: React.ReactNode;
 }
 
 export const Box = ({
 	size = 'md',
-	color,
+	color = 'white',
 	mt,
 	boxScroll = false,
+	children,
 	...props
 }: BoxProps) => {
 	return (
@@ -30,6 +32,7 @@ export const Box = ({
 			}}
 			{...props}
 		>
+			{children}
 		</div>
 	)
 }
