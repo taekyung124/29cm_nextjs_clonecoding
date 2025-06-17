@@ -2,10 +2,12 @@
 @import 'components/typography.module';
 
 // atomic
-@import 'components/button.module';
 @import 'components/title.module';
+@import 'components/button.module';
+@import 'components/formElement.module';
 
 // molecule
+@import 'components/tooltip.module';
 
 // organism
 
