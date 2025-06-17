@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
 .storybookHeader {
 	display: flex;
 	justify-content: space-between;
