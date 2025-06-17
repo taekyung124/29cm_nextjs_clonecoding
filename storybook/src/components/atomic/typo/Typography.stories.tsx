@@ -55,3 +55,18 @@ export const MultiEllipsis: Story = {
 		</div>
 	),
 };
+
+export const SubText: Story = {
+	render: () => (
+		<div>
+			<p className="stextSm">.stextSm 입니다. font-size: 13px, color: #666</p>
+			<p className="stextSmBlack">.stextSmBlack 입니다. font-size: 13px, color: #000</p>
+			<p className="stextSmSpot">.stextSmSpot 입니다. font-size: 13px, color: #012E29, font-weight: 300</p>
+			<p className="stextSmRed">.stextSmRed입니다. font-size: 13px, color: #D93B3B, font-weight: 500</p>
+			<p className="stext">.stext 입니다. font-size: 14px, color: #666</p>
+			<p className="stextBlack">.stextBlack 입니다. font-size: 14px, color: #000</p>
+			<p className="stextBold">.stextBold 입니다. font-size: 14px, color: #000, font-weight: 500</p>
+			<p className="stextLg">.stextLg 입니다. font-size: 16px, color: #000</p>
+		</div>
+	),
+};
