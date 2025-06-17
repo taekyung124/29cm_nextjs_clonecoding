@@ -1,5 +1,5 @@
 import { Button } from '../../atomic/button/Button';
-import styles from '@/styles/components/layouts.module.scss';
+import styles from '@/styles/components.module.scss';
 
 type User = {
   name: string;
