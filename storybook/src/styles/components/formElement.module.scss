@@ -2,6 +2,270 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins';
 
+// input
+.uiInput {
+	&::-ms-clear,
+	&::-ms-reveal {
+		display: none;
+	}
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+
+	&[type=number] {
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			-moz-appearance: textfield;
+			margin: 0;
+		}
+	}
+
+	&[type=date], &[type=month], &[type=time], &[type=week] {
+		&::-webkit-calendar-picker-indicator {
+			background: none;
+		}
+	}
+
+	&[type=search] {
+		background: $colorWhite;
+
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration {
+			display: none;
+			width: 0;
+			height: 0;
+		}
+	}
+
+	@include mixins.clear_focus;
+	width: 100%;
+	border: 0;
+	@include mixins.font_size_md;
+	color: $colorBlack;
+
+	&::placeholder {
+		color: $colorGray01;
+	}
+
+	&:focus {
+		border-color: $colorBlack;
+		@include mixins.prefix(transition, border 0.2s ease-out);
+	}
+}
+
+%inputBox {
+	overflow: hidden;
+	@include mixins.justify_width;
+
+	.btnInputDel {
+		flex-shrink: 0;
+		display: none;
+		width: 20px;
+		height: 20px;
+		margin-left: 20px;
+		background-color: $colorGreen; //temp
+		// @include mixins.ratio_images('../images/form/ico_ip_clear');
+	}
+
+	.btnTogglePw {
+		flex-shrink: 0;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		margin-left: 10px;
+		background-color: $colorGreen; //temp
+		// @include mixins.ratio_images('../images/form/ico_eye');
+		@include mixins.prefix(transition, background 0.2s ease-out);
+		vertical-align: top;
+
+		&.is-active {
+			// @include mixins.ratio_images('../images/form/ico_eye_active');
+		}
+	}
+
+	.timerCount {
+		flex-shrink: 0;
+		display: inline-block;
+		margin-left: 10px;
+		@include mixins.font_size_md;
+		color: $colorRed;
+		vertical-align: top;
+	}
+
+	.btnInputSearch {
+		flex-shrink: 0;
+		margin: {
+			top: 18px;
+			left: 20px;
+		}
+	}
+
+	/*&.has-value {
+		.btn-input-del {
+			display: block;
+		}
+	}*/
+}
+
+.input-box {
+	@extend %inputBox;
+	padding: 0 14px;
+	border-radius: 4px;
+	border: 1px solid $colorGray05;
+	background-color: $colorWhite;
+
+	.uiInput {
+		height: 44px;
+		padding: 0;
+		background-color: inherit;
+	}
+
+	.btnTogglePw {
+		margin-top: 12px;
+	}
+
+	.btnInputDel {
+		margin-top: 12px;
+	}
+
+	.timerCount {
+		margin-top: 12px;
+	}
+}
+
+.inputLineBox {
+	@extend %inputBox;
+	border-radius: 0;
+	border-bottom: 1px solid $colorGray04;
+	background-color: $colorWhite;
+
+	.uiInput {
+		height: 49px;
+		padding: 0;
+		background-color: inherit;
+	}
+
+	.btnInputDel {
+		margin-top: 15px;
+	}
+
+	.btnTogglePw {
+		margin-top: 15px;
+	}
+
+	.timerCount {
+		margin-top: 14px;
+	}
+}
+
+.inputSearchBox {
+	@extend %inputBox;
+	padding-right: 0;
+	border: {
+		top: none;
+		right: none;
+		left: none;
+	}
+	border-bottom: 4px solid $colorGreen;
+	border-radius: 0;
+
+	.uiInput {
+		height: 56px;
+		padding: 0 20px 0 0;
+		@include mixins.font_size_lg('lt');
+	}
+
+	.btnInputDel {
+		margin: {
+			top: 18px;
+			left: 0;
+		}
+	}
+
+	.btnInputSearch {
+		width: 24px;
+		height: 24px;
+		// @include mixins.ratio_images('../images/form/ico_search_green_h24');
+	}
+}
+
+.inputGraySearchBox {
+	@extend %inputBox;
+	margin-bottom: 30px;
+	padding-right: 16px;
+	border: none;
+	border-radius: 20px;
+	background-color: $colorGray06;
+
+	.uiInput {
+		height: 40px;
+		padding: 0 16px;
+		background: none;
+	}
+
+	.btnInputDel {
+		margin: {
+			top: 10px;
+			left: 0;
+		}
+	}
+
+	.btnInputSearch {
+		width: 18px;
+		height: 18px;
+		margin: {
+			top: 10px;
+			left: 10px;
+		}
+		// @include mixins.ratio_images('../images/form/ico_search_black_h18');
+	}
+}
+
+.inputGuide {
+	display: block;
+	width: 100%;
+	margin-top: 8px;
+	@include mixins.font_size_sm;
+	color: $textColorDG;
+}
+
+.validCheck {
+	.validDesc {
+		display: none;
+		margin-top: 8px;
+		@include mixins.font_size_sm;
+	}
+
+	&.fail {
+		.inputBox, .inputLineBox {
+			border-color: $colorRed;
+		}
+
+		.validDesc {
+			display: block;
+			color: $colorRed;
+		}
+	}
+
+	&.success {
+		.inputBox, .inputLineBox {
+			border-color: $colorGreen;
+		}
+
+		.validDesc   {
+			display: block;
+			color: $colorGreen;
+		}
+	}
+}
+
+
 // select
 .uiSelect {
 	width: 100%;
@@ -46,7 +310,7 @@
 				bottom: 1px solid $colorGray04;
 				left: 0;
 			};
-			// @include mixins.ratio_images('../images/form/ico_select_arr_light_gray_h20', 20px, right center, variables.$colorWhite);
+			// @include mixins.ratio_images('../images/form/ico_select_arr_light_gray_h20', 20px, right center, $colorWhite);
 			@include mixins.font_size_md;
 			color: $textColorG;
 		}
