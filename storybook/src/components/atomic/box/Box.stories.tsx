@@ -1,76 +1,59 @@
+import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Box }
-
-	from './Box';
+import { Box } from './Box';
 
 const meta = {
     title: 'Atomic/Box',
     component: Box,
-    parameters: {
-    layout: 'padded',
-    },
     tags: ['autodocs'],
-
+    parameters: {
+    	layout: 'padded',
+    },
+	// args : {// 모든 스토리에 공통적으로 쓰일 기본 props 값들
+	//
+	// },
+	argTypes: {
+		mt: {
+			control: { type: 'radio' },
+      		options: ['sm', 'md', undefined],
+		},
+		boxScroll: {
+			control: { type: 'boolean' }
+		}
+	}
 } satisfies Meta<typeof Box>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Box>;
 
 // size
-export const Xs: Story = {
-	args: {
-		size : 'xs',
-		children : 'xs box입니다.'
+export const SizeType: Story = {
+	render: (args) => {
+		const sizes = ['extraSmall', 'small', 'medium', 'large'] as const;
+		return (
+			<>
+				{sizes.map((size) =>
+					<Box {...args} size={size} key={size}>
+						{size}
+					</Box>
+				)}
+			</>
+		)
 	}
-}
+};
 
-export const Sm: Story = {
-	args: {
-		size: 'sm',
-		children : 'xs box입니다.'
+//color
+export const ColorType: Story = {
+	render: (args) => {
+		const colors = ['gray', 'grayLine', 'white', 'green', 'red'] as const;
+		return (
+			<>
+				{colors.map((color) =>
+					<Box {...args} color={color} key={color}>
+						{color}
+					</Box>
+				)}
+			</>
+		)
 	}
-}
-
-export const Md: Story = {
-	args: {
-		size: 'md',
-		children : 'xs box입니다.'
-	}
-}
-
-export const Lg: Story = {
-	args: {
-		size: 'lg',
-		children : 'xs box입니다.'
-	}
-}
-
-// color
-export const Gray: Story = {
-	args: {
-		color : 'gray',
-	}
-}
-
-export const GrayLine: Story = {
-	args: {
-		color: 'gray-line',
-	}
-}
-export const White: Story = {
-	args: {
-		color: 'white',
-	}
-}
-
-export const Green: Story = {
-	args: {
-		color: 'green',
-	}
-}
-
-export const Red: Story = {
-	args: {
-		color: 'red',
-	}
-}
+};

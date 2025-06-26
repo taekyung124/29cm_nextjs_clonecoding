@@ -12,7 +12,7 @@
 
 #### 작업 directory
 ```
-cd 29cm
+cd gugus
 ```
 
 #### 실행
