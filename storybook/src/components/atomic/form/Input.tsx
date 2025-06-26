@@ -7,6 +7,7 @@ export interface InputProps {
 	title?: string;
 	placeholder?: string;
 	disabled?: boolean;
+	readonly?: boolean;
 	value?: string;
 	isValidCheck?: undefined | 'fail' | 'success';
 	inputGuide?: string;
@@ -14,11 +15,12 @@ export interface InputProps {
 	children?: React.ReactNode;
 }
 export const Input: React.FC<InputProps> = ({
-	boxType,
-	type,
+	boxType = undefined,
+	type = 'text',
 	title,
 	placeholder,
 	disabled = false,
+	readonly = false,
 	value,
 	isValidCheck,
 	inputGuide,
@@ -30,18 +32,22 @@ export const Input: React.FC<InputProps> = ({
 			styles.inputGroup,
 			styles.validCheck,
 			styles[boxType ?? ''],
-			styles[isValidCheck ?? '']
+			styles[isValidCheck ?? ''],
 		].join(' ')}>
-			<div className={
-				type === 'search' ? styles.inputSearchBox
-				: boxType ? styles[`input${boxType[0].toUpperCase()}${boxType.slice(1)}Box`]
-				: styles.inputBox}>
+			<div className={[
+				boxType === 'line' ?  styles.inputLineBox
+				: boxType === 'gray-search' ? styles.inputGraySearchBox
+				: type === 'search' ? styles.inputSearchBox
+				: styles.inputBox,
+				styles[disabled ? 'isDisabled' : '']
+				].join(' ')}>
 				<input className={styles.uiInput}
 					   type={type}
 					   title={title}
 					   placeholder={placeholder}
 					   value={value}
 					   disabled={disabled}
+					   readOnly={readonly}
 				/>
 				{(type !== 'password' || 'tel') && (
 					<button className={styles.btnInputDel} type={"button"}>

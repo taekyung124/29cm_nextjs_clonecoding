@@ -70,7 +70,7 @@
 		height: 20px;
 		margin-left: 20px;
 		background-color: $colorGreen; //temp
-		// @include mixins.ratio_images('../images/form/ico_ip_clear');
+		@include mixins.ratio_images('/assets/icons/ico_ip_clear');
 	}
 
 	.btnTogglePw {
@@ -79,13 +79,12 @@
 		width: 20px;
 		height: 20px;
 		margin-left: 10px;
-		background-color: $colorGreen; //temp
-		// @include mixins.ratio_images('../images/form/ico_eye');
+		@include mixins.ratio_images('/assets/icons/ico_eye');
 		@include mixins.prefix(transition, background 0.2s ease-out);
 		vertical-align: top;
 
 		&.is-active {
-			// @include mixins.ratio_images('../images/form/ico_eye_active');
+			@include mixins.ratio_images('/assets/icons/ico_eye_active');
 		}
 	}
 
@@ -113,7 +112,7 @@
 	}*/
 }
 
-.input-box {
+.inputBox {
 	@extend %inputBox;
 	padding: 0 14px;
 	border-radius: 4px;
@@ -136,6 +135,31 @@
 
 	.timerCount {
 		margin-top: 12px;
+	}
+
+	&.is-focus {
+		border-color: $colorBlack;
+		@include mixins.prefix(transition, border 0.2s ease-out);
+	}
+
+	&.isDisabled {
+		background-color: #f9f9f9;
+
+		.uiInput {
+			color: $textColorG;
+
+			&::placeholder {
+				color: rgba($colorGray01, 0.5);
+			}
+		}
+
+		.btnInputDel {
+			display: none;
+		}
+
+		.unit {
+			opacity: 0.5;
+		}
 	}
 }
 
@@ -191,7 +215,7 @@
 	.btnInputSearch {
 		width: 24px;
 		height: 24px;
-		// @include mixins.ratio_images('../images/form/ico_search_green_h24');
+		@include mixins.ratio_images('/assets/icons/ico_search_green_h24');
 	}
 }
 
@@ -223,7 +247,7 @@
 			top: 10px;
 			left: 10px;
 		}
-		// @include mixins.ratio_images('../images/form/ico_search_black_h18');
+		@include mixins.ratio_images('/assets/icons/ico_search_black_h18');
 	}
 }
 
@@ -265,6 +289,11 @@
 	}
 }
 
+.inputGroup {
+	+ .inputGroup {
+		margin-top: 10px;
+	}
+}
 
 // select
 .uiSelect {
