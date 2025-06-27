@@ -13,6 +13,7 @@ export interface InputProps {
 	inputGuide?: string;
 	validDesc?: string;
 	children?: React.ReactNode;
+	onChange?: (value: string) => void;
 }
 export const Input: React.FC<InputProps> = ({
 	boxType = undefined,
@@ -21,12 +22,51 @@ export const Input: React.FC<InputProps> = ({
 	placeholder,
 	disabled = false,
 	readonly = false,
-	value,
+	value='',
 	isValidCheck,
 	inputGuide,
 	validDesc,
-	children
+	children,
+	onChange,
 }) => {
+	const [inputValue, setInputValue] = React.useState<string>('');
+	const [isFocused, setIsFocused] = React.useState(false);
+	const inputRef = React.useRef<HTMLInputElement>(null);
+
+	React.useEffect(() => {
+		setInputValue(value);
+	}, [value]);
+
+	const handleFocus = () => {
+		setIsFocused(true);
+	}
+	const handleBlur = () => {
+		setIsFocused(false);
+	};
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setInputValue(e.target.value);
+		onChange?.(e.target.value);
+	};
+
+	const handleClear = () => {
+		setInputValue('');
+		onChange?.('');
+		inputRef.current?.focus();
+	};
+
+	const isHasValue = inputValue.length > 0;
+
+	const wrapperClass = [
+		boxType === 'line' ? styles.inputLineBox
+			: boxType === 'gray-search' ? styles.inputGraySearchBox
+				: type === 'search' ? styles.inputSearchBox
+					: styles.inputBox,
+		isFocused ? styles.isFocus : '',
+		isHasValue ? styles.hasValue : '',
+		disabled || readonly ? styles.isDisabled : '',
+	].join(' ');
+
 	return (
 		<div className={[
 			styles.inputGroup,
@@ -34,23 +74,26 @@ export const Input: React.FC<InputProps> = ({
 			styles[boxType ?? ''],
 			styles[isValidCheck ?? ''],
 		].join(' ')}>
-			<div className={[
-				boxType === 'line' ?  styles.inputLineBox
-				: boxType === 'gray-search' ? styles.inputGraySearchBox
-				: type === 'search' ? styles.inputSearchBox
-				: styles.inputBox,
-				styles[disabled ? 'isDisabled' : '']
-				].join(' ')}>
-				<input className={styles.uiInput}
-					   type={type}
-					   title={title}
-					   placeholder={placeholder}
-					   value={value}
-					   disabled={disabled}
-					   readOnly={readonly}
+			<div className={wrapperClass}>
+				<input
+					ref={inputRef}
+					className={styles.uiInput}
+					type={type}
+					title={title}
+					placeholder={placeholder}
+					value={inputValue}
+					disabled={disabled}
+					readOnly={readonly}
+					onFocus={handleFocus}
+					onBlur={handleBlur}
+					onChange={handleChange}
 				/>
 				{(type !== 'password' || 'tel') && (
-					<button className={styles.btnInputDel} type={"button"}>
+					<button
+						className={styles.btnInputDel}
+						type={"button"}
+						onClick={handleClear}
+					>
 						<span className="offscreen">초기화</span>
 					</button>
 				)}
