@@ -105,11 +105,11 @@
 		}
 	}
 
-	/*&.has-value {
-		.btn-input-del {
+	&.hasValue {
+		.btnInputDel {
 			display: block;
 		}
-	}*/
+	}
 }
 
 .inputBox {
@@ -137,7 +137,7 @@
 		margin-top: 12px;
 	}
 
-	&.is-focus {
+	&.isFocus {
 		border-color: $colorBlack;
 		@include mixins.prefix(transition, border 0.2s ease-out);
 	}
