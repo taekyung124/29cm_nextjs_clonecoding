@@ -2,8 +2,8 @@ import * as React from 'react';
 import styles from '@/styles/components.module.scss';
 
 interface BoxProps {
-	size? : 'extraSmall' | 'small' | 'medium' | 'large';
-	color? : 'gray' | 'grayLine' | 'white' | 'green' | 'red';
+	Boxsize? : 'extraSmall' | 'small' | 'medium' | 'large';
+	Boxcolor? : 'gray' | 'grayLine' | 'white' | 'green' | 'red';
 	mt? : string;
 	boxScroll? : boolean;
 	// children?: React.ReactNode;
@@ -11,8 +11,8 @@ interface BoxProps {
 }
 
 export const Box: React.FC<BoxProps> = ({
-	size = 'medium',
-	color = 'white',
+	Boxsize = 'medium',
+	Boxcolor = 'white',
 	mt,
 	boxScroll = false,
 	children,
@@ -20,8 +20,8 @@ export const Box: React.FC<BoxProps> = ({
 	return (
 		<div
 			className={[
-				styles[size ?? ''],
-				styles[color ?? ''],
+				styles[`box-${Boxsize}`],
+				styles[`box-${Boxcolor}`],
 			].join(' ')}
 			style={{
 				marginTop :

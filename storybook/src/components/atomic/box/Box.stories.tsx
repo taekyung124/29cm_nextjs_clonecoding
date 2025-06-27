@@ -28,12 +28,20 @@ type Story = StoryObj<typeof Box>;
 
 // size
 export const SizeType: Story = {
-	render: (args) => {
+    args: {
+        Boxsize: "small",
+        Boxcolor: "gray",
+        boxScroll: true,
+        mt: "md",
+        children: ""
+    },
+
+    render: (args) => {
 		const sizes = ['extraSmall', 'small', 'medium', 'large'] as const;
 		return (
 			<>
 				{sizes.map((size) =>
-					<Box {...args} size={size} key={size}>
+					<Box {...args} Boxsize={size} key={size}>
 						{size}
 					</Box>
 				)}
@@ -49,7 +57,7 @@ export const ColorType: Story = {
 		return (
 			<>
 				{colors.map((color) =>
-					<Box {...args} color={color} key={color}>
+					<Box {...args} Boxcolor={color} key={color}>
 						{color}
 					</Box>
 				)}
