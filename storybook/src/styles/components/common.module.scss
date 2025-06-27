@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+// FlexInfoWrap
+.flexInfoWrap {
+	@include mixins.justify_width;
+
+	.rightArea {
+		margin-left: auto;
+		flex-shrink: 0;
+		text-align: right;
+
+		&.center {
+			align-self: center;
+		}
+		&.end {
+			align-self: flex-end;
+		}
+	}
+}

@@ -35,7 +35,7 @@ export const Input: React.FC<InputProps> = ({
 	const inputRef = React.useRef<HTMLInputElement>(null);
 
 	const isDisabled = disabled || readonly;
-	const isHasValid = inputValue.length > 0;
+	// const isHasValid = inputValue.length > 0;
 	const isPasswordType = type === 'password';
 
 	const togglePasswordVisibility = () => {
