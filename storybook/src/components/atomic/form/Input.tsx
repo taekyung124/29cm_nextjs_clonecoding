@@ -24,14 +24,23 @@ export const Input: React.FC<InputProps> = ({
 	readonly = false,
 	value='',
 	isValidCheck,
-	inputGuide,
-	validDesc,
+	inputGuide = '',
+	validDesc = '',
 	children,
 	onChange,
 }) => {
 	const [inputValue, setInputValue] = React.useState<string>('');
 	const [isFocused, setIsFocused] = React.useState(false);
+	const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
 	const inputRef = React.useRef<HTMLInputElement>(null);
+
+	const isDisabled = disabled || readonly;
+	const isHasValid = inputValue.length > 0;
+	const isPasswordType = type === 'password';
+
+	const togglePasswordVisibility = () => {
+		setIsPasswordVisible((prev) => !prev)
+	}
 
 	React.useEffect(() => {
 		setInputValue(value);
@@ -57,15 +66,16 @@ export const Input: React.FC<InputProps> = ({
 
 	const isHasValue = inputValue.length > 0;
 
-	const wrapperClass = [
+	const wrapperClassName = [
 		boxType === 'line' ? styles.inputLineBox
 			: boxType === 'gray-search' ? styles.inputGraySearchBox
 				: type === 'search' ? styles.inputSearchBox
 					: styles.inputBox,
-		isFocused ? styles.isFocus : '',
-		isHasValue ? styles.hasValue : '',
-		disabled || readonly ? styles.isDisabled : '',
-	].join(' ');
+		isFocused && styles.isFocus,
+		isHasValue && styles.hasValue,
+		isDisabled && styles.isDisabled,
+	].filter(Boolean).join(' ');
+
 
 	return (
 		<div className={[
@@ -74,11 +84,11 @@ export const Input: React.FC<InputProps> = ({
 			styles[boxType ?? ''],
 			styles[isValidCheck ?? ''],
 		].join(' ')}>
-			<div className={wrapperClass}>
+			<div className={wrapperClassName}>
 				<input
 					ref={inputRef}
 					className={styles.uiInput}
-					type={type}
+					type={isPasswordType && isPasswordVisible ? 'text' : type}
 					title={title}
 					placeholder={placeholder}
 					value={inputValue}
@@ -88,7 +98,7 @@ export const Input: React.FC<InputProps> = ({
 					onBlur={handleBlur}
 					onChange={handleChange}
 				/>
-				{(type !== 'password' || 'tel') && (
+				{(type !== 'password' && type !== 'tel') && (
 					<button
 						className={styles.btnInputDel}
 						type={"button"}
@@ -104,8 +114,20 @@ export const Input: React.FC<InputProps> = ({
 					</>
 				)}
 				{type === 'password' && (
-					<button className={styles.btnTogglePw} type={"button"}>
-						<span className="offscreen">비밀번호 숨김</span>
+					<button
+						type={"button"}
+						className={[
+							styles.btnTogglePw,
+							isPasswordVisible ? styles.isActive : '',
+						]
+							.filter(Boolean)
+							.join(' ')}
+						onClick={togglePasswordVisibility}
+						disabled={isDisabled}
+					>
+						<span className="offscreen">
+							{isPasswordVisible ? '비밀번호 숨김' : '비밀번호 보임'}
+						</span>
 					</button>
 				)}
 				{type === 'search' && (
@@ -115,10 +137,10 @@ export const Input: React.FC<InputProps> = ({
 				)}
 			</div>
 			{(inputGuide && !isValidCheck) && (
-				<div className="input-guide">하단 텍스트가 노출됩니다.</div>
+				<div className="input-guide">{inputGuide}</div>
 			)}
 			{(validDesc && isValidCheck) && (
-				<div className="valid-desc">경고 메시지가 노출됩니다.</div>
+				<div className="valid-desc">{validDesc}</div>
 			)}
 		</div>
 	)

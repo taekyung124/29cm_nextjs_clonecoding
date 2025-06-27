@@ -83,7 +83,7 @@
 		@include mixins.prefix(transition, background 0.2s ease-out);
 		vertical-align: top;
 
-		&.is-active {
+		&.isActive {
 			@include mixins.ratio_images('/assets/icons/ico_eye_active');
 		}
 	}
