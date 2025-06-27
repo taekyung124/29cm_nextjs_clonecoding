@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import {FlexInfoWrap} from './FlexInfoWrap';
 
 const meta = {
-	title: 'molecule/FlexInfoWrap',
+	title: 'Molecule/FlexInfoWrap',
 	component: FlexInfoWrap,
 	tags: ['autodocs'],
 	parameters: {

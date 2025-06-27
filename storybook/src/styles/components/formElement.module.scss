@@ -373,3 +373,34 @@
 		}
 	}
 }
+
+// inputFlexGroup
+.inputFlexGroup {
+	@include mixins.justify_width(stretch);
+	flex-wrap: wrap;
+
+	.inputGroup, .uiSelect {
+		flex: 1;
+
+		~ .uiSelect {
+			margin-left: 10px;
+		}
+
+		~ .inputGroup {
+			margin: {
+				top: 0;
+				left: 5px;
+			}
+		}
+	}
+
+	.gap {
+		align-self: center;
+		display: inline-block;
+		margin-left: 10px;
+		@include mixins.font_size_md;
+		color: $textColorB;
+		text-align: center;
+		vertical-align: top;
+	}
+}
