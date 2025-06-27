@@ -43,8 +43,11 @@ export const UdlTextOptions: Story = {
 	render: () => (
 		<div>
 			<p className={styles.udlText}>가상계좌 입금 방식 주문 건을 카드 결제로 전환이 가능합니다.</p>
+			<br/>
 			<p className={styles.udlTextBlack}>가상계좌 입금 방식 주문 건을 카드 결제로 전환이 가능합니다.</p>
+			<br/>
 			<p className={styles.udlTextLg}>가상계좌 입금 방식 주문 건을 카드 결제로 전환이 가능합니다.</p>
+			<br/>
 			<p className={styles.udlTextLgBlack}>가상계좌 입금 방식 주문 건을 카드 결제로 전환이 가능합니다.</p>
 		</div>
 	),
