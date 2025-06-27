@@ -1,67 +1,67 @@
-//@use 'sass:map';
-//@use '../abstracts/variables' as *;
-//@use '../abstracts/mixins';
-//
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
 ///* s: ctitle */
-////국문
-//.ctitle {
-//	&Sm { // 15px
-//		@include mixins.font_size_lg;
-//	}
-//
-//	&Md { // 16px
-//		@include mixins.font_size_xl;
-//	}
-//
-//	&Lg { // 18px
-//		@include mixins.font_size_2xl;
-//	}
-//
-//	&Xl { // 22px
-//		@include mixins.font_size_4xl;
-//	}
-//
-//	//영문
-//	&Eng {
-//		&Sm { // 26px
-//			@include mixins.font_eng_size_sm;
-//		}
-//
-//		&Md { // 28px
-//			@include mixins.font_eng_size_md;
-//		}
-//
-//		&Lg { // 32px
-//			@include mixins.font_eng_size_lg;
-//		}
-//	}
-//}
-//// Todo : 링크성 타이틀 페이지작업시 재작업필요
-////링크성 타이틀
-//.ctitleLink {
-//	@extend .ctitle;
-//}
-//
-///* e: ctitle */
-//
-//
-///* s: stitle */
-//.stitle {
-//	&Sm { // 13px
-//		@include mixins.font_size_sm('md');
-//	}
-//
-//	&Md { // 14px
-//		@include mixins.font_size_md('md');
-//	}
-//
-//	&Lg { // 16px
-//		@include mixins.font_size_xl;
-//	}
-//
-//	&Xl { // 18px
-//		@include mixins.font_size_2xl;
-//	}
-//}
-///* e: stitle */
-//
+//국문
+.ctitle {
+	&.sm { // 15px
+		@include mixins.font_size_lg;
+	}
+
+	&.md { // 16px
+		@include mixins.font_size_xl;
+	}
+
+	&.lg { // 18px
+		@include mixins.font_size_2xl;
+	}
+
+	&.xl { // 22px
+		@include mixins.font_size_4xl;
+	}
+
+	//영문
+	&.Eng {
+		&.sm { // 26px
+			@include mixins.font_eng_size_sm;
+		}
+
+		&.md { // 28px
+			@include mixins.font_eng_size_md;
+		}
+
+		&.lg { // 32px
+			@include mixins.font_eng_size_lg;
+		}
+	}
+}
+// Todo : 링크성 타이틀 페이지작업시 재작업필요
+//링크성 타이틀
+.ctitleLink {
+	@extend .ctitle;
+}
+
+/* e: ctitle */
+
+
+/* s: stitle */
+.stitle {
+	&.sm { // 13px
+		@include mixins.font_size_sm('md');
+	}
+
+	&.md { // 14px
+		@include mixins.font_size_md('md');
+	}
+
+	&.lg { // 16px
+		@include mixins.font_size_xl;
+	}
+
+	&.xl { // 18px
+		@include mixins.font_size_2xl;
+	}
+}
+/* e: stitle */
+
