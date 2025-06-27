@@ -1,42 +1,42 @@
 @use 'sass:map';
-@use '../abstracts/variables' as *;
+@use '../abstracts/variables';
 @use '../abstracts/mixins';
 
 // colors
 .fcSpot {
-	color: $colorGreen !important;
+	color: variables.$colorGreen !important;
 }
 .fcRed {
-	color: $colorRed !important;
+	color: variables.$colorRed !important;
 }
 .fcBlack {
-	color: $colorBlack !important;
+	color: variables.$colorBlack !important;
 }
 .fcDarkGray {
-	color: $textColorDG !important;
+	color: variables.$textColorDG !important;
 }
 .fcGray {
-	color: $textColorG !important;
+	color: variables.$textColorG !important;
 }
 .fcWhite {
-	color: $colorWhite !important;
+	color: variables.$colorWhite !important;
 }
 .fcSell {
-	color: $colorSell !important;
+	color: variables.$colorSell !important;
 }
 .fcBand {
-	color: $colorBand !important;
+	color: variables.$colorBand !important;
 }
 
 // font weight
 .fwLt {
-	font-weight: $fontWeightLight !important;
+	font-weight: variables.$fontWeightLight !important;
 }
 .fwMd {
-	font-weight: $fontWeightMedium !important;
+	font-weight: variables.$fontWeightMedium !important;
 }
 .fwSb {
-	font-weight: $fontWeightSemibold !important;
+	font-weight: variables.$fontWeightSemibold !important;
 }
 
 // text align
@@ -52,7 +52,7 @@
 
 // ellipsis
 .multiEllipsis {
-	@include mixins.multi_ellipsis($fontSizeSmLineHeight);
+	@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
 	font-weight: inherit;
 }
 
@@ -62,40 +62,40 @@
 }
 
 .stextSm { //13px
-	color: $textColorDG;
+	color: variables.$textColorDG;
 	@include mixins.font_size_sm('body');
 	@extend %textBreak;
 }
 .stextSmBlack { //13px - B
 	width: 100%;
-	color: $textColorB;
+	color: variables.$textColorB;
 	@include mixins.font_size_sm('body');
 	@extend %textBreak;
 }
 .stextSmSpot { //13px - Green
 	width: 100%;
-	color: $textColorPoint;
+	color: variables.$textColorPoint;
 	@include mixins.font_size_sm;
 	@extend %textBreak;
 }
 .stextSmRed { //13px - red - bold
 	width: 100%;
-	color: $textColorRed;
+	color: variables.$textColorRed;
 	@include mixins.font_size_sm('md');
 	@extend %textBreak;
 }
 .stext { // 14px
-	color: $textColorDG;
+	color: variables.$textColorDG;
 	@include mixins.font_size_md('body');
 	@extend %textBreak;
 }
 .stextBlack { //14px - B
-	color: $textColorB;
+	color: variables.$textColorB;
 	@include mixins.font_size_md('body');
 	@extend %textBreak;
 }
 .stextBold { //14px - B - bold
-	color: $textColorB;
+	color: variables.$textColorB;
 	@include mixins.font_size_md('md');
 	@extend %textBreak;
 }
