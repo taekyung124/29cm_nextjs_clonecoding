@@ -33,11 +33,11 @@ export const SizeType: Story = {
 						<GoodsGroup
 							{...args}
 							GoodsGroupSize={size}
-							label={'할인가'}
-							val={'112,000,000'}
-							unit={'원'}
+							label={args.label}
+							val={args.val}
+							unit={args.unit}
 						/>
-				</div>
+					</div>
 				))}
 			</>
 		)

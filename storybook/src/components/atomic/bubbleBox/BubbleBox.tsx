@@ -14,8 +14,8 @@ export const BubbleBox: React.FC<BubbleBoxProps> = ({
 		<div
 			className={[
 				styles.bubbleBox,
-				styles[`bubbleBox-${align}`],
-			].join(' ')}
+				align ? styles[`bubbleBox-${align}`] : '',
+			].join(' ').trim()}
 		>
 			<span className={styles.bubbleText}>{bubbleText}</span>
 		</div>
