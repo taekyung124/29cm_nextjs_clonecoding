@@ -9,15 +9,6 @@ const meta = {
     parameters: {
     	layout: 'padded',
     },
-	// args : {// 모든 스토리에 공통적으로 쓰일 기본 props 값들
-	//
-	// },
-	argTypes: {
-		// GoodsGroupSize : {
-		// 	control : { type: 'radio' },
-		// 	options: ['sizeXs' , 'sizeSm' , 'sizeMd' , 'sizeLg' , 'sizeXl' , 'size2xl' , 'size3xl' , 'size4xl' , "size5xl"]
-		// }
-	}
 } satisfies Meta<typeof GoodsGroup>;
 
 export default meta;
