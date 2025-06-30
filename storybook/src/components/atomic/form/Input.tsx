@@ -8,10 +8,11 @@ export interface InputProps {
 	placeholder?: string;
 	disabled?: boolean;
 	readonly?: boolean;
-	value?: string;
+	value?: string | any;
 	isValidCheck?: undefined | 'fail' | 'success';
 	inputGuide?: string;
 	validDesc?: string;
+	slotBtn?: React.ReactNode;
 	children?: React.ReactNode;
 	onChange?: (value: string) => void;
 }
@@ -26,6 +27,7 @@ export const Input: React.FC<InputProps> = ({
 	isValidCheck,
 	inputGuide = '',
 	validDesc = '',
+	slotBtn,
 	children,
 	onChange,
 }) => {
@@ -107,10 +109,10 @@ export const Input: React.FC<InputProps> = ({
 						<span className="offscreen">초기화</span>
 					</button>
 				)}
-				{children && (
+				{slotBtn && (
 					<>
 						<span className={styles.timerCount}>02:59</span>
-						{children}
+						{slotBtn}
 					</>
 				)}
 				{type === 'password' && (
@@ -135,6 +137,7 @@ export const Input: React.FC<InputProps> = ({
 						<span className="offscreen">검색</span>
 					</button>
 				)}
+				{children}
 			</div>
 			{(inputGuide && !isValidCheck) && (
 				<div className="input-guide">{inputGuide}</div>

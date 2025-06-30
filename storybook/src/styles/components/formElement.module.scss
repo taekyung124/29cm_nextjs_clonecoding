@@ -161,6 +161,10 @@
 			opacity: 0.5;
 		}
 	}
+
+	.sliderUnit {
+
+	}
 }
 
 .inputLineBox {
@@ -370,6 +374,77 @@
 				-ms-text-align-last: left;
 				-moz-text-align-last: left;
 			}
+		}
+	}
+}
+
+// slider
+.sliderGroup {
+	font-size: 0;
+
+	.sliderBox {
+		position: relative;
+		padding: 0 10px;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			display: inline-block;
+			top: 0;
+			width: 10px;
+			height: 4px;
+			background-color: $colorGray04;
+		}
+		&:before {
+			left: 0;
+		}
+		&:after {
+			right: 0;
+		}
+
+		.uiSlider {
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			height: 4px;
+			background-color: $colorGray04;
+			.uiSliderRange {
+				position: absolute;
+				z-index: 1;
+				display: block;
+				top: 0;
+				height: 100%;
+				background-color: $colorGreen;
+			}
+			.uiSliderHandle {
+				position: absolute;
+				z-index: 2;
+				top: -8px;
+				width: 20px;
+				height: 20px;
+				margin-left: -10px;
+				border: 4px solid $colorGreen;
+				border-radius: 10px;
+				background-color: $colorWhite;
+				outline: none;
+				cursor: pointer;
+			}
+		}
+	}
+	.valueTextBox {
+		@include mixins.justify_width(center, between);
+		margin-top: 18px;
+		> span {
+			color: $textColorPoint;
+		}
+	}
+	.inputFlexGroup {
+		width: 100%;
+		margin-top: 14px;
+
+		.gap {
+			margin-left: 5px;
 		}
 	}
 }
