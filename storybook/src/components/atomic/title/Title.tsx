@@ -5,15 +5,14 @@ interface TitleProps {
 	TitleCase? : 'ctitle' | 'stitle' ;
 	Titlesize? : 'sm' | 'md' | 'lg' | 'xl';
 	Titlelang? : 'kor' | 'Eng';
-	// children?: React.ReactNode;
-	children?: string;
+	children?: React.ReactNode;
 }
 
 export const Title: React.FC<TitleProps> = ({
 	Titlesize = 'medium',
 	Titlelang = 'kor',
 	TitleCase = 'ctitle',
-	children,
+	children
 }) => {
 	return (
 		<div

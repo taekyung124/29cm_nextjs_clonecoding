@@ -12,7 +12,7 @@ const meta = {
 } satisfies Meta<typeof Title>;
 
 export default meta;
-type Story = StoryObj<typeof Title>;
+type Story = StoryObj<typeof meta>;
 
 // size
 export const SizeType: Story = {

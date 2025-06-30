@@ -19,3 +19,39 @@
 		}
 	}
 }
+
+// bubbleBox
+.bubbleBox {
+	position: absolute;
+	z-index: 3;
+	max-width: 280px;
+	padding: 7px 12px;
+	border-radius: 5px;
+	background-color: variables.$colorGold;
+	text-align: left;
+
+	.bubbleText {
+		display: inline-block;
+		@include mixins.font_size_xs;
+		color: variables.$colorWhite;
+        vertical-align: top;
+	}
+
+	&:after {
+        content: '';
+        position: absolute;
+        left: 21px;
+        bottom: -3px;
+        @include mixins.prefix(transform, rotate(-45deg));
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background-color: variables.$colorGold;
+    }
+}
+
+.bubbleBox-posBottom {
+	&:after {
+		top: -3px;
+	}
+}
