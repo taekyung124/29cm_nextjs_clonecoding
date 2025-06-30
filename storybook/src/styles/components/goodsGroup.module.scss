@@ -33,63 +33,62 @@
         font-weight: inherit;
         color: inherit;
 	}
+}
 
-	&.sizeXs { // 12px
-		@include mixins.font_size_xs('md');
+.goodsGroup-sizeXs { // 12px
+	@include mixins.font_size_xs('md');
 
-		.label {
-			margin-right: 2px;
-			font-weight: variables.$fontWeightLight;
-		}
+	.label {
+		margin-right: 2px;
+		font-weight: variables.$fontWeightLight;
 	}
-	&.sizeSm { // 13px
-		@include mixins.font_size_sm;
-	}
-	&.sizeMd { //14px
-		@include mixins.font_size_md;
-	}
-	&.sizeLg { // 15px
-		@include mixins.font_size_lg('sb');
-	}
-	&.sizeXl { // 16px
-		@include mixins.font_size_xl;
-	}
-	&.size2xl { // 18px
-		@include mixins.font_size_2xl;
-	}
-	&.size3xl { // 20px
-		@include mixins.font_size_3xl;
-	}
-	&.size4xl { // 24px
-		font-size: 24px;
-        line-height: 28px;
-        letter-spacing: variables.$letterSpacing;
-        font-weight: variables.$fontWeightSemibold;
-	}
-	&.size5xl { // 32px
-		font-size: 32px;
-        line-height: 38px;
-        letter-spacing: variables.$letterSpacing;
-        font-weight: variables.$fontWeightSemibold;
+}
+.goodsGroup-sizeSm { // 13px
+	@include mixins.font_size_sm;
+}
+.goodsGroup-sizeMd { //14px
+	@include mixins.font_size_md;
+}
+.goodsGroup-sizeLg { // 15px
+	@include mixins.font_size_lg('sb');
+}
+.goodsGroup-sizeXl { // 16px
+	@include mixins.font_size_xl;
+}
+.goodsGroup-size2xl { // 18px
+	@include mixins.font_size_2xl;
+}
+.goodsGroup-size3xl { // 20px
+	@include mixins.font_size_3xl;
+}
+.goodsGroup-size4xl { // 24px
+	font-size: 24px;
+	line-height: 28px;
+	letter-spacing: variables.$letterSpacing;
+	font-weight: variables.$fontWeightSemibold;
+}
+.goodsGroup-size5xl { // 32px
+	font-size: 32px;
+	line-height: 38px;
+	letter-spacing: variables.$letterSpacing;
+	font-weight: variables.$fontWeightSemibold;
+}
+.goodsGroup-Eng {
+	@include mixins.justify_width(end, start, row, true);
+	letter-spacing: variables.$letterSpacing;
+
+	.val {
+		font-family: variables.$fontEngDefault;
+		font-size: 40px;
+		line-height: 44px;
+		font-weight: variables.$fontWeightEngBold;
 	}
 
-	&Eng {
-		@include mixins.justify_width(end, start, row, true);
-        letter-spacing: variables.$letterSpacing;
-
-		.val {
-			font-family: variables.$fontEngDefault;
-            font-size: 40px;
-            line-height: 44px;
-            font-weight: variables.$fontWeightEngBold;
-		}
-
-		.unit {
-			margin: {
-				left: 2px;
-				bottom: 5px;
-			};
-			@include mixins.font_size_xl('lt');
-		}
+	.unit {
+		margin: {
+			left: 2px;
+			bottom: 5px;
+		};
+		@include mixins.font_size_xl('lt');
 	}
 }

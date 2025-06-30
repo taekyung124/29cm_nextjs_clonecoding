@@ -3,25 +3,34 @@ import styles from '@/styles/components.module.scss';
 
 interface GoodsGroupProps {
 	GoodsGroupSize? : 'sizeXs' | 'sizeSm' | 'sizeMd' | 'sizeLg' | 'sizeXl' | "size2xl" | "size3xl" | "size4xl" | "size5xl";
-	label? : boolean;
-	children?: string;
+	label? : React.ReactNode;
+	val? : React.ReactNode;
+	unit? : React.ReactNode;
 }
 
 export const GoodsGroup: React.FC<GoodsGroupProps> = ({
-	GoodsGroupSize = '',
-	label = false,
-	children,
+	GoodsGroupSize = 'sizeMd',
+	label,
+	val,
+	unit,
 }) => {
 	return (
-		<div
+		<span
 			className={[
-				styles[GoodsGroupSize ?? ''],
+				styles.goodsGroup,
+				styles[`goodsGroup-${GoodsGroupSize}`],
 			].join(' ')}
-			style={{
-			 	display: label ? 'block' : 'none',
-			}}
 		>
-			{children}
-		</div>
+			<span
+				className={styles.label}
+				style={{
+					display: label ? 'inline-block' : 'none',
+				}}
+			>
+				{label}
+			</span>
+			<span className={styles.val}>{val}</span>
+			<span className={styles.unit}>{unit}</span>
+		</span>
 	);
 }

@@ -13,7 +13,10 @@ const meta = {
 	//
 	// },
 	argTypes: {
-
+		// GoodsGroupSize : {
+		// 	control : { type: 'radio' },
+		// 	options: ['sizeXs' , 'sizeSm' , 'sizeMd' , 'sizeLg' , 'sizeXl' , 'size2xl' , 'size3xl' , 'size4xl' , "size5xl"]
+		// }
 	}
 } satisfies Meta<typeof GoodsGroup>;
 
@@ -22,21 +25,29 @@ type Story = StoryObj<typeof GoodsGroup>;
 
 // size
 export const SizeType: Story = {
-    args: {
-        GoodsGroupSize: "sizeMd",
-		label: true,
-        children: ""
-    },
+	args: {
+		GoodsGroupSize: 'sizeMd',
+		label: '할인가',
+		val: '112,000,000',
+		unit: '원',
+	},
 
     render: (args) => {
-		const sizes = ['sizeXs' , 'sizeSm' , 'sizeMd' , 'sizeLg' , 'sizeXl' , 'size2xl' , 'size3xl' , 'size4xl' , "size5xl"] as const;
+		const sizes = ['sizeXs', 'sizeSm', 'sizeMd', 'sizeLg', 'sizeXl', 'size2xl', 'size3xl', 'size4xl', 'size5xl'] as const;
+
 		return (
 			<>
-				{sizes.map((size) =>
-					<GoodsGroup {...args} GoodsGroupSize={size} key={size}>
-						{size}
-					</GoodsGroup>
-				)}
+				{sizes.map((size) => (
+					<div key={size}>
+						<GoodsGroup
+							{...args}
+							GoodsGroupSize={size}
+							label={'할인가'}
+							val={'112,000,000'}
+							unit={'원'}
+						/>
+				</div>
+				))}
 			</>
 		)
 	}
