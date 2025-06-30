@@ -443,6 +443,40 @@
 		width: 100%;
 		margin-top: 14px;
 
+		.inputGroup {
+			.inputBox {
+				flex: 1;
+				align-items: center;
+				height: 40px;
+				padding-right: 14px;
+				border-radius: 4px;
+
+				&.hasValue {
+					.uiInput {
+						font-weight: $fontWeightMedium;
+						color: $textColorB;
+					}
+				}
+				.uiInput {
+					height: 38px;
+					padding-right: 6px;
+					text-align: right;
+				}
+
+				.sliderUnit {
+					flex-shrink: 0;
+					display: inline-block;
+					text-align: right;
+					vertical-align: top;
+					@include mixins.font_size_sm('md');
+					color: $textColorB;
+
+					&::placeholder {
+						font-weight: $fontWeightMedium;
+					}
+				}
+			}
+		}
 		.gap {
 			margin-left: 5px;
 		}

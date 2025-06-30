@@ -25,14 +25,14 @@ export const Slider: React.FC<SliderProps> = ({
 			</div>
 			<div className={styles.valueTextBox}>
 				<GoodsGroup GoodsGroupSize={'sizeSm'} val={minValue} unit={'만원'}/>
-				<GoodsGroup GoodsGroupSize={'sizeSm'} val={minValue} unit={'만원'}/>
+				<GoodsGroup GoodsGroupSize={'sizeSm'} val={maxValue} unit={'만원'}/>
 			</div>
 			<div className={styles.inputFlexGroup}>
-				<Input boxType={undefined} type={'number'} title={'input 기본형'} value={minValue}>
+				<Input boxType={undefined} type={'number'} title={'slider 최소 금액 값'} placeholder={'slider 최소 금액 값'} value={minValue}>
 					<span className={styles.sliderUnit}>만원</span>
 				</Input>
 				<span className={styles.gap}>~</span>
-				<Input boxType={undefined} type={'number'} title={'input 기본형'} value={maxValue}>
+				<Input boxType={undefined} type={'number'} title={'slider 최대 금액 값'} placeholder={'slider 최대 금액 값'} value={maxValue}>
 					<span className={styles.sliderUnit}>만원</span>
 				</Input>
 			</div>

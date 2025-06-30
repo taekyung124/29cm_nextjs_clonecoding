@@ -66,7 +66,8 @@ export const Input: React.FC<InputProps> = ({
 		inputRef.current?.focus();
 	};
 
-	const isHasValue = inputValue.length > 0;
+	const current = inputValue ?? value ?? '';
+	const isHasValue = String(current).length > 0;
 
 	const wrapperClassName = [
 		boxType === 'line' ? styles.inputLineBox
@@ -100,7 +101,7 @@ export const Input: React.FC<InputProps> = ({
 					onBlur={handleBlur}
 					onChange={handleChange}
 				/>
-				{(type !== 'password' && type !== 'tel') && (
+				{(type !== 'password' && type !== 'tel' && type !== 'number') && (
 					<button
 						className={styles.btnInputDel}
 						type={"button"}
