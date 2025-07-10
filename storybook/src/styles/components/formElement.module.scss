@@ -436,6 +436,7 @@
 		@include mixins.justify_width(center, between);
 		margin-top: 18px;
 		> span {
+			user-select:none;
 			color: $textColorPoint;
 		}
 	}
