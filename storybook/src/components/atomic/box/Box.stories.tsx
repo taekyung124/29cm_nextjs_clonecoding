@@ -9,15 +9,12 @@ const meta = {
     parameters: {
     	layout: 'padded',
     },
-	// args : {// 모든 스토리에 공통적으로 쓰일 기본 props 값들
-	//
-	// },
 	argTypes: {
 		mt: {
 			control: { type: 'radio' },
-      		options: ['sm', 'md', undefined],
+      		options: ['sm', 'md'],
 		},
-		boxScroll: {
+		scroll: {
 			control: { type: 'boolean' }
 		}
 	}
@@ -26,22 +23,25 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Box>;
 
+export const Deafault: Story = {
+	args: {
+		size: "medium",
+		color: "gray",
+		scroll: true,
+		mt: "md",
+		children: "box"
+	},
+	render: (args) => <Box {...args}/>
+}
+
 // size
 export const SizeType: Story = {
-    args: {
-        Boxsize: "small",
-        Boxcolor: "gray",
-        boxScroll: true,
-        mt: "md",
-        children: ""
-    },
-
     render: (args) => {
 		const sizes = ['extraSmall', 'small', 'medium', 'large'] as const;
 		return (
 			<>
 				{sizes.map((size) =>
-					<Box {...args} Boxsize={size} key={size}>
+					<Box {...args} size={size} key={size}>
 						{size}
 					</Box>
 				)}
@@ -57,7 +57,7 @@ export const ColorType: Story = {
 		return (
 			<>
 				{colors.map((color) =>
-					<Box {...args} Boxcolor={color} key={color}>
+					<Box {...args} color={color} key={color}>
 						{color}
 					</Box>
 				)}
