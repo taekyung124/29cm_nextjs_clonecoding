@@ -1,6 +1,11 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import styles from "@/styles/components.module.scss";
+
 import {FlexInfoWrap} from './FlexInfoWrap';
+import {TitleWrap} from "@/components/molecule/titleWrap/TitleWrap";
+import {Title} from "@/components/atomic/title/Title";
+import {Button} from "@/components/atomic/button/Button";
 
 const meta = {
 	title: 'Molecule/FlexInfoWrap',
@@ -12,7 +17,7 @@ const meta = {
 	argTypes: {
 		align: {
 			control: { type: 'radio' },
-			options: [ undefined, 'center', 'end']
+			options: [ 'start', 'center', 'end']
 		},
 	},
 	decorators: [ // preview 500
@@ -27,61 +32,26 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const AlignDefault: Story = {
-	render: () => {
-		return (
-			<FlexInfoWrap
-				leftArea={
-					<div style={{ height: '50px', background: '#222', color: '#eee'}}>
-						왼쪽 요소
-					</div>
-				}
-				rightArea={
-					<div style={{height: '10px', background: '#eee', color: '#222'}}>
-						오른쪽 요소
-					</div>
-				}
-				align={undefined}
-			/>
-		)
+export const Default: Story = {
+	args: {
+		align: 'start'
 	},
-}
-
-export const AlignCenter: Story = {
-	render: () => {
+	render: (args) => {
 		return (
 			<FlexInfoWrap
 				leftArea={
-					<div style={{ height: '50px', background: '#222', color: '#eee'}}>
-						왼쪽 요소
-					</div>
+					<TitleWrap child={
+						<>
+							<p className={styles.ctitleSub}>ctitleSub 입니다. 하단 여백 10px을 가집니다.</p>
+							<Title size={'xl'} text={'ctitleXl 입니다.'}/>
+							<p className={styles.stext}>stext 입니다. ctitleXl 다음에 오는 경우 상단여백 14px을 가집니다.</p>
+						</>
+					}/>
 				}
 				rightArea={
-					<div style={{height: '10px', background: '#eee', color: '#222'}}>
-						오른쪽 요소
-					</div>
+					<Button size={'md'} color={'gray'} rounded={true} text={'우측 영역'}/>
 				}
-				align={'center'}
-			/>
-		)
-	},
-}
-
-export const AlignEnd: Story = {
-	render: () => {
-		return (
-			<FlexInfoWrap
-				leftArea={
-					<div style={{ height: '50px', background: '#222', color: '#eee'}}>
-						왼쪽 요소
-					</div>
-				}
-				rightArea={
-					<div style={{height: '10px', background: '#eee', color: '#222'}}>
-						오른쪽 요소
-					</div>
-				}
-				align={'end'}
+				{...args}
 			/>
 		)
 	},

@@ -38,9 +38,9 @@
 }
 // Todo : 링크성 타이틀 페이지작업시 재작업필요
 //링크성 타이틀
-.ctitleLink {
+/*.ctitleLink {
 	@extend .ctitle;
-}
+}*/
 
 /* e: ctitle */
 
@@ -65,3 +65,79 @@
 }
 /* e: stitle */
 
+// titleWrap
+.titleWrap {
+	position: relative;
+	@include mixins.justify_width(center);
+	flex-wrap: wrap;
+
+	// rightArea
+	.rightArea {
+		flex-shrink: 0;
+		margin-left: auto;
+	}
+
+	// mb
+	&.zero {
+		margin-bottom: 0;
+	}
+	&.xs {
+		margin-bottom: 10px;
+	}
+	&.sm {
+		margin-bottom: 12px;
+	}
+	&.md {
+		margin-bottom: 20px;
+	}
+	&.lg {
+		margin-bottom: 30px;
+	}
+	&.xl {
+		margin-bottom: 40px;
+	}
+
+	// gap
+	[class*=ctitle],[class*=stitle], [class*=stext] {
+		width: 100%;
+	}
+
+	.ctitleEngLg {
+		~ .stext, ~ .stextSm, ~ .stextBold {
+			margin-top: 12px;
+		}
+	}
+
+	.ctitle, .ctitleSm {
+		~ .stext, ~ .stextBold {
+			margin-top: 12px;
+		}
+
+		~ .stextSm {
+			margin-top: 6px;
+		}
+	}
+
+	.ctitleLg, .ctitleXl {
+		~ .stext, ~ .stextSm, ~ .stextBold {
+			margin-top: 14px;
+		}
+	}
+
+	.ctitleSub {
+		margin-bottom: 10px;
+		color: variables.$textColorG;
+		@include mixins.font_size_md('md');
+	}
+
+	.ctitleSubLg {
+		margin-bottom: 6px;
+		@include mixins.font_size_xl;
+	}
+
+	.ctitleSubSm {
+		margin-bottom: 6px;
+		@include mixins.font_size_sm;
+		color: variables.$textColorDG;
+	}
+}

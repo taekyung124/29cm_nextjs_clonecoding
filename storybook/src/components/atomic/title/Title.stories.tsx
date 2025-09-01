@@ -21,7 +21,7 @@ export const SizeType: Story = {
 		return (
 			<>
 				{sizes.map((size) =>
-					<Title {...args} Titlesize={size} key={size}>
+					<Title {...args} size={size} key={size}>
 						{size}
 					</Title>
 				)}
@@ -37,7 +37,7 @@ export const LangType: Story = {
 		return (
 			<>
 				{langs.map((lang) =>
-					<Title {...args} Titlelang={lang} key={lang}>
+					<Title {...args} lang={lang} key={lang}>
 						{lang}
 					</Title>
 				)}

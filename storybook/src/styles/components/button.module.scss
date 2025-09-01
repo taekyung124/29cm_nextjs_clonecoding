@@ -28,6 +28,7 @@ a, button {
 	}
 }
 
+// Button
 .btn, .btnRound {
 	@include mixins.justify_width(center, center, row, true);
 	border-radius: 4px;
@@ -314,5 +315,99 @@ a, button {
 	}
 	&.xl {
 		border-radius: 50px;
+	}
+}
+
+// btnWrap
+.btnWrap, .btnDividerWrap {
+	// size
+	&.zero {
+		margin-top: 0;
+	}
+	&.xxs {
+		margin-top: 6px;
+	}
+	&.xs {
+		margin-top: 10px;
+	}
+	&.sm {
+		margin-top: 20px;
+	}
+	&.md {
+		margin-top: 30px;
+	}
+	&.lg {
+		margin-top: 60px;
+	}
+	&.xl {
+		margin-top: 70px;
+	}
+}
+
+.btnWrap {
+	@include mixins.justify_width(start, start);
+
+	[class^=_btn] {
+		flex: 1;
+		width: 100%;
+		min-width: auto;
+
+		~ [class^=_btn] {
+			margin-left: 5px;
+		}
+
+		~ .btnXl {
+			margin-left: 6px;
+		}
+	}
+
+	// align
+	&.auto {
+		[class^=_btn] {
+			flex: none;
+			width: auto;
+		}
+	}
+	&.center {
+		[class^=_btn] {
+			flex: none;
+			width: auto;
+			&:first-child { margin-left: auto; }
+			&:last-child { margin-right: auto; }
+		}
+	}
+	&.right {
+		[class^=_btn] {
+			flex: none;
+			width: auto;
+			&:first-child { margin-left: auto; }
+		}
+	}
+	&.full {
+		@include mixins.justify_width(center, center, column);
+		flex-wrap: wrap;
+
+		[class^=_btn] {
+			flex: 1 auto;
+			width: 100%;
+			min-width: initial;
+
+			~ [class^=_btn] {
+				margin: {
+					top: 10px;
+					left: 0;
+				}
+			}
+		}
+	}
+}
+
+.btnDividerWrap {
+	position: relative;
+
+	button, a {
+		position: relative;
+		display: block;
+		border-top: 10px solid variables.$colorGray06;
 	}
 }

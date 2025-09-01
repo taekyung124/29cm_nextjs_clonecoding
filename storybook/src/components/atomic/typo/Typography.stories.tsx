@@ -60,14 +60,24 @@ export const MultiEllipsis: Story = {
 export const SubText: Story = {
 	render: () => (
 		<div>
-			<p className="stextSm">.stextSm 입니다. font-size: 13px, color: #666</p>
-			<p className="stextSmBlack">.stextSmBlack 입니다. font-size: 13px, color: #000</p>
-			<p className="stextSmSpot">.stextSmSpot 입니다. font-size: 13px, color: #012E29, font-weight: 300</p>
-			<p className="stextSmRed">.stextSmRed입니다. font-size: 13px, color: #D93B3B, font-weight: 500</p>
-			<p className="stext">.stext 입니다. font-size: 14px, color: #666</p>
-			<p className="stextBlack">.stextBlack 입니다. font-size: 14px, color: #000</p>
-			<p className="stextBold">.stextBold 입니다. font-size: 14px, color: #000, font-weight: 500</p>
-			<p className="stextLg">.stextLg 입니다. font-size: 16px, color: #000</p>
+			<p className={styles.stextSm}>.stextSm 입니다. font-size: 13px, color: #666</p>
+			<p className={styles.stextSmBlack}>.stextSmBlack 입니다. font-size: 13px, color: #000</p>
+			<p className={styles.stextSmSpot}>.stextSmSpot 입니다. font-size: 13px, color: #012E29, font-weight: 300</p>
+			<p className={styles.stextSmRed}>.stextSmRed입니다. font-size: 13px, color: #D93B3B, font-weight: 500</p>
+			<p className={styles.stext}>.stext 입니다. font-size: 14px, color: #666</p>
+			<p className={styles.stextBlack}>.stextBlack 입니다. font-size: 14px, color: #000</p>
+			<p className={styles.stextBold}>.stextBold 입니다. font-size: 14px, color: #000, font-weight: 500</p>
+			<p className={styles.stextLg}>.stextLg 입니다. font-size: 16px, color: #000</p>
+		</div>
+	),
+};
+
+export const TitleSubInTitleWrap: Story = {
+	render: () => (
+		<div className={styles.titleWrap}>
+			<p className={styles.ctitleSubSm}>.ctitleSubSm 입니다. font-size: 13px, color: #666</p>
+			<p className={styles.ctitleSub}>.ctitleSub 입니다. font-size: 13px, color: #999, font-weight: 500</p>
+			<p className={styles.ctitleSubLg}>.ctitleSubLg 입니다. font-size: 16px</p>
 		</div>
 	),
 };

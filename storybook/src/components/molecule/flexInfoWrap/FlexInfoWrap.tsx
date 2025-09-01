@@ -2,13 +2,13 @@ import * as React from 'react';
 import styles from "@/styles/components.module.scss";
 
 export interface FlexInfoWrapProps {
-	align?: undefined | "center" | "end";
+	align?: 'start' | "center" | "end";
 	leftArea?: React.ReactNode;
 	rightArea?: React.ReactNode;
 }
 
 export const FlexInfoWrap: React.FC<FlexInfoWrapProps> = ({
-	align = undefined,
+	align = 'start',
 	leftArea,
 	rightArea,
 }) => {
