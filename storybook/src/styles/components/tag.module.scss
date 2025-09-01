@@ -1,0 +1,77 @@
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+%tagCommon {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 0;
+	border-radius: 20px;
+
+	.text {
+		display: inline-block;
+		@include mixins.font_size_xs;
+		color: variables.$colorBlack;
+		vertical-align: top;
+	}
+}
+
+.tag {
+	// size
+	&Sm {
+		@extend %tagCommon;
+		min-height: 30px;
+		padding: 7px 12px;
+	}
+	&Md {
+		@extend %tagCommon;
+		min-height: 34px;
+		padding: 9px 14px;
+	}
+
+	&Sm, &Md {
+		// color
+		&.lightGray {
+			background-color: variables.$colorGray06;
+		}
+		&.white {
+			background-color: variables.$colorWhite;
+		}
+
+		// delete
+		.btnDelete {
+			display: inline-block;
+			vertical-align: top;
+			width: 10px;
+			height: 10px;
+			margin: {
+				top: 3px;
+				left: 4px;
+			}
+			background: url('/assets/icons/comm_ico_delete_h10.svg') center no-repeat;
+		}
+
+		// wish
+		.btnWish {
+			display: inline-block;
+			vertical-align: top;
+			width: 14px;
+			height: 14px;
+			margin: {
+				top: 1px;
+				left: 4px;
+			}
+		}
+
+		// link
+		.btnLink {
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

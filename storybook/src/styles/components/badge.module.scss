@@ -1,0 +1,106 @@
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+%badgeCommon {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	border: solid 1px transparent;
+	border-radius: 2px;
+
+	.text {
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+	}
+}
+
+.badge {
+	// size
+	&Sm {
+		@extend %badgeCommon;
+		height: 16px;
+		padding: 0 4px;
+		.text {
+			font-size: variables.$fontSize4Xs;
+			line-height: variables.$fontSize3XsLineHeight;
+			letter-spacing: variables.$letterSpacing;
+		}
+	}
+	&Md {
+		@extend %badgeCommon;
+		height: 18px;
+		padding: 1px 3px 3px;
+
+		.text {
+			font-size: variables.$fontSize3Xs;
+			line-height: variables.$fontSize3XsLineHeight;
+			letter-spacing: variables.$letterSpacing;
+		}
+	}
+	&Lg {
+		@extend %badgeCommon;
+		height: 20px;
+		padding: 2px 5px 3px 5px;
+
+		.text {
+			@include mixins.font_size_2xs('md');
+		}
+	}
+	&Xl {
+		@extend %badgeCommon;
+		height: 22px;
+		padding: 3px 5px;
+
+		.text {
+			@include mixins.font_size_xs('md');
+		}
+	}
+
+	&Sm, &Md, &Lg, &Xl {
+		// color
+		&.green {
+			color: variables.$colorWhite;
+			background-color: variables.$colorGreen;
+			border-color: variables.$colorGreen;
+		}
+
+		&.lineGreen {
+			color: variables.$colorGreen;
+			background-color: variables.$colorWhite;
+			border-color: variables.$colorGreen;
+		}
+
+		&.lightGreen {
+			color: variables.$textColorPoint;
+			background: variables.$colorGreen10;
+			border-color: variables.$colorGreen10;
+		}
+
+		&.lightGray {
+			color: variables.$textColorDG;
+			background: variables.$colorGray06;
+			border-color: variables.$colorGray06;
+		}
+
+		&.lineLightGray {
+			background: variables.$colorWhite;
+			border-color: variables.$colorGray05;
+			color: variables.$textColorDG;
+		}
+
+		&.gold {
+			background: variables.$textColorGold;
+			border-color: variables.$textColorGold;
+			color: variables.$colorWhite;
+		}
+
+		&.lightRed {
+			background: rgba(variables.$colorRed, 0.1);
+			border-color: #FBEBEB;
+			color: variables.$colorRed;
+		}
+	}
+}
+
