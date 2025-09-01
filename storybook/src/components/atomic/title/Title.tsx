@@ -4,7 +4,7 @@ import styles from '@/styles/components.module.scss';
 interface TitleProps {
 	type? : 'ctitle' | 'stitle' ;
 	size? : 'sm' | 'md' | 'lg' | 'xl';
-	lang? : 'kor' | 'Eng';
+	lang? : 'kor' | 'eng';
 	text?: string | React.ReactNode;
 }
 
@@ -19,7 +19,7 @@ export const Title: React.FC<TitleProps> = ({
 			className={[
 				styles[type ?? ''],
 				styles[size ?? ''],
-				styles[lang ?? ''],
+				styles[lang === 'eng'? lang : ''],
 			].join(' ')}>
 			{text}
 		</div>

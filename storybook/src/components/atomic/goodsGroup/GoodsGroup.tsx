@@ -2,14 +2,14 @@ import * as React from 'react';
 import styles from '@/styles/components.module.scss';
 
 interface GoodsGroupProps {
-	GoodsGroupSize? : 'sizeXs' | 'sizeSm' | 'sizeMd' | 'sizeLg' | 'sizeXl' | "size2xl" | "size3xl" | "size4xl" | "size5xl";
+	size? : 'sizeXs' | 'sizeSm' | 'sizeMd' | 'sizeLg' | 'sizeXl' | "size2xl" | "size3xl" | "size4xl" | "size5xl";
 	label? : React.ReactNode;
 	val? : React.ReactNode;
 	unit? : React.ReactNode;
 }
 
 export const GoodsGroup: React.FC<GoodsGroupProps> = ({
-	GoodsGroupSize = 'sizeMd',
+	size = 'sizeMd',
 	label,
 	val,
 	unit,
@@ -18,7 +18,7 @@ export const GoodsGroup: React.FC<GoodsGroupProps> = ({
 		<span
 			className={[
 				styles.goodsGroup,
-				styles[`goodsGroup-${GoodsGroupSize}`],
+				styles[`goodsGroup-${size}`],
 			].join(' ')}
 		>
 			<span

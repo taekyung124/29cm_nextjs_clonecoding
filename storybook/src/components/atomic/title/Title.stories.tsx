@@ -15,33 +15,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // size
-export const SizeType: Story = {
-	render: (args) => {
-		const sizes = ['sm', 'md', 'lg','xl'] as const;
-		return (
-			<>
-				{sizes.map((size) =>
-					<Title {...args} size={size} key={size}>
-						{size}
-					</Title>
-				)}
-			</>
-		)
-	}
-};
-
-// langauage
-export const LangType: Story = {
-	render: (args) => {
-		const langs = ['kor', 'Eng'] as const;
-		return (
-			<>
-				{langs.map((lang) =>
-					<Title {...args} lang={lang} key={lang}>
-						{lang}
-					</Title>
-				)}
-			</>
-		)
-	}
+export const Dafault: Story = {
+	args: {
+		type: 'ctitle',
+		size: 'sm',
+		lang: 'kor',
+		text: '타이틀 type | size | lang'
+	},
+	render: (args) => <Title {...args} />
 };

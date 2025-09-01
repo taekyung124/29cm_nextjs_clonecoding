@@ -17,13 +17,14 @@ const meta = {
 		},
 		align: {
 			control: 'inline-radio',
-			options: ['', 'auto', 'center', 'right', 'full'],
+			options: ['default', 'auto', 'center', 'right', 'full'],
 		},
 		divider: {
 			control: 'boolean',
 		},
 		buttons: {
-			control: 'object',}
+			control: 'object',
+		}
 	}
 } satisfies Meta<typeof BtnWrap>;
 
@@ -33,6 +34,7 @@ type Story = StoryObj<typeof BtnWrap>;
 export const Default: Story = {
 	args: {
 		mt: 'zero',
+		align: 'default',
 		divider: false,
 		buttons: (
 			<>

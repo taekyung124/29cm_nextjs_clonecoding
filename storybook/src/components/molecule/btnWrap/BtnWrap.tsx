@@ -3,14 +3,14 @@ import styles from '@/styles/components.module.scss';
 
 interface BtnWrapProps {
 	mt?: 'zero' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-	align?: '' | 'auto' | 'center' | 'right' | 'full';
+	align?: 'default' | 'auto' | 'center' | 'right' | 'full';
 	divider?: boolean;
 	buttons?: React.ReactNode;
 }
 
 export const BtnWrap: React.FC<BtnWrapProps> = ({ mt = 'zero', align = '', divider, buttons}) => {
 	return (
-		<div className={[styles[`btn${divider ? 'Divider' : ''}Wrap`], styles[`${mt}`], styles[`${align}`]].join(' ')}>
+		<div className={[styles[`btn${divider ? 'Divider' : ''}Wrap`], styles[`${mt}`], styles[align !== 'default' ? `${align}` : '']].join(' ')}>
 			{buttons}
 		</div>
 	)

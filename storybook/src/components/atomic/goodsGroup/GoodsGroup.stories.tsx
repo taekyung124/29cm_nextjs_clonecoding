@@ -9,6 +9,21 @@ const meta = {
     parameters: {
     	layout: 'padded',
     },
+	argTypes: {
+		size: {
+			control: 'radio',
+			options: ['sizeXs', 'sizeSm', 'sizeMd', 'sizeLg', 'sizeXl', 'size2xl', 'size3xl', 'size4xl', 'size5xl']
+		},
+		label: {
+			control: 'text',
+		},
+		val: {
+			control: 'text',
+		},
+		unit: {
+			control: 'text',
+		}
+	}
 } satisfies Meta<typeof GoodsGroup>;
 
 export default meta;
@@ -17,29 +32,11 @@ type Story = StoryObj<typeof GoodsGroup>;
 // size
 export const SizeType: Story = {
 	args: {
-		GoodsGroupSize: 'sizeMd',
+		size: 'sizeMd',
 		label: '할인가',
 		val: '112,000,000',
 		unit: '원',
 	},
 
-    render: (args) => {
-		const sizes = ['sizeXs', 'sizeSm', 'sizeMd', 'sizeLg', 'sizeXl', 'size2xl', 'size3xl', 'size4xl', 'size5xl'] as const;
-
-		return (
-			<>
-				{sizes.map((size) => (
-					<div key={size}>
-						<GoodsGroup
-							{...args}
-							GoodsGroupSize={size}
-							label={args.label}
-							val={args.val}
-							unit={args.unit}
-						/>
-					</div>
-				))}
-			</>
-		)
-	}
+    render: (args) => <GoodsGroup {...args} />,
 };

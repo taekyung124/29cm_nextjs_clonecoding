@@ -22,7 +22,7 @@
 	}
 
 	//영문
-	&.Eng {
+	&.eng {
 		&.sm { // 26px
 			@include mixins.font_eng_size_sm;
 		}

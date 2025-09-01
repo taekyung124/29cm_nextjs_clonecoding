@@ -96,8 +96,8 @@ export const Slider: React.FC<SliderProps> = ({
 				</span>
 			</div>
 			<div className={styles.valueTextBox}>
-				<GoodsGroup GoodsGroupSize={'sizeSm'} val={minValue} unit={'만원'}/>
-				<GoodsGroup GoodsGroupSize={'sizeSm'} val={maxValue} unit={'만원'}/>
+				<GoodsGroup size={'sizeSm'} val={minValue} unit={'만원'}/>
+				<GoodsGroup size={'sizeSm'} val={maxValue} unit={'만원'}/>
 			</div>
 			<div className={styles.inputFlexGroup}>
 				<Input
