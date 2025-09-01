@@ -33,7 +33,14 @@ const meta = {
 		href: {
 			control: 'text',
 		}
-	}
+	},
+	decorators: [ // preview 500
+		(Story) => (
+			<div style={{ maxWidth: '500px', margin: '0 auto', padding: '10px', background: 'black' }}>
+				<Story />
+			</div>
+		),
+	],
 } satisfies Meta<typeof Tag>;
 
 export default meta;

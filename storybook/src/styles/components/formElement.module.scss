@@ -219,7 +219,7 @@
 	.btnInputSearch {
 		width: 24px;
 		height: 24px;
-		@include mixins.ratio_images('/assets/icons/ico_search_green_h24');
+		@include mixins.ratio_images('/assets/icons/ico_search_green');
 	}
 }
 
@@ -251,7 +251,7 @@
 			top: 10px;
 			left: 10px;
 		}
-		@include mixins.ratio_images('/assets/icons/ico_search_black_h18');
+		@include mixins.ratio_images('/assets/icons/ico_search_black');
 	}
 }
 
@@ -308,7 +308,7 @@
 		height: 46px;
 		padding: 0 35px 0 14px;
 		border: 1px solid $colorGray05;
-		@include mixins.ratio_images('/assets/icons/ico_select_arr_h20', 20px, right 14px center);
+		@include mixins.ratio_images('/assets/icons/ico_select_arr', 20px, right 14px center);
 		background-color: $colorWhite;
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -326,7 +326,7 @@
 		&[disabled], &[aria-disabled], &[readonly] {
 			border-color: $colorGray05;
 			background-color: $colorGray06;
-			@include mixins.ratio_images_change('/assets/icons/ico_select_arr_h20_disabled');
+			@include mixins.ratio_images_change('/assets/icons/ico_select_arr_disabled');
 			color: $textColorG;
 		}
 	}
@@ -343,7 +343,7 @@
 				bottom: 1px solid $colorGray04;
 				left: 0;
 			};
-			@include mixins.ratio_images('/assets/icons/ico_select_arr_light_gray_h20', 20px, right center, $colorWhite);
+			@include mixins.ratio_images('/assets/icons/ico_select_arr_light_gray', 20px, right center, $colorWhite);
 			@include mixins.font_size_md;
 			color: $textColorG;
 		}
