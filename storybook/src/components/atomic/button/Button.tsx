@@ -6,8 +6,8 @@ type CommonProps = {
     color?: 'lineGray' | 'lineLightGray' | 'lineGreen' | 'lineSell' | 'lineConsign' | 'linePurchase' | 'lineWhite'
         | 'lightGray' | 'gray' | 'green' | 'gold' | 'sell' | 'consign' | 'purchase' | 'loan' | 'band' | 'white';
     rounded?: boolean;
-    ico?: string | React.ReactNode;
-    icoLocated?: 'before' | 'after';
+    beforeIcon?: string | React.ReactNode;
+    afterIcon?: string | React.ReactNode;
     text?: string | React.ReactNode;
     disabled?: boolean;
     onClick?: () => void;
@@ -29,8 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'md',
   color = 'lineGray',
   rounded = false,
-  ico,
-  icoLocated = 'after',
+  beforeIcon, afterIcon,
   text,
   disabled = false,
   onClick,
@@ -39,7 +38,8 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
     const isRounded = rounded ? 'Round' : '';
 
-    const renderIcon = typeof ico === 'string' ? (<span className={styles.ico} style={{backgroundImage: `url("/assets/icons/comm_ico_${ico}.svg")`,}}></span>) : (ico);
+    const renderBeforeIcon = (typeof beforeIcon === 'string') ? (<span className={styles.ico} style={{backgroundImage: `url("/assets/icons/comm_ico_${beforeIcon}.svg")`,}}></span>) : (beforeIcon);
+    const renderAfterIcon = (typeof afterIcon === 'string') ? (<span className={styles.ico} style={{backgroundImage: `url("/assets/icons/comm_ico_${afterIcon}.svg")`,}}></span>) : (afterIcon);
 
     const baseClass = [
         styles[`btn${isRounded}`],
@@ -56,9 +56,9 @@ export const Button: React.FC<ButtonProps> = ({
                 href={disabled ? undefined : href}
                 {...anchorProps}
             >
-                {icoLocated === 'before' && renderIcon}
+                {beforeIcon === 'before' && renderBeforeIcon}
                 {text && <span className={styles.text}>{text}</span>}
-                {icoLocated === 'after' && renderIcon}
+                {afterIcon === 'after' && renderAfterIcon}
             </a>
         );
     }
@@ -72,9 +72,9 @@ export const Button: React.FC<ButtonProps> = ({
             onClick={onClick}
             {...buttonProps}
         >
-            {icoLocated === 'before' && renderIcon}
+            {beforeIcon === 'before' && renderBeforeIcon}
             {text && <span className={styles.text}>{text}</span>}
-            {icoLocated === 'after' && renderIcon}
+            {afterIcon === 'after' && renderAfterIcon}
         </button>
     )
 }

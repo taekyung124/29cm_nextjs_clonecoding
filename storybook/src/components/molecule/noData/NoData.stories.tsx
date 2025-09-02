@@ -61,7 +61,7 @@ export const Default: Story = {
 		),
 		boxColor: 'gray',
 		btnWrap: (
-			<Button rounded={true} ico={'arw_right_black'} text={'베스트 상품'} />
+			<Button rounded={true} afterIcon={'arw_right_black'} text={'베스트 상품'} />
 		)
 	},
 	render: (args) => <NoData {...args} />

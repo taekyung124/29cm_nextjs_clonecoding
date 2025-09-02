@@ -21,12 +21,11 @@ const meta = {
     rounded: {
       control: 'boolean',
     },
-    ico: {
+    beforeIcon: {
       control: 'text',
     },
-    icoLocated: {
-      control: 'inline-radio',
-      options: ['before', 'after'],
+    afterIcon: {
+      control: 'text',
     },
     text: {
       control: 'text',
@@ -51,8 +50,7 @@ export const Default: Story = {
     rounded: false,
     disabled: false,
     text: 'button',
-    ico: 'arw_right_black',
-    icoLocated: 'after',
+    afterIcon: 'arw_right_black',
     tag: 'button',
   },
   render :(args) => <Button {...args} />

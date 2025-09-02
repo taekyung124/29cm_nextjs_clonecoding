@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import styles from '@/styles/components.module.scss';
 
 import {InfoGuide} from "@/components/molecule/infoGuide/InfoGuide";
-import {Title} from "@/components/atomic/title/Title";
 import {Button} from "@/components/atomic/button/Button";
 
 const meta = {
@@ -62,7 +61,7 @@ export const Default: Story = {
 		),
 		boxColor: 'red',
 		btnWrap: (
-			<Button rounded={true} ico={'arw_right_black'} text={'베스트 상품'} />
+			<Button rounded={true} afterIcon={'arw_right_black'} text={'베스트 상품'} />
 		)
 	},
 	render: (args) => <InfoGuide {...args} />,
