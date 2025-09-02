@@ -1,0 +1,516 @@
+@use 'sass:map';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins';
+
+// input
+.uiInput {
+	&::-ms-clear,
+	&::-ms-reveal {
+		display: none;
+	}
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+
+	&[type=number] {
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			-moz-appearance: textfield;
+			margin: 0;
+		}
+	}
+
+	&[type=date], &[type=month], &[type=time], &[type=week] {
+		&::-webkit-calendar-picker-indicator {
+			background: none;
+		}
+	}
+
+	&[type=search] {
+		background: $colorWhite;
+
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration {
+			display: none;
+			width: 0;
+			height: 0;
+		}
+	}
+
+	@include mixins.clear_focus;
+	width: 100%;
+	border: 0;
+	@include mixins.font_size_md;
+	color: $colorBlack;
+
+	&::placeholder {
+		color: $colorGray01;
+	}
+
+	&:focus {
+		border-color: $colorBlack;
+		@include mixins.prefix(transition, border 0.2s ease-out);
+	}
+}
+
+%inputBox {
+	overflow: hidden;
+	@include mixins.justify_width;
+
+	.btnInputDel {
+		flex-shrink: 0;
+		display: none;
+		width: 20px;
+		height: 20px;
+		margin-left: 20px;
+		background-color: $colorGreen; //temp
+		@include mixins.ratio_images('/assets/icons/ico_ip_clear');
+	}
+
+	.btnTogglePw {
+		flex-shrink: 0;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		margin-left: 10px;
+		@include mixins.ratio_images('/assets/icons/ico_eye');
+		@include mixins.prefix(transition, background 0.2s ease-out);
+		vertical-align: top;
+
+		&.isActive {
+			@include mixins.ratio_images('/assets/icons/ico_eye_active');
+		}
+	}
+
+	.timerCount {
+		flex-shrink: 0;
+		display: inline-block;
+		margin-left: 10px;
+		@include mixins.font_size_md;
+		color: $colorRed;
+		vertical-align: top;
+	}
+
+	.btnInputSearch {
+		flex-shrink: 0;
+		margin: {
+			top: 18px;
+			left: 20px;
+		}
+	}
+
+	&.hasValue {
+		.btnInputDel {
+			display: block;
+		}
+	}
+}
+
+.inputBox {
+	@extend %inputBox;
+	padding: 0 14px;
+	border-radius: 4px;
+	border: 1px solid $colorGray05;
+	background-color: $colorWhite;
+
+	.uiInput {
+		height: 44px;
+		padding: 0;
+		background-color: inherit;
+	}
+
+	.btnTogglePw {
+		margin-top: 12px;
+	}
+
+	.btnInputDel {
+		margin-top: 12px;
+	}
+
+	.timerCount {
+		margin-top: 12px;
+	}
+
+	&.isFocus {
+		border-color: $colorBlack;
+		@include mixins.prefix(transition, border 0.2s ease-out);
+	}
+
+	&.isDisabled {
+		background-color: #f9f9f9;
+
+		.uiInput {
+			color: $textColorG;
+
+			&::placeholder {
+				color: rgba($colorGray01, 0.5);
+			}
+		}
+
+		.btnInputDel {
+			display: none;
+		}
+
+		.unit {
+			opacity: 0.5;
+		}
+	}
+
+	.sliderUnit {
+
+	}
+}
+
+.inputLineBox {
+	@extend %inputBox;
+	border-radius: 0;
+	border-bottom: 1px solid $colorGray04;
+	background-color: $colorWhite;
+
+	.uiInput {
+		height: 49px;
+		padding: 0;
+		background-color: inherit;
+	}
+
+	.btnInputDel {
+		margin-top: 15px;
+	}
+
+	.btnTogglePw {
+		margin-top: 15px;
+	}
+
+	.timerCount {
+		margin-top: 14px;
+	}
+}
+
+.inputSearchBox {
+	@extend %inputBox;
+	padding-right: 0;
+	border: {
+		top: none;
+		right: none;
+		left: none;
+	}
+	border-bottom: 4px solid $colorGreen;
+	border-radius: 0;
+
+	.uiInput {
+		height: 56px;
+		padding: 0 20px 0 0;
+		@include mixins.font_size_lg('lt');
+	}
+
+	.btnInputDel {
+		margin: {
+			top: 18px;
+			left: 0;
+		}
+	}
+
+	.btnInputSearch {
+		width: 24px;
+		height: 24px;
+		@include mixins.ratio_images('/assets/icons/ico_search_green');
+	}
+}
+
+.inputGraySearchBox {
+	@extend %inputBox;
+	margin-bottom: 30px;
+	padding-right: 16px;
+	border: none;
+	border-radius: 20px;
+	background-color: $colorGray06;
+
+	.uiInput {
+		height: 40px;
+		padding: 0 16px;
+		background: none;
+	}
+
+	.btnInputDel {
+		margin: {
+			top: 10px;
+			left: 0;
+		}
+	}
+
+	.btnInputSearch {
+		width: 18px;
+		height: 18px;
+		margin: {
+			top: 10px;
+			left: 10px;
+		}
+		@include mixins.ratio_images('/assets/icons/ico_search_black');
+	}
+}
+
+.inputGuide {
+	display: block;
+	width: 100%;
+	margin-top: 8px;
+	@include mixins.font_size_sm;
+	color: $textColorDG;
+}
+
+.validCheck {
+	.validDesc {
+		display: none;
+		margin-top: 8px;
+		@include mixins.font_size_sm;
+	}
+
+	&.fail {
+		.inputBox, .inputLineBox {
+			border-color: $colorRed;
+		}
+
+		.validDesc {
+			display: block;
+			color: $colorRed;
+		}
+	}
+
+	&.success {
+		.inputBox, .inputLineBox {
+			border-color: $colorGreen;
+		}
+
+		.validDesc   {
+			display: block;
+			color: $colorGreen;
+		}
+	}
+}
+
+.inputGroup {
+	+ .inputGroup {
+		margin-top: 10px;
+	}
+}
+
+// select
+.uiSelect {
+	width: 100%;
+	select {
+		@include mixins.clear_focus;
+		width: 100%;
+		height: 46px;
+		padding: 0 35px 0 14px;
+		border: 1px solid $colorGray05;
+		@include mixins.ratio_images('/assets/icons/ico_select_arr', 20px, right 14px center);
+		background-color: $colorWhite;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		outline: 0;
+		@include mixins.font_size_md;
+		color: $colorBlack;
+		@include mixins.no_select_text;
+
+		&:focus {
+			border-color: $colorBlack;
+			@include mixins.prefix(transition, border 0.2s ease-out);
+		}
+
+		&[disabled], &[aria-disabled], &[readonly] {
+			border-color: $colorGray05;
+			background-color: $colorGray06;
+			@include mixins.ratio_images_change('/assets/icons/ico_select_arr_disabled');
+			color: $textColorG;
+		}
+	}
+
+
+	&.line {
+		select {
+			height: 50px;
+			padding: 0 40px 0 0;
+			border-radius: 0;
+			border: {
+				top: 0;
+				right: 0;
+				bottom: 1px solid $colorGray04;
+				left: 0;
+			};
+			@include mixins.ratio_images('/assets/icons/ico_select_arr_light_gray', 20px, right center, $colorWhite);
+			@include mixins.font_size_md;
+			color: $textColorG;
+		}
+	}
+
+	&.text {
+		width: auto;
+		height: 21px;
+
+		select {
+			width: auto;
+			height: 21px;
+			padding: {
+				left: 0;
+				right: 17px;
+			}
+			border: 0;
+			@include mixins.ratio_images('/assets/icons/comm_arw_down_black', 15px, right center);
+
+			text-align-last: right;
+			text-align: right;
+			-ms-text-align-last: right;
+			-moz-text-align-last: right;
+
+			option {
+				text-align-last: left;
+				text-align: left;
+				-ms-text-align-last: left;
+				-moz-text-align-last: left;
+			}
+		}
+	}
+}
+
+// slider
+.sliderGroup {
+	font-size: 0;
+
+	.sliderBox {
+		position: relative;
+		padding: 0 10px;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			display: inline-block;
+			top: 0;
+			width: 10px;
+			height: 4px;
+			background-color: $colorGray04;
+		}
+		&:before {
+			left: 0;
+		}
+		&:after {
+			right: 0;
+		}
+
+		.uiSlider {
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			height: 4px;
+			background-color: $colorGray04;
+			.uiSliderRange {
+				position: absolute;
+				z-index: 1;
+				display: block;
+				top: 0;
+				height: 100%;
+				background-color: $colorGreen;
+			}
+			.uiSliderHandle {
+				position: absolute;
+				z-index: 2;
+				top: -8px;
+				width: 20px;
+				height: 20px;
+				margin-left: -10px;
+				border: 4px solid $colorGreen;
+				border-radius: 10px;
+				background-color: $colorWhite;
+				outline: none;
+				cursor: pointer;
+			}
+		}
+	}
+	.valueTextBox {
+		@include mixins.justify_width(center, between);
+		margin-top: 18px;
+		> span {
+			user-select:none;
+			color: $textColorPoint;
+		}
+	}
+	.inputFlexGroup {
+		width: 100%;
+		margin-top: 14px;
+
+		.inputGroup {
+			.inputBox {
+				flex: 1;
+				align-items: center;
+				height: 40px;
+				padding-right: 14px;
+				border-radius: 4px;
+
+				&.hasValue {
+					.uiInput {
+						font-weight: $fontWeightMedium;
+						color: $textColorB;
+					}
+				}
+				.uiInput {
+					height: 38px;
+					padding-right: 6px;
+					text-align: right;
+				}
+
+				.sliderUnit {
+					flex-shrink: 0;
+					display: inline-block;
+					text-align: right;
+					vertical-align: top;
+					@include mixins.font_size_sm('md');
+					color: $textColorB;
+
+					&::placeholder {
+						font-weight: $fontWeightMedium;
+					}
+				}
+			}
+		}
+		.gap {
+			margin-left: 5px;
+		}
+	}
+}
+
+// inputFlexGroup
+.inputFlexGroup {
+	@include mixins.justify_width(stretch);
+	flex-wrap: wrap;
+
+	.inputGroup, .uiSelect {
+		flex: 1;
+
+		~ .uiSelect {
+			margin-left: 10px;
+		}
+
+		~ .inputGroup {
+			margin: {
+				top: 0;
+				left: 5px;
+			}
+		}
+	}
+
+	.gap {
+		align-self: center;
+		display: inline-block;
+		margin-left: 10px;
+		@include mixins.font_size_md;
+		color: $textColorB;
+		text-align: center;
+		vertical-align: top;
+	}
+}

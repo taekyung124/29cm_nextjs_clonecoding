@@ -1,0 +1,60 @@
+/* 기본 컬러칩 */
+$colorRed: #D93B3B;
+$colorBlack: #000;
+$colorWhite: #fff;
+
+// 그린 색상
+$colorGreen : #012E29;
+$colorGreen80 : #345854;
+$colorGreen60 : #67827F;
+$colorGreen40 : #99ABA9;
+$colorGreen20 : #CCD5D4;
+$colorGreen10 : #E6EAEA;
+$colorGreen06 : #F0F2F2;
+
+// 골드 색상
+$colorGold : #B79683;
+$colorGold80 : #C5AB9C;
+$colorGold60 : #D4C0B5;
+$colorGold40 : #E2D5CD;
+$colorGold20 : #F1EAE6;
+$colorGold10 : #F8F5F3;
+$colorGold06 : #FBF9F8;
+
+// 회색 색상
+$colorGray01: #999;
+$colorGray02: #AAA;
+$colorGray03: #CCC;
+$colorGray04: #D9D9D9;
+$colorGray05: #E9E9E9;
+$colorGray06: #F5F5F5;
+
+// 콘텐츠 색상
+$colorSell: #6E675F; // 내명품팔기
+$colorSellSub: rgba($colorSell, 0.1);
+$colorBand: #2F3647; // 밴드
+$colorPurchase: #7B6363; // 매입
+$colorPurchaseSub: rgba($colorPurchase, 0.1);
+$colorConsign: #C09759; // 위탁
+$colorConsignSub: rgba($colorConsign, 0.1);
+$colorLoan: #5A748E; // 대출
+$colorCare: #37564B; // 명품 케어 서비스
+
+// 폰트 컬러
+$textColorB: $colorBlack;
+$textColorW: $colorWhite;
+$textColorDG: #666;
+$textColorG: $colorGray01;
+$textColorWG: $colorGray02;
+$textColorPoint: $colorGreen;
+$textColorGold: $colorGold;
+$textColorWGold: #CBB19C;
+$textColorRed: $colorRed;
+$textColorSell: $colorSell;
+$textColorBand: $colorBand;
+$textColorPurchase: $colorPurchase;
+$textColorConsign: $colorConsign;
+$textColorLoan: $colorLoan;
+$textColorCare: $colorCare;
+/* // 기본 컬러칩 */
+

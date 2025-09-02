@@ -1,0 +1,514 @@
+@use 'variables';
+
+// float하는 상위 DOM에 선언
+@mixin clearfix {
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 0;
+        clear: both;
+    }
+}
+
+@mixin word_break {
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+
+// 한줄 말줄임표
+@mixin ellipsis($autoWidth: true, $isInline: true) {
+    overflow: hidden;
+
+    @if ($isInline) {
+        display: inline-block;
+        vertical-align: top;
+    } @else {
+        display: block;
+    }
+
+    @if ($autoWidth) {
+        width: 100%;
+    }
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// n줄 말줄임표
+@mixin multi_ellipsis($line-height, $lines: 2, $useHeight: false) {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    @if $useHeight {
+        height: $line-height * $lines;
+    }
+    max-height: $line-height * $lines;
+    line-height: $line-height;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+}
+
+// 멀티 라인 값 클리어
+@mixin clear_multi_ellipsis {
+    height: auto;
+    max-height: none;
+    -webkit-box-orient: inherit;
+    -webkit-line-clamp: inherit;
+}
+
+// 벤더 프리픽스
+@mixin prefix($property, $value, $prefixes: moz webkit) {
+    @each $prefix in $prefixes {
+        -#{$prefix}-#{$property}: $value;
+    }
+    #{$property}: $value;
+}
+
+// Display Flex를 활용한 영역대비 사이즈 자동 조절
+// $colAlign : align-items, $rowAlign : justify-contents, $direction: fles-direction, $isInline : display
+@mixin justify_width($colAlign: start, $rowAlign: start, $direction: row, $isInline: false) {
+    @if ($isInline) {
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        display: -webkit-inline-flex;
+    } @else {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+    }
+
+    @if ($rowAlign == between) {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+    } @else if ($rowAlign == around) {
+        justify-content: space-around;
+        -webkit-justify-content: space-around;
+    } @else if ($rowAlign == center) {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-justify-content: center;
+    } @else if ($rowAlign == start) {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    } @else if ($rowAlign == end) {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+    }
+
+    @if ($colAlign == center) {
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    } @else if ($colAlign == start) {
+        -webkit-box-align: start;
+        -moz-box-align: start;
+        -ms-flex-align: start;
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+    } @else if ($colAlign == end) {
+        -webkit-box-align: end;
+        -moz-box-align: end;
+        -ms-flex-align: end;
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+    } @else if ($colAlign == stretch) {
+        -webkit-box-align: stretch;
+        -moz-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+    }
+
+    @if ($direction == row) {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    } @else if ($direction == row-reverse) {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    } @else if ($direction == column) {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -moz-box-orient: vertical;
+        -moz-box-direction: reverse;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
+@mixin set_placeholder_color($color: rgba(255, 255, 255, .65)) {
+    &::-webkit-input-placeholder {
+        font-size: inherit;
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        font-size: inherit;
+        color: $color;
+    }
+
+    &::-ms-input-placeholder {
+        font-size: inherit;
+        color: $color;
+    }
+
+    &::placeholder {
+        font-size: inherit;
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        font-size: inherit;
+        color: $color;
+    }
+
+    &::-ms-input-placeholder { // Microsoft Edge
+        font-size: inherit;
+        color: $color;
+    }
+}
+
+@mixin no_select_text {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin ratio_images($file, $sizes: cover, $position: 0 0, $color: '', $type: 'svg', $repeat: no-repeat ) {
+    $urls: $file + '.' + $type;
+    @if ($color == '') {
+        background: url($urls) $position $repeat;
+    } @else {
+        background: $color url($urls) $position $repeat;
+    }
+    background-size: $sizes;
+}
+
+@mixin ratio_images_change($file, $type: 'svg' ) {
+    $urls: $file + '.' + $type;
+    background-image: url($urls);
+}
+
+@mixin clear_focus() {
+    outline: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+// ==== 프로젝트 MIXIN ====
+
+
+// 텍스트 레벨별 설정
+//@include mixins.font_size_5xl(); 						//타이틀일때
+//@include mixins.font_size_5xl('heading', '25px'); 	//타이틀일때 line-height 조절이 필요할때
+//@include mixins.font_size_5xl('md'); 					//타이틀이 아니고 weight 조절이 필요할때
+//@include mixins.font_size_5xl('md', '25px'); 			//타이틀이 아니고 weight 조절이 필요하고 line-height 조절이 필요할때
+
+//Design type:Title-XXL || 5xl - font-size: 26px
+@mixin font_size_5xl($type : 'heading', $lineHeight : 'default') {
+    font-size: variables.$fontSize5xl;
+    line-height: variables.$fontSize5xlLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'heading') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'lt') {
+        font-weight: variables.$fontWeightLight;
+    }
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+//Design type:Title-XL || 4xl - font-size: 22px
+@mixin font_size_4xl($type : 'heading', $lineHeight : 'default') {
+    font-size: variables.$fontSize4xl;
+    line-height: variables.$fontSize4xlLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'heading') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'lt') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+//Design type:Title-L || 3xl - font-size: 20px
+@mixin font_size_3xl($type : 'heading', $lineHeight : 'default') {
+    font-size: variables.$fontSize3xl;
+    line-height: variables.$fontSize3xlLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'heading') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'lt') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+//Design type:Title-M || 2xl - font-size: 18px
+@mixin font_size_2xl($type : 'heading', $lineHeight : 'default') {
+    font-size: variables.$fontSize2xl;
+    line-height: variables.$fontSize2xlLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'heading') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'lt') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+//Design type:Title-S || xl - font-size: 16px
+@mixin font_size_xl($type : 'heading', $lineHeight : 'default') {
+    font-size: variables.$fontSizeXl;
+    line-height: variables.$fontSizeXlLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'heading') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'lt') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+//Design type:Title-XS || lg - font-size: 15px
+@mixin font_size_lg($type : 'heading', $lineHeight : 'default') {
+    font-size: variables.$fontSizeLg;
+    line-height: variables.$fontSizeLgLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'heading') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'lt') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+/*
+@include mixins.font_size_md();							//바디 텍스트고 regular 일때
+@include mixins.font_size_md('md or sb');				//바디 텍스트고 weight 가 medium or semibold 일때
+@include mixins.font_size_md('md', '25px'); 			//바디 텍스트고 weight 조절이 필요하고 line-height 조절이 필요할때
+@include mixins.font_size_md('heading');				//타이틀일때
+@include mixins.font_size_md('heading', '25px'); 		//타이틀이고 line-height 조절이 필요할때
+*/
+// md - font-size: 14px ------------- default body
+@mixin font_size_md($type : 'body', $lineHeight : 'default') {
+    font-size: variables.$fontSizeMd;
+    line-height: variables.$fontSizeMdLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'md') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'body') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+// sm - font-size: 13px
+@mixin font_size_sm($type : 'body', $lineHeight : 'default') {
+    font-size: variables.$fontSizeSm;
+    line-height: variables.$fontSizeSmLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'md') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'body') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+// xs - font-size: 12px
+@mixin font_size_xs($type : 'body', $lineHeight : 'default') {
+    font-size: variables.$fontSizeXs;
+    line-height: variables.$fontSizeXsLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'md') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'body') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+// 2xs - font-size: 11px
+@mixin font_size_2xs($type : 'body', $lineHeight : 'default') {
+    font-size: variables.$fontSize2Xs;
+    line-height: variables.$fontSize2XsLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'sb') {
+        font-weight: variables.$fontWeightSemibold;
+    } @else if ($type == 'md') {
+        font-weight: variables.$fontWeightMedium;
+    } @else if ($type == 'body') {
+        font-weight: variables.$fontWeightLight;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+//Design type: eng-md || font-size: 28px
+@mixin font_eng_size_md($type : 'body', $lineHeight : 'default') {
+    font-family: variables.$fontEngDefault;
+    font-size: variables.$fontSizeEngMd;
+    line-height: variables.$fontSizeEngMdLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'body') {
+        font-weight: variables.$fontWeightEngBold;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+//Design type: eng-lg || font-size: 32px
+@mixin font_eng_size_lg($type : 'body', $lineHeight : 'default') {
+    font-family: variables.$fontEngDefault;
+    font-size: variables.$fontSizeEngLg;
+    line-height: variables.$fontSizeEngLgLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'body') {
+        font-weight: variables.$fontWeightEngBold;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+//Design type: eng-sm || font-size: 26px
+@mixin font_eng_size_sm($type : 'body', $lineHeight : 'default') {
+    font-family: variables.$fontEngDefault;
+    font-size: variables.$fontSizeEngSm;
+    line-height: variables.$fontSizeEngSmLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'body') {
+        font-weight: variables.$fontWeightEngBold;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+// size : breakpoint mobile
+@mixin size_wrap_width {
+    width: 100%;
+    @media (min-width: variables.$wrapperMaxWidth) {
+        width: variables.$wrapperMaxWidth;
+        margin: {
+            left: auto;
+            right: auto;
+        }
+    }
+}
+
+@mixin size_max_mobile {
+    @media (min-width: variables.$wrapperMaxWidth) {
+        @content;
+    }
+}
+
+// mobile : device mobile - ios only
+@mixin device_mobile_ios {
+    body.ios & {
+        @content;
+    }
+}
+
+// mobile : device mobile - ios only
+@mixin device_mobile_mac {
+    body.mac & {
+        @content;
+    }
+}
+
+// mobile : device mobile - aos only
+@mixin device_mobile_aos {
+    body.android & {
+        @content;
+    }
+}
+

@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+//size
+.boxXs {
+	padding: 12px;
+}
+.boxSm {
+	padding: 16px;
+}
+.boxMd {
+	padding: 20px;
+}
+.boxLg {
+	padding: 30px;
+}
+
+.boxXs, .boxSm, .boxMd, .boxLg {
+	//color
+	&.gray {
+		background-color: variables.$colorGray06;
+		border-radius: 4px;
+	}
+
+	&.grayLine {
+		background-color: variables.$colorWhite;
+		border: 1px solid variables.$colorGray05;
+		border-radius: 4px;
+	}
+
+	&.white {
+		background-color: variables.$colorWhite;
+		border-radius: 4px;
+	}
+
+	&.green {
+		background-color: #EFF6F6;
+		border-radius: 4px;
+	}
+
+	&.red {
+		background-color: #FBF5F5;
+		border-radius: 4px;
+	}
+
+}
