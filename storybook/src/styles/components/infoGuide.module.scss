@@ -1,0 +1,42 @@
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.infoGuideWrap {
+	text-align: center;
+
+	.icon {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		vertical-align: top;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		~ .titleWrap {
+			margin-top: 20px;
+		}
+	}
+
+	&:has(.celebrateBg) {
+		position: relative;
+		padding-top: 20px;
+		margin-bottom: 40px;
+
+		.celebrateBg {
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100%;
+			max-width: 355px;
+
+			img {
+				display: block;
+				max-width: 100%;
+			}
+		}
+	}
+}

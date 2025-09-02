@@ -7,8 +7,8 @@ import {BtnWrap} from '@/components/molecule/btnWrap/BtnWrap';
 export interface NoDataProps {
 	type?: 'box' | 'wrap';
 	pt?: 'md' | 'lg';
-	desc?: string;
-	subDesc?: string;
+	desc?: string | React.ReactNode;
+	subDesc?: string | React.ReactNode;
 	box?: React.ReactNode;
 	boxColor?: BoxProps['color'];
 	btnWrap?: React.ReactNode;

@@ -47,19 +47,19 @@
 
 /* s: stitle */
 .stitle {
-	&Sm { // 13px
+	&.sm { // 13px
 		@include mixins.font_size_sm('md');
 	}
 
-	&Md { // 14px
+	&.md { // 14px
 		@include mixins.font_size_md('md');
 	}
 
-	&Lg { // 16px
+	&.lg { // 16px
 		@include mixins.font_size_xl;
 	}
 
-	&Xl { // 18px
+	&.xl { // 18px
 		@include mixins.font_size_2xl;
 	}
 }
