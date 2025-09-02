@@ -1,26 +1,27 @@
 // common
-@import 'components/typography.module';
-@import 'components/textList.module';
-@import 'components/barGroup.module';
-@import 'components/common.module';
+@forward 'components/typography.module';
+@forward 'components/textList.module';
+@forward 'components/barGroup.module';
+@forward 'components/common.module';
 
 // atomic
-@import 'components/title.module';
-@import 'components/button.module';
-@import 'components/formElement.module';
-@import 'components/box.module';
-@import 'components/goodsGroup.module';
-@import 'components/badge.module';
-@import 'components/tag.module';
+@forward 'components/title.module';
+@forward 'components/button.module';
+@forward 'components/formElement.module';
+@forward 'components/box.module';
+@forward 'components/goodsGroup.module';
+@forward 'components/badge.module';
+@forward 'components/tag.module';
 
 // molecule
-@import 'components/tooltip.module';
+@forward 'components/tooltip.module';
+@forward 'components/noData.module';
 
 // organism
 
 // templates
 
 // layouts
-@import 'components/layouts.module';
+@forward 'components/layouts.module';
 
 // pages

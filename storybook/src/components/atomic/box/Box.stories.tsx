@@ -10,8 +10,16 @@ const meta = {
     	layout: 'padded',
     },
 	argTypes: {
+		size: {
+			control: { type: 'inline-radio' },
+			options: ['xs', 'sm', 'md', 'lg']
+		},
+		color: {
+			control: { type: 'inline-radio' },
+			options: ['gray', 'grayLine', 'white', 'green', 'red']
+		},
 		mt: {
-			control: { type: 'radio' },
+			control: { type: 'inline-radio' },
       		options: ['sm', 'md'],
 		},
 		scroll: {
@@ -25,43 +33,11 @@ type Story = StoryObj<typeof Box>;
 
 export const Deafault: Story = {
 	args: {
-		size: "medium",
+		size: "md",
 		color: "gray",
 		scroll: true,
 		mt: "md",
-		children: "box"
+		child: "box"
 	},
 	render: (args) => <Box {...args}/>
 }
-
-// size
-export const SizeType: Story = {
-    render: (args) => {
-		const sizes = ['extraSmall', 'small', 'medium', 'large'] as const;
-		return (
-			<>
-				{sizes.map((size) =>
-					<Box {...args} size={size} key={size}>
-						{size}
-					</Box>
-				)}
-			</>
-		)
-	}
-};
-
-//color
-export const ColorType: Story = {
-	render: (args) => {
-		const colors = ['gray', 'grayLine', 'white', 'green', 'red'] as const;
-		return (
-			<>
-				{colors.map((color) =>
-					<Box {...args} color={color} key={color}>
-						{color}
-					</Box>
-				)}
-			</>
-		)
-	}
-};

@@ -1,0 +1,66 @@
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.noDataWrap {
+	text-align: center;
+
+	.icon {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		vertical-align: top;
+		background: url('/assets/icons/comm_ico_alert_gray.svg') center no-repeat;
+		background-size: contain;
+
+		~ .desc {
+			margin-top: 20px;
+		}
+
+		~ .subDesc {
+			margin-top: 10px;
+		}
+	}
+
+
+	.desc {
+		@include mixins.font_size_xl('lt');
+
+		~ .subDesc {
+			margin-top: 10px;
+		}
+	}
+
+	.subDesc {
+		@include mixins.font_size_md;
+		color: variables.$textColorDG;
+	}
+
+	.boxMd {
+		.stitleMd {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.noDataBox {
+	padding: 30px 0 !important;
+	text-align: center;
+	border-radius: 4px;
+	border: 1px dashed variables.$colorGray04;
+
+	.icon {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		vertical-align: top;
+		background: url('/assets/icons/comm_ico_alert_gray.svg') center no-repeat;
+		background-size: contain;
+	}
+
+	.desc {
+		margin-top: 10px;
+		@include mixins.font_size_sm;
+		color: variables.$textColorDG;
+	}
+}
