@@ -13,23 +13,23 @@ a, button {
 			text-decoration: none !important;
 		}
 	}
+}
 
-	/* 버튼 공통 */
-	&[class^=btn], &[class$=Btn] {
+%btnCommon {
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+
+	.text {
 		display: inline-block;
-		box-sizing: border-box;
 		vertical-align: top;
-
-		.text {
-			display: inline-block;
-			vertical-align: top;
-			text-align: center;
-		}
+		text-align: center;
 	}
 }
 
 // Button
 .btn, .btnRound {
+	@extend %btnCommon;
 	@include mixins.justify_width(center, center, row, true);
 	border-radius: 4px;
 
@@ -393,8 +393,11 @@ a, button {
 
 // etcButton
 .gradeBtn {
-	width: 60px;
-	height: 60px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px !important;
+	height: 60px !important;
 	background-color: variables.$colorGreen;
 	box-shadow: 0 5px 10px 0 rgba(variables.$colorGreen, 0.2);
 
@@ -405,7 +408,6 @@ a, button {
 		line-height: 33px;
 		letter-spacing: variables.$letterSpacing;
 		color: variables.$textColorW;
-		padding-top: 3px;
 		@include mixins.device_mobile_aos {
 			padding-top: 8px;
 		}
@@ -424,7 +426,7 @@ a, button {
 	}
 }
 .boxBtn {
-
+	@extend %btnCommon;
 	@include mixins.justify_width(center, between);
 	width: 100%;
 	padding: 20px;
@@ -463,21 +465,18 @@ a, button {
 	}
 }
 .wishBtn {
+	@extend %btnCommon;
 	display: inline-block;
-	width: auto;
-	height: auto;
 	text-align: center;
 	vertical-align: top;
 
 	.icon {
 		display: inline-block;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: contain;
 		vertical-align: top;
 	}
 }
 .sortBtn {
+	@extend %btnCommon;
 	.text {
 		@include mixins.font_size_sm('md');
 		color: variables.$textColorB;
@@ -499,6 +498,7 @@ a, button {
 	}
 }
 .addBtn {
+	@extend %btnCommon;
 	@include mixins.justify_width(center, center);
 	width: 100%;
 	height: 60px;
@@ -554,12 +554,12 @@ a, button {
 .btnWrap {
 	@include mixins.justify_width(start, start);
 
-	[class^=_btn] {
+	[class^=_btn], [class*=Btn_] {
 		flex: 1;
 		width: 100%;
 		min-width: auto;
 
-		~ [class^=_btn] {
+		~ [class^=_btn], ~ [class*=Btn_] {
 			margin-left: 5px;
 		}
 
@@ -570,13 +570,13 @@ a, button {
 
 	// align
 	&.auto {
-		[class^=_btn] {
+		[class^=_btn], [class*=Btn_] {
 			flex: none;
 			width: auto;
 		}
 	}
 	&.center {
-		[class^=_btn] {
+		[class^=_btn], [class*=Btn_] {
 			flex: none;
 			width: auto;
 			&:first-child { margin-left: auto; }
@@ -584,7 +584,7 @@ a, button {
 		}
 	}
 	&.right {
-		[class^=_btn] {
+		[class^=_btn], [class*=Btn_] {
 			flex: none;
 			width: auto;
 			&:first-child { margin-left: auto; }
@@ -594,12 +594,12 @@ a, button {
 		@include mixins.justify_width(center, center, column);
 		flex-wrap: wrap;
 
-		[class^=_btn] {
+		[class^=_btn], [class*=Btn_] {
 			flex: 1 auto;
 			width: 100%;
 			min-width: initial;
 
-			~ [class^=_btn] {
+			~ [class^=_btn], ~ [class*=Btn_] {
 				margin: {
 					top: 10px;
 					left: 0;

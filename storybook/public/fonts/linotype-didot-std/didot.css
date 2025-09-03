@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'LinotypeDidotStd';
+    src: url('./font/DidotLTStd-BoldItalic.eot');
+    src: local('Linotype Didot Std Bold Italic'), local('DidotLTStd-BoldItalic'),
+        url('./font/DidotLTStd-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/DidotLTStd-BoldItalic.woff2') format('woff2'),
+        url('./font/DidotLTStd-BoldItalic.woff') format('woff'),
+        url('./font/DidotLTStd-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LinotypeDidotStd';
+    src: url('./font/DidotLTStd-Roman.eot');
+    src: local('Linotype Didot Std Roman'), local('DidotLTStd-Roman'),
+        url('./font/DidotLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+        url('./font/DidotLTStd-Roman.woff2') format('woff2'),
+        url('./font/DidotLTStd-Roman.woff') format('woff'),
+        url('./font/DidotLTStd-Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LinotypeDidotStd';
+    src: url('./font/DidotLTStd-Bold.eot');
+    src: local('Linotype Didot Std Bold'), local('DidotLTStd-Bold'),
+        url('./font/DidotLTStd-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./font/DidotLTStd-Bold.woff2') format('woff2'),
+        url('./font/DidotLTStd-Bold.woff') format('woff'),
+        url('./font/DidotLTStd-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LinotypeDidotStd';
+    src: url('./font/DidotLTStd-Headline.eot');
+    src: local('Linotype Didot Std Headline Roman'), local('DidotLTStd-Headline'),
+        url('./font/DidotLTStd-Headline.eot?#iefix') format('embedded-opentype'),
+        url('./font/DidotLTStd-Headline.woff2') format('woff2'),
+        url('./font/DidotLTStd-Headline.woff') format('woff'),
+        url('./font/DidotLTStd-Headline.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LinotypeDidotStd';
+    src: url('./font/DidotLTStd-Italic.eot');
+    src: local('Linotype Didot Std Italic'), local('DidotLTStd-Italic'),
+        url('./font/DidotLTStd-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./font/DidotLTStd-Italic.woff2') format('woff2'),
+        url('./font/DidotLTStd-Italic.woff') format('woff'),
+        url('./font/DidotLTStd-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}

@@ -47,10 +47,17 @@ export const EtcButton = ({name, color = 'white', icon, iconSize, text, onClick,
 				onClick={handleToggle}
 				href={href}
 				{...anchorProps}
+				style={{width: `${iconSize}px`, height: `${iconSize}px`}}
 			>
 				<span
 					className={styles.icon}
-					style={{ background: `url('/assets/icons/comm_ico_heart_${isWished ? `${color}` : 'active'}.svg')`, width: `${iconSize}px`, height: `${iconSize}px`}}
+					style={{
+						backgroundImage: `url('/assets/icons/comm_ico_heart_${isWished ? 'gray' : `${color}`}.svg')`,
+						backgroundPosition: 'center',
+						backgroundRepeat: 'no-repeat',
+						backgroundSize: 'cover',
+						width: `${iconSize}px`, height: `${iconSize}px`
+				}}
 				>
 					<span className={'offscreen'}>{isWished ? "관심 해제" : "관심 등록"}</span>
 				</span>
@@ -77,7 +84,13 @@ export const EtcButton = ({name, color = 'white', icon, iconSize, text, onClick,
 			>
 				<span
 					className={styles.icon}
-					style={{ background: `url('/assets/icons/comm_ico_heart_${isWished ? `${color}` : 'active'}.svg')`, width: `${iconSize}px`, height: `${iconSize}px`}}
+					style={{
+						backgroundImage: `url('/assets/icons/comm_ico_heart_${isWished ? 'gray' : `${color}`}.svg')`,
+						backgroundPosition: 'center',
+						backgroundRepeat: 'no-repeat',
+						backgroundSize: 'cover',
+						width: `${iconSize}px`, height: `${iconSize}px`
+					}}
 				>
 					<span className={'offscreen'}>{isWished ? "관심 해제" : "관심 등록"}</span>
 				</span>

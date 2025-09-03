@@ -13,7 +13,7 @@ const meta = {
 	argTypes: {
 		mt: {
 			control: 'inline-radio',
-			options: ['zero', '2xs', 'xs', 'sm', 'md', 'lg', 'xl'],
+			options: ['zero', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
 		},
 		align: {
 			control: 'inline-radio',

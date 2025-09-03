@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../abstracts/variables' as *;
+@use '../abstracts/variables';
 @use '../abstracts/mixins';
 
 // input
@@ -32,7 +32,7 @@
 	}
 
 	&[type=search] {
-		background: $colorWhite;
+		background: variables.$colorWhite;
 
 		&::-webkit-search-cancel-button,
 		&::-webkit-search-results-button,
@@ -47,14 +47,14 @@
 	width: 100%;
 	border: 0;
 	@include mixins.font_size_md;
-	color: $colorBlack;
+	color: variables.$colorBlack;
 
 	&::placeholder {
-		color: $colorGray01;
+		color: variables.$colorGray01;
 	}
 
 	&:focus {
-		border-color: $colorBlack;
+		border-color: variables.$colorBlack;
 		@include mixins.prefix(transition, border 0.2s ease-out);
 	}
 }
@@ -69,7 +69,7 @@
 		width: 20px;
 		height: 20px;
 		margin-left: 20px;
-		background-color: $colorGreen; //temp
+		background-color: variables.$colorGreen; //temp
 		@include mixins.ratio_images('/assets/icons/ico_ip_clear');
 	}
 
@@ -93,7 +93,7 @@
 		display: inline-block;
 		margin-left: 10px;
 		@include mixins.font_size_md;
-		color: $colorRed;
+		color: variables.$colorRed;
 		vertical-align: top;
 	}
 
@@ -116,8 +116,8 @@
 	@extend %inputBox;
 	padding: 0 14px;
 	border-radius: 4px;
-	border: 1px solid $colorGray05;
-	background-color: $colorWhite;
+	border: 1px solid variables.$colorGray05;
+	background-color: variables.$colorWhite;
 
 	.uiInput {
 		height: 44px;
@@ -138,7 +138,7 @@
 	}
 
 	&.isFocus {
-		border-color: $colorBlack;
+		border-color: variables.$colorBlack;
 		@include mixins.prefix(transition, border 0.2s ease-out);
 	}
 
@@ -146,10 +146,10 @@
 		background-color: #f9f9f9;
 
 		.uiInput {
-			color: $textColorG;
+			color: variables.$textColorG;
 
 			&::placeholder {
-				color: rgba($colorGray01, 0.5);
+				color: rgba(variables.$colorGray01, 0.5);
 			}
 		}
 
@@ -170,8 +170,8 @@
 .inputLineBox {
 	@extend %inputBox;
 	border-radius: 0;
-	border-bottom: 1px solid $colorGray04;
-	background-color: $colorWhite;
+	border-bottom: 1px solid variables.$colorGray04;
+	background-color: variables.$colorWhite;
 
 	.uiInput {
 		height: 49px;
@@ -200,7 +200,7 @@
 		right: none;
 		left: none;
 	}
-	border-bottom: 4px solid $colorGreen;
+	border-bottom: 4px solid variables.$colorGreen;
 	border-radius: 0;
 
 	.uiInput {
@@ -229,7 +229,7 @@
 	padding-right: 16px;
 	border: none;
 	border-radius: 20px;
-	background-color: $colorGray06;
+	background-color: variables.$colorGray06;
 
 	.uiInput {
 		height: 40px;
@@ -260,7 +260,7 @@
 	width: 100%;
 	margin-top: 8px;
 	@include mixins.font_size_sm;
-	color: $textColorDG;
+	color: variables.$textColorDG;
 }
 
 .validCheck {
@@ -272,23 +272,23 @@
 
 	&.fail {
 		.inputBox, .inputLineBox {
-			border-color: $colorRed;
+			border-color: variables.$colorRed;
 		}
 
 		.validDesc {
 			display: block;
-			color: $colorRed;
+			color: variables.$colorRed;
 		}
 	}
 
 	&.success {
 		.inputBox, .inputLineBox {
-			border-color: $colorGreen;
+			border-color: variables.$colorGreen;
 		}
 
 		.validDesc   {
 			display: block;
-			color: $colorGreen;
+			color: variables.$colorGreen;
 		}
 	}
 }
@@ -307,27 +307,27 @@
 		width: 100%;
 		height: 46px;
 		padding: 0 35px 0 14px;
-		border: 1px solid $colorGray05;
+		border: 1px solid variables.$colorGray05;
 		@include mixins.ratio_images('/assets/icons/ico_select_arr', 20px, right 14px center);
-		background-color: $colorWhite;
+		background-color: variables.$colorWhite;
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
 		outline: 0;
 		@include mixins.font_size_md;
-		color: $colorBlack;
+		color: variables.$colorBlack;
 		@include mixins.no_select_text;
 
 		&:focus {
-			border-color: $colorBlack;
+			border-color: variables.$colorBlack;
 			@include mixins.prefix(transition, border 0.2s ease-out);
 		}
 
 		&[disabled], &[aria-disabled], &[readonly] {
-			border-color: $colorGray05;
-			background-color: $colorGray06;
+			border-color: variables.$colorGray05;
+			background-color: variables.$colorGray06;
 			@include mixins.ratio_images_change('/assets/icons/ico_select_arr_disabled');
-			color: $textColorG;
+			color: variables.$textColorG;
 		}
 	}
 
@@ -340,12 +340,12 @@
 			border: {
 				top: 0;
 				right: 0;
-				bottom: 1px solid $colorGray04;
+				bottom: 1px solid variables.$colorGray04;
 				left: 0;
 			};
-			@include mixins.ratio_images('/assets/icons/ico_select_arr_light_gray', 20px, right center, $colorWhite);
+			@include mixins.ratio_images('/assets/icons/ico_select_arr_light_gray', 20px, right center, variables.$colorWhite);
 			@include mixins.font_size_md;
-			color: $textColorG;
+			color: variables.$textColorG;
 		}
 	}
 
@@ -394,7 +394,7 @@
 			top: 0;
 			width: 10px;
 			height: 4px;
-			background-color: $colorGray04;
+			background-color: variables.$colorGray04;
 		}
 		&:before {
 			left: 0;
@@ -408,14 +408,14 @@
 			display: inline-block;
 			width: 100%;
 			height: 4px;
-			background-color: $colorGray04;
+			background-color: variables.$colorGray04;
 			.uiSliderRange {
 				position: absolute;
 				z-index: 1;
 				display: block;
 				top: 0;
 				height: 100%;
-				background-color: $colorGreen;
+				background-color: variables.$colorGreen;
 			}
 			.uiSliderHandle {
 				position: absolute;
@@ -424,9 +424,9 @@
 				width: 20px;
 				height: 20px;
 				margin-left: -10px;
-				border: 4px solid $colorGreen;
+				border: 4px solid variables.$colorGreen;
 				border-radius: 10px;
-				background-color: $colorWhite;
+				background-color: variables.$colorWhite;
 				outline: none;
 				cursor: pointer;
 			}
@@ -437,7 +437,7 @@
 		margin-top: 18px;
 		> span {
 			user-select:none;
-			color: $textColorPoint;
+			color: variables.$textColorPoint;
 		}
 	}
 	.inputFlexGroup {
@@ -454,8 +454,8 @@
 
 				&.hasValue {
 					.uiInput {
-						font-weight: $fontWeightMedium;
-						color: $textColorB;
+						font-weight: variables.$fontWeightMedium;
+						color: variables.$textColorB;
 					}
 				}
 				.uiInput {
@@ -470,10 +470,10 @@
 					text-align: right;
 					vertical-align: top;
 					@include mixins.font_size_sm('md');
-					color: $textColorB;
+					color: variables.$textColorB;
 
 					&::placeholder {
-						font-weight: $fontWeightMedium;
+						font-weight: variables.$fontWeightMedium;
 					}
 				}
 			}
@@ -509,8 +509,71 @@
 		display: inline-block;
 		margin-left: 10px;
 		@include mixins.font_size_md;
-		color: $textColorB;
+		color: variables.$textColorB;
 		text-align: center;
 		vertical-align: top;
+	}
+}
+
+// textarea
+.textareaBox {
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 46px;
+	border-radius: 4px;
+	border: 1px solid variables.$colorGray05;
+
+	.uiTextarea {
+		@include mixins.clear_focus;
+		height: 92px;
+		padding: 16px 16px 0;
+		@include mixins.font_size_md;
+		color: variables.$textColorB;
+
+		resize: none;
+		outline: none;
+		border: none;
+		box-shadow: none;
+		background: transparent;
+
+		&::placeholder {
+			color: variables.$textColorG;
+		}
+	}
+
+	.byteCheck {
+		position: absolute;
+		right: 14px;
+		bottom: 16px;
+		display: inline-block;
+		color: variables.$colorGray01;
+		vertical-align: top;
+
+		.count, .max {
+			display: inline-block;
+			@include mixins.font_size_xs;
+			vertical-align: top;
+		}
+	}
+	&.isFocus {
+		border-color: variables.$colorBlack;
+		@include mixins.prefix(transition, border 0.2s ease-out);
+
+		.count-check {
+			.count {
+				color: variables.$colorBlack;
+			}
+		}
+	}
+
+	&.isDisabled {
+		background: #f9f9f9;
+		border-color: variables.$colorGray05;
+		@include mixins.set_placeholder_color(variables.$colorGray01);
+
+		@include mixins.device_mobile_ios {
+			-webkit-text-fill-color: variables.$colorGray01;
+		}
+		color: variables.$colorGray01;
 	}
 }
