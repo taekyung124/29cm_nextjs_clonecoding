@@ -15,7 +15,7 @@ const meta = {
       options: ['xs', 'sm', 'md', 'lg', 'xl']
     },
     color: {
-      control: 'inline-radio',
+      control: 'select',
       options: ['lineGray', 'lineLightGray', 'lineGreen', 'lineSell', 'lineConsign', 'linePurchase', 'lineWhite','lightGray', 'gray', 'green', 'gold', 'sell', 'consign', 'purchase', 'loan', 'band', 'white']
     },
     rounded: {

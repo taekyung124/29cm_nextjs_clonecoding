@@ -1,4 +1,3 @@
-import { Button } from '../../atomic/button/Button';
 import styles from '@/styles/components.module.scss';
 
 type User = {
