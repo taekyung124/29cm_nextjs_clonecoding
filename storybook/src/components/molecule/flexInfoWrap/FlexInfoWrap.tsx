@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/styles/components.module.scss";
+import styles from "@/components/molecule/flexInfoWrap/FlexInfoWrap.module.scss";
 
 export interface FlexInfoWrapProps {
 	align?: 'start' | 'center' | 'end';

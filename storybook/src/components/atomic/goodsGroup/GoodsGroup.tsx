@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/atomic/goodsGroup/GoodsGroup.module.scss';
 
 interface GoodsGroupProps {
 	size? : 'sizeXs' | 'sizeSm' | 'sizeMd' | 'sizeLg' | 'sizeXl' | "size2xl" | "size3xl" | "size4xl" | "size5xl";

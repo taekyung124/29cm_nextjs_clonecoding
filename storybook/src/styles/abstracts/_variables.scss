@@ -1,4 +1,167 @@
-@forward 'easing';
-@forward 'color';
-@forward 'font';
-@forward 'size';
+// =============
+// SIZE
+// =============
+
+// header height
+$wrapperMaxWidth : 500px;
+$headerMoHeight: 56px;
+$headerDesktopHeight: 90px;
+$headerTabletHeight: 127px;
+
+// mobile docker height
+$gnbHeight: 50px;
+$headerHeight: 60px;
+
+// mobile docker height
+$dockerHeight: 70px;
+
+// content padding
+$contGapXl: 60px;
+$contGapLg: 50px;
+$contGapMd: 30px;
+$contGapSm: 20px;
+
+
+// 상품 썸네일 사이즈
+$thumbRatio1by1Height : 100%;
+$thumbRatio3by4Height : 133.3%;
+$thumbRatio4by3Height : 75%;
+
+// =============
+// COLOR
+// =============
+/* 기본 컬러칩 */
+$colorRed: #D93B3B;
+$colorBlack: #000;
+$colorWhite: #fff;
+
+// 그린 색상
+$colorGreen : #012E29;
+$colorGreen80 : #345854;
+$colorGreen60 : #67827F;
+$colorGreen40 : #99ABA9;
+$colorGreen20 : #CCD5D4;
+$colorGreen10 : #E6EAEA;
+$colorGreen06 : #F0F2F2;
+
+// 골드 색상
+$colorGold : #B79683;
+$colorGold80 : #C5AB9C;
+$colorGold60 : #D4C0B5;
+$colorGold40 : #E2D5CD;
+$colorGold20 : #F1EAE6;
+$colorGold10 : #F8F5F3;
+$colorGold06 : #FBF9F8;
+
+// 회색 색상
+$colorGray01: #999;
+$colorGray02: #AAA;
+$colorGray03: #CCC;
+$colorGray04: #D9D9D9;
+$colorGray05: #E9E9E9;
+$colorGray06: #F5F5F5;
+
+// 콘텐츠 색상
+$colorSell: #6E675F; // 내명품팔기
+$colorSellSub: rgba($colorSell, 0.1);
+$colorBand: #2F3647; // 밴드
+$colorPurchase: #7B6363; // 매입
+$colorPurchaseSub: rgba($colorPurchase, 0.1);
+$colorConsign: #C09759; // 위탁
+$colorConsignSub: rgba($colorConsign, 0.1);
+$colorLoan: #5A748E; // 대출
+$colorCare: #37564B; // 명품 케어 서비스
+
+// 폰트 컬러
+$textColorB: $colorBlack;
+$textColorW: $colorWhite;
+$textColorDG: #666;
+$textColorG: $colorGray01;
+$textColorWG: $colorGray02;
+$textColorPoint: $colorGreen;
+$textColorGold: $colorGold;
+$textColorWGold: #CBB19C;
+$textColorRed: $colorRed;
+$textColorSell: $colorSell;
+$textColorBand: $colorBand;
+$textColorPurchase: $colorPurchase;
+$textColorConsign: $colorConsign;
+$textColorLoan: $colorLoan;
+$textColorCare: $colorCare;
+/* // 기본 컬러칩 */
+
+// =============
+// FONT
+// =============
+// 폰트 기본
+$fontDefault: 'Pretendard', "SF Pro Display", AppleSDGothicNeo-Light, Helvetica,"Malgun Gothic", 'MalgunGothic', '맑은고딕', sans-serif !important;
+$fontEngDefault: 'LinotypeDidotStd', serif !important;
+$letterSpacing: -.001em; // -10
+
+//폰트 굵기 4step
+$fontWeightLight: 300;
+$fontWeightRegular: 400;
+$fontWeightMedium: 500;
+$fontWeightSemibold: 600;
+
+$fontWeightEngBold: 700;
+
+
+//폰트 레벨
+//title
+$fontSize5xl: 26px;
+$fontSize5xlLineHeight: 37px;
+
+$fontSize4xl: 22px;
+$fontSize4xlLineHeight: 32px;
+
+$fontSize3xl: 20px;
+$fontSize3xlLineHeight: 30px;
+
+$fontSize2xl: 18px;
+$fontSize2xlLineHeight: 27px;
+
+$fontSizeXl: 16px;
+$fontSizeXlLineHeight: 25px;
+
+$fontSizeLg: 15px;
+$fontSizeLgLineHeight: 24px;
+
+
+//body
+$fontSizeMd: 14px;
+$fontSizeMdLineHeight: 21px;
+
+$fontSizeSm: 13px;
+$fontSizeSmLineHeight: 18px;
+
+$fontSizeXs: 12px;
+$fontSizeXsLineHeight: 16px;
+
+$fontSize2Xs: 11px;
+$fontSize2XsLineHeight: 15px;
+
+$fontSize3Xs: 10px;
+$fontSize3XsLineHeight: 14px;
+
+$fontSize4Xs: 9px;
+$fontSize4XsLineHeight: 13px;
+
+//eng
+$fontSizeEngLg: 32px;
+$fontSizeEngLgLineHeight: 35px;
+
+$fontSizeEngMd: 28px;
+$fontSizeEngMdLineHeight: 31px;
+
+$fontSizeEngSm: 26px;
+$fontSizeEngSmLineHeight: 29px;
+
+// =============
+// EASING
+// =============
+// easing
+$transEaseBounceBack: cubic-bezier(.17, .67, .29, 1.32);
+$easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+$easeInQuad: cubic-bezier(0.11, 0, 0.5, 0);
+$easeInOutQuad: cubic-bezier(0.45, 0, 0.55, 1);

@@ -1,0 +1,101 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+/* button */
+a, button {
+	&[disabled], &[aria-disabled=true], &.disabled {
+		pointer-events: none !important;
+		cursor: default !important;
+		text-decoration: none !important;
+
+		* {
+			text-decoration: none !important;
+		}
+	}
+}
+
+%btnCommon {
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+
+	.text {
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+	}
+}
+
+// textButton
+.tBtn {
+	display: inline-block;
+	vertical-align: top;
+
+	.text {
+		display: inline-block;
+		vertical-align: top;
+
+		~ .ico {
+			margin-left: 4px;
+		}
+	}
+
+	.ico {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		vertical-align: top;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		~ .text {
+			margin-left: 4px;
+		}
+	}
+
+	// size
+	&.md {
+		.text {
+			@include mixins.font_size_sm;
+		}
+		.ico {
+			margin-top: 1px;
+		}
+	}
+	&.lg {
+		.text {
+			@include mixins.font_size_md; //21
+		}
+		.ico {
+			margin-top: 2px;
+		}
+	}
+
+	//color
+	&.gray {
+		.text {
+			color: variables.$textColorDG;
+		}
+	}
+	&.black {
+		.text {
+			color: variables.$textColorB;
+			font-weight: variables.$fontWeightMedium;
+		}
+	}
+
+	// underline
+	&.udlLink {
+		.text {
+			text-decoration: underline;
+			word-break: break-all;
+		}
+	}
+
+	// disabled
+	&[disabled], &[aria-disabled=true], &.disabled {
+		opacity: 0.3;
+	}
+}

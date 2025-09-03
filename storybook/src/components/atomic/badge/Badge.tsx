@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/atomic/badge/Badge.module.scss';
 
 interface BadgeProps {
 	size?: 'sm' | 'md' | 'lg' | 'xl';

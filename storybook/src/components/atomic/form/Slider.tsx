@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/atomic/form/FormElemnent.module.scss';
+
 import {Input} from "@/components/atomic/form/Input";
 import {GoodsGroup} from "@/components/atomic/goodsGroup/GoodsGroup";
 

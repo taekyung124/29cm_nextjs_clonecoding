@@ -1,9 +1,8 @@
 @use 'sass:map';
-@use '../abstracts/variables';
-@use '../abstracts/mixins';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
 
 // goods-group
-
 .goodsGroup { // 기본 14px
 	@include mixins.justify_width(start, center, row, true);
     font-size: inherit;

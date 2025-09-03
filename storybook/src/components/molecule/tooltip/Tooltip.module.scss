@@ -1,6 +1,6 @@
 @use 'sass:map';
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins';
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins';
 
 .tooltipWrap {
 	position: relative;

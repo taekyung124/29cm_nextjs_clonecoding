@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/molecule/btnWrap/BtnWrap.module.scss';
 
 interface BtnWrapProps {
 	mt?: 'zero' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';

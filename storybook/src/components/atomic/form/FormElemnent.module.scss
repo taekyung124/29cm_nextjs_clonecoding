@@ -1,6 +1,6 @@
 @use 'sass:map';
-@use '../abstracts/variables';
-@use '../abstracts/mixins';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
 
 // input
 .uiInput {
@@ -484,37 +484,6 @@
 	}
 }
 
-// inputFlexGroup
-.inputFlexGroup {
-	@include mixins.justify_width(stretch);
-	flex-wrap: wrap;
-
-	.inputGroup, .uiSelect {
-		flex: 1;
-
-		~ .uiSelect {
-			margin-left: 10px;
-		}
-
-		~ .inputGroup {
-			margin: {
-				top: 0;
-				left: 5px;
-			}
-		}
-	}
-
-	.gap {
-		align-self: center;
-		display: inline-block;
-		margin-left: 10px;
-		@include mixins.font_size_md;
-		color: variables.$textColorB;
-		text-align: center;
-		vertical-align: top;
-	}
-}
-
 // textarea
 .textareaBox {
 	overflow: hidden;
@@ -578,6 +547,7 @@
 	}
 }
 
+// checkbox, radio
 %rdoChkReset {
 	position: relative;
 	display: inline-block;
@@ -814,62 +784,5 @@
 				animation: none;
 			}
 		}
-	}
-}
-
-.chkRdoList {
-	&Sm, &Md {
-		&.colType {
-			@include mixins.justify_width(start, center,column);
-
-			.item {
-				width: 100%;
-			}
-		}
-		&.rowType {
-			@include mixins.justify_width(center, start);
-			flex-wrap: wrap;
-			row-gap: 14px;
-		}
-
-		&.taTop {
-			.uiChk, .uiRdo {
-				input {
-					+ label {
-						&:before {
-							top: 0;
-							transform: initial;
-						}
-					}
-				}
-			}
-			.uiChk {
-				input {
-					+ label {
-						&:after {
-							top: 0;
-							transform: initial;
-						}
-					}
-				}
-			}
-
-			.uiRdo {
-				input {
-					+ label {
-						&:after {
-							top: 7px;
-							transform: initial;
-						}
-					}
-				}
-			}
-		}
-	}
-	&Sm {
-		gap: 14px
-	}
-	&Md {
-		gap: 24px
 	}
 }

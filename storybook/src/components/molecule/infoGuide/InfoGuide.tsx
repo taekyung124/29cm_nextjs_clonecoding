@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/styles/components.module.scss";
+import styles from "@/components/molecule/infoGuide/InfoGuide.module.scss";
 
 import {Title} from '@/components/atomic/title/Title';
 import {Box, BoxProps} from "@/components/atomic/box/Box";

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/atomic/form/FormElemnent.module.scss';
 
 export interface InputProps {
 	boxType?: undefined | 'line' | 'gray-search';

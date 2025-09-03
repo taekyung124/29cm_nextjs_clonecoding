@@ -2,56 +2,303 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
 
-// FlexInfoWrap
-.flexInfoWrap {
-	@include mixins.justify_width;
+// ===============================
+// Typography
+// ===============================
 
-	.rightArea {
-		margin-left: auto;
-		flex-shrink: 0;
-		text-align: right;
+// colors
+.fcSpot { color: variables.$colorGreen !important; }
+.fcRed { color: variables.$colorRed !important; }
+.fcBlack { color: variables.$colorBlack !important; }
+.fcDarkGray { color: variables.$textColorDG !important; }
+.fcGray { color: variables.$textColorG !important; }
+.fcWhite { color: variables.$colorWhite !important; }
+.fcSell { color: variables.$colorSell !important; }
+.fcBand { color: variables.$colorBand !important; }
 
-		&.center {
-			align-self: center;
+// font weight
+.fwLt { font-weight: variables.$fontWeightLight !important; }
+.fwMd { font-weight: variables.$fontWeightMedium !important; }
+.fwSb { font-weight: variables.$fontWeightSemibold !important; }
+
+// text align
+.taLeft { text-align: left !important; }
+.taCenter { text-align: center !important; }
+.taRight { text-align: right !important; }
+
+// ellipsis
+.multiEllipsis {
+	@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
+	font-weight: inherit;
+}
+
+// stext
+%textBreak { @include mixins.word_break; }
+
+.stextSm { //13px
+	color: variables.$textColorDG;
+	@include mixins.font_size_sm('body');
+	@extend %textBreak;
+}
+.stextSmBlack { //13px - B
+	width: 100%;
+	color: variables.$textColorB;
+	@include mixins.font_size_sm('body');
+	@extend %textBreak;
+}
+.stextSmSpot { //13px - Green
+	width: 100%;
+	color: variables.$textColorPoint;
+	@include mixins.font_size_sm;
+	@extend %textBreak;
+}
+.stextSmRed { //13px - red - bold
+	width: 100%;
+	color: variables.$textColorRed;
+	@include mixins.font_size_sm('md');
+	@extend %textBreak;
+}
+.stext { // 14px
+	color: variables.$textColorDG;
+	@include mixins.font_size_md('body');
+	@extend %textBreak;
+}
+.stextBlack { //14px - B
+	color: variables.$textColorB;
+	@include mixins.font_size_md('body');
+	@extend %textBreak;
+}
+.stextBold { //14px - B - bold
+	color: variables.$textColorB;
+	@include mixins.font_size_md('md');
+	@extend %textBreak;
+}
+.stextLg { // 16px
+	width: 100%;
+	@include mixins.font_size_xl;
+	@extend %textBreak;
+}
+
+// ===============================
+// BarGroup
+// ===============================
+.dotText, .dotTextRed, .dotTextLg,
+.dashText, .dashTextSm, .dashTextLg, .dashTextGray,
+.decimalText {
+	position: relative;
+	display: block;
+	@include mixins.word_break;
+}
+
+%dotText {
+	padding-left: 8px;
+
+	&:before {
+		display: block;
+		position: absolute;
+		left: 0;
+		content: '';
+		top: 8px;
+		width: 2px;
+		height: 2px;
+		border-radius: 2px;
+	}
+
+	.flex-info-wrap {
+		.stext-black {
+			margin-right: 15px;
 		}
-		&.end {
-			align-self: flex-end;
+	}
+
+	.fc-red {
+		font-weight: inherit;
+	}
+}
+
+%dashText {
+	padding: {
+		left: 8px;
+	}
+
+	&:before {
+		display: block;
+		position: absolute;
+		left: 0;
+		content: '-';
+		top: 0;
+	}
+}
+
+%udlText {
+	display: inline-block;
+	text-decoration: underline;
+	@include mixins.word_break;
+	vertical-align: top;
+}
+
+
+// dot-text
+.dotText {
+	@extend %dotText;
+	color: variables.$textColorDG;
+	@include mixins.font_size_sm;
+
+	&:before {
+		background-color: variables.$textColorDG;
+	}
+
+	&Lg {
+		@extend %dotText;
+		@include mixins.font_size_md;
+
+		&:before {
+			background-color: variables.$colorBlack;
+		}
+	}
+
+	&Red {
+		@extend %dotText;
+		color: variables.$textColorRed;
+		@include mixins.font_size_sm;
+
+		&:before {
+			background-color: variables.$textColorRed;
 		}
 	}
 }
 
-// bubbleBox
-.bubbleBox {
-	position: absolute;
-	z-index: 3;
-	max-width: 280px;
-	padding: 7px 12px;
-	border-radius: 5px;
-	background-color: variables.$colorGold;
-	text-align: left;
+// dash-text
+.dashText {
+	@extend %dashText;
+	@include mixins.font_size_sm;
 
-	.bubbleText {
-		display: inline-block;
+	&Sm {
+		@extend %dashText;
 		@include mixins.font_size_xs;
-		color: variables.$colorWhite;
-        vertical-align: top;
 	}
 
-	&:after {
-        content: '';
-        position: absolute;
-        left: 21px;
-        bottom: -3px;
-        @include mixins.prefix(transform, rotate(-45deg));
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        background-color: variables.$colorGold;
-    }
+	&Lg {
+		@extend %dashText;
+		@include mixins.font_size_md;
+	}
+
+	&Gray {
+		@extend %dashText;
+		@include mixins.font_size_sm;
+		color: variables.$textColorDG;
+	}
 }
 
-.bubbleBox-posBottom {
+// decimal-text
+.decimalText {
+	padding-left: 15px;
+	font-weight: variables.$fontWeightLight;
+	color: variables.$textColorDG;
+	text-indent: -15px;
+}
+
+// udl-text
+.udlText {
+	@extend %udlText;
+	@include mixins.font_size_sm;
+	color: variables.$textColorDG;
+
+	&Black {
+		@extend %udlText;
+		@include mixins.font_size_sm;
+		color: variables.$textColorB;
+		font-weight: variables.$fontWeightMedium;
+	}
+
+	&Lg {
+		@extend %udlText;
+		@include mixins.font_size_md;
+		color: variables.$textColorDG;
+
+		&Black {
+			@extend %udlText;
+			@include mixins.font_size_md;
+			color: variables.$textColorB;
+		}
+	}
+}
+
+// ===============================
+// BarGroup
+// ===============================
+%barStyle {
+	display: inline-block;
+	@include mixins.font_size_md;
+	color: variables.$textColorDG;
+	vertical-align: top;
+
 	&:after {
-		top: -3px;
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 10px;
+		margin: 5px 10px 0;
+		background-color: variables.$colorGray05;
+		vertical-align: top;
+	}
+
+	&:last-child {
+		&:after {
+			content: initial;
+		}
+	}
+}
+
+.barGroup {
+	@include mixins.justify_width(center, start, row, true);
+	flex-wrap: wrap;
+	margin-top: 10px;
+
+	.barText {
+		@extend %barStyle;
+
+		&Sm {
+			@extend %barStyle;
+			@include mixins.font_size_sm;
+		}
+
+		&Lg {
+			@extend %barStyle;
+			@include mixins.font_size_md('md');
+			color: variables.$textColorB;
+		}
+	}
+}
+
+// ===============================
+// inputFlexGroup
+// ===============================
+.inputFlexGroup {
+	@include mixins.justify_width(stretch);
+	flex-wrap: wrap;
+
+	.inputGroup, .uiSelect {
+		flex: 1;
+
+		~ .uiSelect {
+			margin-left: 10px;
+		}
+
+		~ .inputGroup {
+			margin: {
+				top: 0;
+				left: 5px;
+			}
+		}
+	}
+
+	.gap {
+		align-self: center;
+		display: inline-block;
+		margin-left: 10px;
+		@include mixins.font_size_md;
+		color: variables.$textColorB;
+		text-align: center;
+		vertical-align: top;
 	}
 }

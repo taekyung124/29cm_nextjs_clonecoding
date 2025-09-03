@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/atomic/tag/Tag.module.scss';
 
 interface TagProps {
 	size?: 'sm' | 'md';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/atomic/textButton/TextButton.module.scss';
 
 type CommonProps = {
 	color?: 'gray' | 'black';

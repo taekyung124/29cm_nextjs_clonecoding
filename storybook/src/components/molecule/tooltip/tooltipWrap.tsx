@@ -1,4 +1,4 @@
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/molecule/tooltip/Tooltip.module.scss';
 
 export interface TooltipWrapProps {
 	children?: React.ReactNode;

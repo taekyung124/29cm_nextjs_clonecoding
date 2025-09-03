@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/styles/components.module.scss";
+import styles from "@/components/molecule/noData/NoData.module.scss";
 
 import {Box, BoxProps} from '@/components/atomic/box/Box';
 import {BtnWrap} from '@/components/molecule/btnWrap/BtnWrap';

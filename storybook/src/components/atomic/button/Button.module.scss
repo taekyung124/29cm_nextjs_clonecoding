@@ -1,0 +1,318 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+/* button */
+a, button {
+	&[disabled], &[aria-disabled=true], &.disabled {
+		pointer-events: none !important;
+		cursor: default !important;
+		text-decoration: none !important;
+
+		* {
+			text-decoration: none !important;
+		}
+	}
+}
+
+%btnCommon {
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+
+	.text {
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+	}
+}
+
+// Button
+.btn, .btnRound {
+	@extend %btnCommon;
+	@include mixins.justify_width(center, center, row, true);
+	border-radius: 4px;
+
+	.ico {
+		display: inline-block;
+		vertical-align: top;
+		width: 14px;
+		height: 14px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	// size
+	&.xs  {
+		height: 20px;
+		padding: 2px 6px 1px 7px;
+
+		.text {
+			@include mixins.font_size_2xs;
+
+			~ .ico {
+				margin-left: 6px;
+			}
+		}
+
+		.ico {
+			~ .text {
+				margin-left: 6px;
+			}
+		}
+	}
+	&.sm {
+		min-width: 50px;
+		height: 30px;
+		padding: 0 12px;
+
+		.text {
+			@include mixins.font_size_xs;
+
+			~ .ico {
+				margin-left: 6px;
+			}
+		}
+
+		.ico {
+			~ .text {
+				margin-left: 6px;
+			}
+		}
+	}
+	&.md {
+		height: 40px;
+		padding: 0 20px;
+
+		.text {
+			@include mixins.font_size_sm('md');
+
+			~ .ico {
+				margin-left: 4px;
+			}
+		}
+
+		.ico {
+			@include mixins.device_mobile_ios {
+				margin-top: -1px;
+			}
+
+			~ .text {
+				margin-left: 4px;
+			}
+		}
+	}
+	&.lg {
+		height: 46px;
+		padding: 0 24px;
+
+		.text {
+			@include mixins.font_size_md('md');
+
+			~ .ico {
+				margin-left: 6px;
+			}
+		}
+
+		.ico {
+			~ .text {
+				margin-left: 6px;
+			}
+		}
+	}
+	&.xl {
+		height: 50px;
+		padding: 0 24px;
+
+		.text {
+			@include mixins.font_size_md('sb');
+
+			~ .ico {
+				margin-left: 6px;
+			}
+		}
+
+		.ico {
+			~ .text {
+				margin-left: 6px;
+			}
+		}
+	}
+
+	// color
+	&.lineGray {
+		background-color: variables.$colorWhite;
+		border: 1px solid variables.$colorGray04;
+
+		.text {
+			color: variables.$textColorB;
+		}
+
+		&:active {
+			background-color: #f9f9f9;
+		}
+	}
+
+	&.lineLightGray {
+		background-color: variables.$colorWhite;
+		border: 1px solid variables.$colorGray04;
+
+		.text {
+			color: variables.$textColorDG;
+		}
+
+		&:active {
+			background-color: #f9f9f9;
+		}
+	}
+
+	&.lineGreen {
+		background-color: variables.$colorWhite;
+		border: 1px solid variables.$colorGreen;
+
+		.text {
+			color: variables.$textColorPoint;
+		}
+
+		&:active {
+			background-color: #F0F3F2;
+		}
+	}
+
+	&.lightGray {
+		background-color: variables.$colorGray06;
+		border: 1px solid variables.$colorGray06;
+
+		.text {
+			color: variables.$textColorB;
+		}
+
+		&:active {
+			border: 1px solid #dddddd;
+			background-color: #dddddd;
+		}
+	}
+
+	&.gray {
+		background-color: #E5E5E5;
+		border: 1px solid #E5E5E5;
+
+		.text {
+			color: variables.$textColorB;
+		}
+
+		&:active {
+			border: 1px solid #dddddd;
+			background-color: #dddddd;
+		}
+	}
+
+	&.green {
+		background-color: variables.$colorGreen;
+		border: 1px solid variables.$colorGreen;
+
+		.text {
+			color: variables.$colorWhite;
+		}
+
+		&:active {
+			border: 1px solid #002521;
+			background-color: #002521;
+		}
+	}
+
+	&.white {
+		background-color: variables.$colorWhite;
+		border: 1px solid variables.$colorWhite;
+
+		.text {
+			color: variables.$colorGreen;
+		}
+	}
+
+	&.lineWhite {
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		color: variables.$colorWhite;
+
+		.text {
+			font-weight: variables.$fontWeightLight;
+		}
+	}
+
+	&.gold {
+		background-color: variables.$colorGold;
+		color: variables.$colorWhite;
+	}
+
+	&.sell {
+		background-color: variables.$colorSell;
+		color: variables.$colorWhite;
+	}
+
+	&.lineSell {
+		border: 1px solid variables.$colorSell;
+		background-color: variables.$colorWhite;
+		color: variables.$textColorSell;
+	}
+
+	&.consign {
+		background-color: variables.$colorConsign;
+		color: variables.$colorWhite;
+	}
+
+	&.lineConsign {
+		border: 1px solid variables.$colorConsign;
+		background-color: variables.$colorWhite;
+		color: variables.$colorConsign;
+	}
+
+	&.linePurchase {
+		border: 1px solid variables.$colorPurchase;
+		color: variables.$colorPurchase;
+	}
+
+	&.purchase {
+		background-color: variables.$colorPurchase;
+		color: variables.$colorWhite;
+	}
+
+	&.loan {
+		background-color: variables.$colorLoan;
+
+		.text {
+			color: variables.$colorWhite;
+		}
+	}
+
+	&.band {
+		background-color: variables.$colorBand;
+		color: variables.$colorWhite;
+	}
+
+	// disabled
+	&[disabled], &[aria-disabled=true], &.disabled {
+		opacity: 0.3;
+	}
+}
+.btnRound {
+	&.xs {
+		border-radius: 10px;
+	}
+	&.sm {
+		border-radius: 15px;
+	}
+	&.md {
+		border-radius: 20px;
+
+		.text {
+			font-weight: variables.$fontWeightLight;
+		}
+	}
+	&.lg {
+		border-radius: 30px;
+	}
+	&.xl {
+		border-radius: 50px;
+	}
+}

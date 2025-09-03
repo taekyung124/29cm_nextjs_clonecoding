@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/atomic/button/Button.module.scss';
 
 type CommonProps = {
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';

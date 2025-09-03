@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/molecule/titleWrap/TitleWrap.module.scss';
 
 interface TitleWrapProps {
 	mb?: 'zero' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';

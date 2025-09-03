@@ -1,6 +1,6 @@
 @use 'sass:map';
-@use '../abstracts/variables';
-@use '../abstracts/mixins';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
 
 %badgeCommon {
 	display: inline-block;

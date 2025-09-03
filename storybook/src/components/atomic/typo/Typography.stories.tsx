@@ -1,6 +1,7 @@
 import type {Meta, StoryFn} from '@storybook/nextjs-vite';
 import styles from '@/styles/components.module.scss';
 
+
 const meta = {
 	title: 'CommonStyle/Typography',
 	parameters: {

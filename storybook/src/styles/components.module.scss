@@ -1,28 +1,2 @@
 // common
-@forward 'components/typography.module';
-@forward 'components/textList.module';
-@forward 'components/barGroup.module';
 @forward 'components/common.module';
-
-// atomic
-@forward 'components/title.module';
-@forward 'components/button.module';
-@forward 'components/formElement.module';
-@forward 'components/box.module';
-@forward 'components/goodsGroup.module';
-@forward 'components/badge.module';
-@forward 'components/tag.module';
-
-// molecule
-@forward 'components/tooltip.module';
-@forward 'components/noData.module';
-@forward 'components/infoGuide.module';
-
-// organism
-
-// templates
-
-// layouts
-@forward 'components/layouts.module';
-
-// pages

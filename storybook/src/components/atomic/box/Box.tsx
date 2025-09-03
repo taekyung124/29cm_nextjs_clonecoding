@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/styles/components.module.scss';
+import styles from '@/components/atomic/box/Box.module.scss';
 
 export interface BoxProps {
 	size?: 'xs' | 'sm' | 'md' | 'lg';

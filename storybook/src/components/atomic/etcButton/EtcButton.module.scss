@@ -1,0 +1,134 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+/* button */
+a, button {
+	&[disabled], &[aria-disabled=true], &.disabled {
+		pointer-events: none !important;
+		cursor: default !important;
+		text-decoration: none !important;
+
+		* {
+			text-decoration: none !important;
+		}
+	}
+}
+
+%btnCommon {
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+
+	.text {
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+// etcButton
+.gradeBtn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px !important;
+	height: 60px !important;
+	background-color: variables.$colorGreen;
+	box-shadow: 0 5px 10px 0 rgba(variables.$colorGreen, 0.2);
+
+	.text {
+		font-family: variables.$fontEngDefault;
+		font-weight: variables.$fontWeightEngBold;
+		font-size: 30px;
+		line-height: 33px;
+		letter-spacing: variables.$letterSpacing;
+		color: variables.$textColorW;
+		@include mixins.device_mobile_aos {
+			padding-top: 8px;
+		}
+		&.sm {
+			font-family: variables.$fontEngDefault;
+			font-weight: variables.$fontWeightEngBold;
+			font-size: 16px;
+			line-height: 18px;
+			letter-spacing: variables.$letterSpacing;
+			color: variables.$textColorW;
+			padding-top: 2px;
+			@include mixins.device_mobile_aos {
+				padding-top: 6px;
+			}
+		}
+	}
+}
+.boxBtn {
+	@include mixins.justify_width(center, between);
+	width: 100%;
+	padding: 20px;
+	border-radius: 4px;
+
+	&.white {
+		height: 70px;
+		background-color: variables.$colorWhite;
+		border: 1px solid variables.$colorGray04;
+		color: variables.$colorBlack;
+
+		.text {
+			display: inline-block;
+			vertical-align: top;
+			@include mixins.font_size_md('md');
+		}
+	}
+
+	&.green {
+		height: 90px;
+		background-color: variables.$colorGreen;
+		border: 1px solid variables.$colorGreen;
+		color: variables.$textColorW;
+
+		.text {
+			display: inline-block;
+			vertical-align: top;
+			@include mixins.font_size_xl;
+		}
+	}
+
+	.icon {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		vertical-align: top;
+	}
+}
+.wishBtn {
+	@extend %btnCommon;
+
+	.icon {
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+.sortBtn {
+	@extend %btnCommon;
+	.text {
+		@include mixins.font_size_sm('md');
+		color: variables.$textColorB;
+	}
+
+	.icon {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		vertical-align: top;
+
+		margin: {
+			top: 2px;
+			left: 2px;
+		}
+	}
+}

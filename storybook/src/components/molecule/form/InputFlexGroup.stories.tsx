@@ -1,5 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/nextjs-vite';
 import styles from '@/styles/components.module.scss';
+
 import {SelectMenu} from '../../atomic/form/SelectMenu';
 import {Input} from '../../atomic/form/Input';
 
