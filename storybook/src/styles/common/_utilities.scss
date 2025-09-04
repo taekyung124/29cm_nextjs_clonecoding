@@ -26,6 +26,9 @@
 .taCenter { text-align: center !important; }
 .taRight { text-align: right !important; }
 
+.vaTop { vertical-align: top !important; }
+.vaMid { vertical-align: middle !important; }
+
 // ellipsis
 .multiEllipsis {
 	@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);

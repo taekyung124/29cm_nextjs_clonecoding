@@ -56,9 +56,9 @@ export const Button: React.FC<ButtonProps> = ({
                 href={disabled ? undefined : href}
                 {...anchorProps}
             >
-                {beforeIcon === 'before' && renderBeforeIcon}
+                {beforeIcon && renderBeforeIcon}
                 {text && <span className={styles.text}>{text}</span>}
-                {afterIcon === 'after' && renderAfterIcon}
+                {afterIcon && renderAfterIcon}
             </a>
         );
     }
@@ -72,9 +72,9 @@ export const Button: React.FC<ButtonProps> = ({
             onClick={onClick}
             {...buttonProps}
         >
-            {beforeIcon === 'before' && renderBeforeIcon}
+            {beforeIcon && renderBeforeIcon}
             {text && <span className={styles.text}>{text}</span>}
-            {afterIcon === 'after' && renderAfterIcon}
+            {afterIcon && renderAfterIcon}
         </button>
     )
 }

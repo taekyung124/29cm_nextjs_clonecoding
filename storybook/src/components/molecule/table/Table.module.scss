@@ -1,0 +1,312 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+%tblComm {
+	border-collapse: separate;
+
+	tr {
+		th, td {
+			padding: 14px 12px;
+			@include mixins.font_size_sm;
+			vertical-align: middle;
+		}
+
+		th {
+			font-weight: variables.$fontWeightMedium;
+			background-color: variables.$colorGray06;
+		}
+
+		td {
+			background-color: variables.$colorWhite;
+
+			.btn-wrap {
+				margin-top: 6px;
+			}
+
+			&.is-active {
+				position: relative;
+				background-color: variables.$colorGreen10;
+				font-weight: variables.$fontWeightMedium;
+				color: variables.$textColorPoint;
+
+				&:before {
+					content: '';
+					position: absolute;
+					left: -1px;
+					top: -1px;
+					bottom: -1px;
+					right: -1px;
+					border: 1px solid #BCC6C5;
+				}
+			}
+
+			&.va-top {
+				vertical-align: top;
+			}
+		}
+	}
+}
+
+%tblInfo {
+	tr {
+		th, td {
+			@include mixins.font_size_md();
+			text-align: left;
+			vertical-align: top;
+			word-break: break-all;
+			color: variables.$colorBlack;
+		}
+
+		th {
+			font-weight: variables.$fontWeightMedium;
+			@include mixins.word_break;
+		}
+
+		td {
+			font-weight: variables.$fontWeightLight;
+
+			.btn-wrap {
+				margin-top: 6px;
+			}
+
+			.bar-group {
+				margin-top: 0;
+			}
+		}
+
+		~ tr {
+			th {
+				padding: {
+					top: 10px;
+					right: 20px;
+				}
+			}
+
+			td {
+				padding-top: 10px;
+			}
+		}
+	}
+
+	&.infoRight {
+		tr {
+			td {
+				.bar-group {
+					justify-content: flex-end;
+				}
+
+			}
+		}
+	}
+}
+
+.tblWrap {
+	border: 1px solid variables.$colorGray05;
+	border-left: 0;
+
+	.tblRow {
+		@extend %tblComm;
+
+		tr {
+			th:first-child {
+				border-left: 1px solid variables.$colorGray05;
+			}
+		}
+
+		th, td {
+			text-align: left;
+		}
+
+		td {
+			border-left: 1px solid variables.$colorGray05;
+		}
+
+		tr {
+			~ tr {
+				th, td {
+					border-top: 1px solid variables.$colorGray05;
+				}
+			}
+		}
+	}
+
+	.tblCol {
+		@extend %tblComm;
+
+		tr {
+			th, td {
+				text-align: center;
+				border-left: 1px solid variables.$colorGray05;
+			}
+
+			td {
+				border-top: 1px solid variables.$colorGray05;
+			}
+		}
+
+		&Sm {
+			@extend %tblComm;
+
+			tr {
+				th, td {
+					padding: 12px 2px;
+					text-align: center;
+					border-left: 1px solid variables.$colorGray05;
+				}
+
+				td {
+					border-top: 1px solid variables.$colorGray05;
+				}
+			}
+
+			&.sizeTextSm {
+				tr {
+					th, td {
+						@include mixins.font_size_xs;
+					}
+
+					th {
+						font-weight: variables.$fontWeightMedium;
+					}
+				}
+			}
+		}
+	}
+}
+
+.tblNoLineWrap {
+	border-bottom: 1px solid variables.$colorGray05;
+
+	.tblCol {
+		@extend %tblComm;
+
+		th, td {
+			text-align: center;
+			border-top: 1px solid variables.$colorGray05;
+		}
+
+		tfoot {
+			td {
+				border: {
+					top: 1px solid variables.$colorBlack;
+					bottom: 1px solid variables.$colorBlack;
+				};
+				@include mixins.font_size_xl;
+			}
+		}
+	}
+}
+
+.tblInfoWrap {
+	.tblInfo {
+		@extend %tblInfo;
+
+		th {
+			&.va-mid {
+				vertical-align: middle;
+			}
+		}
+
+		td {
+			> span {
+				font-weight: inherit;
+			}
+
+			.overflow-wrap {
+				@include mixins.justify_width();
+
+				.btn-fold {
+					width: 20px;
+					margin: {
+						top: 0;
+						left: 10px;
+					}
+					padding: 0;
+					border-top: 0;
+
+					.ico-arw-bottom-20 {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.tblInfoSm {
+		@extend %tblInfo;
+
+		tr {
+			th, td {
+				@include mixins.font_size_sm();
+				color: variables.$textColorDG;
+			}
+
+			th {
+				font-weight: variables.$fontWeightLight;
+
+				&.va-mid {
+					vertical-align: middle;
+				}
+			}
+
+			td {
+				color: variables.$colorBlack;
+			}
+
+			~ tr {
+				th {
+					padding: {
+						top: 6px;
+					}
+				}
+
+				td {
+					padding-top: 6px;
+				}
+			}
+		}
+	}
+
+	.priceInfoFooter {
+		margin-top: variables.$contGapSm;
+	}
+
+	&.lineTop {
+		padding-top: 20px;
+		border-top: 1px solid variables.$colorGray05;
+	}
+	&.infoRight {
+		.tblInfo {
+			th {
+				font-weight: variables.$fontWeightLight;
+				color: variables.$textColorDG;
+			}
+
+			tr td {
+				text-align: right;
+			}
+		}
+	}
+	&.infoRight {
+		.tblInfoSm {
+			tr {
+				td {
+					text-align: right;
+				}
+			}
+
+			tr {
+				~ tr {
+					th {
+						padding-top: 10px;
+					}
+
+					td {
+						padding-top: 10px;
+					}
+				}
+			}
+		}
+	}
+}
