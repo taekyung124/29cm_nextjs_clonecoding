@@ -1,9 +1,9 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import styles from '@/styles/components.module.scss';
 
 import {InfoGuide} from "@/components/molecule/infoGuide/InfoGuide";
 import {Button} from "@/components/atomic/button/Button";
+import {Stext} from "@/components/atomic/stext/Stext";
 
 const meta = {
 	title: 'Molecule/InfoGuide',
@@ -48,15 +48,15 @@ export const Default: Story = {
 		type: 'alert',
 		pt: 'md',
 		desc: (
-			<>info guide 안내 문구<br /><span className={styles.fcRed}>강조 문구</span> 추가</>
+			<>info guide 안내 문구<br /><span className={'fcRed'}>강조 문구</span> 추가</>
 		),
 		subDesc: (
-			<>info guide 서브 문구<br /><span className={styles.fwSb}>강조 문구</span> 추가</>
+			<>info guide 서브 문구<br /><span className={'fwSb'}>강조 문구</span> 추가</>
 		),
 		box: (
 			<>
-				<div className={styles.stextSmRed}>2023년 4월 26일 19시까지 미방문시 자동 취소됩니다.</div>
-				<div className={[styles.stextSmRed, styles.fwLt].join(' ')}>(허수구매율 부과)</div>
+				<Stext size={'Sm'} color={'Red'} text={'2023년 4월 26일 19시까지 미방문시 자동 취소됩니다.'}/>
+				<Stext size={'Sm'} color={'Red'} addClass={'fwLt'} text={'(허수구매율 부과)'} />
 			</>
 		),
 		boxColor: 'red',

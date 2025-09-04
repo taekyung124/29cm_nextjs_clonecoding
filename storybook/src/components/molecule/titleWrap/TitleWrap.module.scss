@@ -39,13 +39,13 @@
 		width: 100%;
 	}
 
-	.ctitleEngLg {
+	/*.ctitle.eng.lg {
 		~ .stext, ~ .stextSm, ~ .stextBold {
 			margin-top: 12px;
 		}
 	}
 
-	.ctitle, .ctitleSm {
+	.ctitle, .ctitle.sm {
 		~ .stext, ~ .stextBold {
 			margin-top: 12px;
 		}
@@ -55,11 +55,11 @@
 		}
 	}
 
-	.ctitleLg, .ctitleXl {
+	.ctitle.lg, .ctitle.xl {
 		~ .stext, ~ .stextSm, ~ .stextBold {
 			margin-top: 14px;
 		}
-	}
+	}*/
 
 	.ctitleSub {
 		margin-bottom: 10px;

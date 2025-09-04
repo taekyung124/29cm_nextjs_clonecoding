@@ -1,0 +1,144 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+// stext
+%stext {
+	width: 100%;
+	@include mixins.font_size_md;
+	@include mixins.word_break;
+}
+%stextSm {
+	width: 100%;
+	@include mixins.font_size_sm;
+	@include mixins.word_break;
+}
+%stextLg {
+	width: 100%;
+	@include mixins.font_size_xl;
+	@include mixins.word_break;
+}
+
+.stextSm { //13px
+	@extend %stextSm;
+	color: variables.$textColorDG;
+	&Bold {
+		@extend %stextSm;
+		font-weight: variables.$fontWeightMedium;
+		color: variables.$textColorDG;
+	}
+}
+.stextSmBlack { //13px - B
+	@extend %stextSm;
+	color: variables.$textColorB;
+	&Bold {
+		@extend %stextSm;
+		font-weight: variables.$fontWeightMedium;
+		color: variables.$textColorB;
+	}
+}
+.stextSmSpot { //13px - Green
+	@extend %stextSm;
+	color: variables.$textColorPoint;
+	&Bold {
+		@extend %stextSm;
+		font-weight: variables.$fontWeightMedium;
+		color: variables.$textColorPoint;
+	}
+}
+.stextSmRed { //13px - red - bold
+	@extend %stextSm;
+	color: variables.$textColorRed;
+	&Bold {
+		@extend %stextSm;
+		font-weight: variables.$fontWeightMedium;
+		color: variables.$textColorRed;
+	}
+}
+
+.stext { //14px
+	@extend %stext;
+	color: variables.$textColorDG;
+	&Bold {
+		@extend %stext;
+		font-weight: variables.$fontWeightMedium;
+		color: variables.$textColorDG;
+	}
+}
+.stextBlack { //14px - B
+	@extend %stext;
+	color: variables.$textColorB;
+	&Bold {
+		@extend %stext;
+		font-weight: variables.$fontWeightMedium;
+		color: variables.$textColorB;
+	}
+}
+.stextSpot { //14px - Green
+	@extend %stext;
+	color: variables.$textColorPoint;
+	&Bold {
+		@extend %stext;
+		font-weight: variables.$fontWeightMedium;
+		color: variables.$textColorPoint;
+	}
+}
+.stextRed { //14px - red
+	@extend %stext;
+	color: variables.$textColorRed;
+	&Bold {
+		@extend %stext;
+		font-weight: variables.$fontWeightMedium;
+		color: variables.$textColorRed;
+	}
+}
+
+.stextLg { //16px
+	@extend %stextLg;
+	color: variables.$textColorDG;
+	&Bold {
+		@extend %stextLg;
+		font-weight: variables.$fontWeightSemibold;
+		color: variables.$textColorDG;
+	}
+}
+.stextLgBlack { //16px - B
+	@extend %stextLg;
+	color: variables.$textColorB;
+	&Bold {
+		@extend %stextLg;
+		font-weight: variables.$fontWeightSemibold;
+		color: variables.$textColorB;
+	}
+}
+.stextLgSpot { //16px - Green
+	@extend %stextLg;
+	color: variables.$textColorPoint;
+	&Bold {
+		@extend %stextLg;
+		font-weight: variables.$fontWeightSemibold;
+		color: variables.$textColorPoint;
+	}
+}
+.stextLgRed { //16px - red
+	@extend %stextLg;
+	color: variables.$textColorRed;
+	&Bold {
+		@extend %stextLg;
+		font-weight: variables.$fontWeightSemibold;
+		color: variables.$textColorRed;
+	}
+}
+
+// mt
+[class*=stext] {
+	&.sm {
+		margin-top: 6px;
+	}
+	&.md {
+		margin-top: 12px;
+	}
+	&.lg {
+		margin-top: 16px;
+	}
+}

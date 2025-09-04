@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from '@/components/atomic/title/Title.module.scss';
 
 interface TitleProps {
-	type? : 'ctitle' | 'stitle' ;
+	type? : 'ctitle' | 'ctitleSub' | 'stitle' ;
 	size? : 'sm' | 'md' | 'lg' | 'xl';
 	lang? : 'kor' | 'eng';
 	text?: string | React.ReactNode;

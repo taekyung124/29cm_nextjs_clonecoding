@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import styles from '@/styles/components.module.scss';
 
 import {NoData} from "@/components/molecule/noData/NoData";
 import {Button} from '@/components/atomic/button/Button';
 import {Title} from '@/components/atomic/title/Title';
+import {Stext} from '@/components/atomic/stext/Stext';
 
 const meta = {
 	title: 'Molecule/NoData',
@@ -53,10 +53,7 @@ export const Default: Story = {
 		box: (
 			<>
 				<Title type={'stitle'} size={'md'} text={'업데이트 미리보기 가능 시간'} />
-				<div className={styles.stextSm}>
-					앱 : 오후 8시~익일 오전 11시
-					<br />웹 : 오후 8시 30분~익일 오전 11시
-				</div>
+				<Stext size={'Sm'} text={<>앱 : 오후 8시~익일 오전 11시<br />웹 : 오후 8시 30분~익일 오전 11시</>} />
 			</>
 		),
 		boxColor: 'gray',

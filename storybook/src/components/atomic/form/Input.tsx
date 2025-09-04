@@ -86,6 +86,7 @@ export const Input: React.FC<InputProps> = ({
 			styles.validCheck,
 			styles[boxType ?? ''],
 			styles[isValidCheck ?? ''],
+			`__input`
 		].join(' ')}>
 			<div className={wrapperClassName}>
 				<input

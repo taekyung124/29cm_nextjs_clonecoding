@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import styles from "@/styles/components.module.scss";
 
 import {FlexInfoWrap} from './FlexInfoWrap';
 import {TitleWrap} from "@/components/molecule/titleWrap/TitleWrap";
 import {Title} from "@/components/atomic/title/Title";
+import {Stext} from "@/components/atomic/stext/Stext";
 import {Button} from "@/components/atomic/button/Button";
 
 const meta = {
@@ -42,9 +42,9 @@ export const Default: Story = {
 				leftArea={
 					<TitleWrap child={
 						<>
-							<p className={styles.ctitleSub}>ctitleSub 입니다. 하단 여백 10px을 가집니다.</p>
+							<Title type={'ctitleSub'} text={'ctitleSub 입니다. 하단 여백 10px을 가집니다.'} />
 							<Title size={'xl'} text={'ctitleXl 입니다.'}/>
-							<p className={styles.stext}>stext 입니다. ctitleXl 다음에 오는 경우 상단여백 14px을 가집니다.</p>
+							<Stext mt={'lg'} text={'stext 입니다. ctitleXl 다음에 오는 경우 상단여백 14px을 가집니다.'} />
 						</>
 					}/>
 				}

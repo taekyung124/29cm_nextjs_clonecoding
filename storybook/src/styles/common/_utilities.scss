@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+// ===============================
+// Typography
+// ===============================
+
+// colors
+.fcSpot { color: variables.$colorGreen !important; }
+.fcRed { color: variables.$colorRed !important; }
+.fcBlack { color: variables.$colorBlack !important; }
+.fcDarkGray { color: variables.$textColorDG !important; }
+.fcGray { color: variables.$textColorG !important; }
+.fcWhite { color: variables.$colorWhite !important; }
+.fcSell { color: variables.$colorSell !important; }
+.fcBand { color: variables.$colorBand !important; }
+
+// font weight
+.fwLt { font-weight: variables.$fontWeightLight !important; }
+.fwMd { font-weight: variables.$fontWeightMedium !important; }
+.fwSb { font-weight: variables.$fontWeightSemibold !important; }
+
+// text align
+.taLeft { text-align: left !important; }
+.taCenter { text-align: center !important; }
+.taRight { text-align: right !important; }
+
+// ellipsis
+.multiEllipsis {
+	@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
+	font-weight: inherit;
+}
+
+.offscreen {
+	position: absolute !important;
+	display: block;
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	clip: rect(1px, 1px, 1px, 1px);
+	font-size: 14px !important;
+}

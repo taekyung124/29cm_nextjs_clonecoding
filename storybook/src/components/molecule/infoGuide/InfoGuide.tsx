@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from "@/components/molecule/infoGuide/InfoGuide.module.scss";
 
 import {Title} from '@/components/atomic/title/Title';
+import {Stext} from "@/components/atomic/stext/Stext";
 import {Box, BoxProps} from "@/components/atomic/box/Box";
 import {BtnWrap} from '@/components/molecule/btnWrap/BtnWrap';
 import {TitleWrap} from "@/components/molecule/titleWrap/TitleWrap";
@@ -47,8 +48,8 @@ export const InfoGuide:React.FC<InfoGuideProps> = ({
 			)}
 			<TitleWrap child={
 				<>
-				<Title size={'lg'} text={desc} />
-					<p className={styles.stext}>{subDesc}</p>
+					<Title size={'lg'} text={desc} />
+					<Stext text={subDesc} />
 				</>
 			}/>
 			{(box && type !== 'celebrate') && (

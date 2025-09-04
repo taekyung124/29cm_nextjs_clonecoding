@@ -32,7 +32,8 @@ export const SelectMenu: React.FC<SelectMenuProps> = ({
 	return (
 		<div className={[
 			styles.uiSelect,
-			styles[type ?? '']
+			styles[type ?? ''],
+			`__select`
 		].join(' ')}>
 			<select title={title} disabled={disabled} onChange={handleChange} value={value}>
 				<option value={''} disabled hidden>

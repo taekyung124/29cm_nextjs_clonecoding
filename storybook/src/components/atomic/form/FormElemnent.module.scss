@@ -434,52 +434,48 @@
 	}
 	.valueTextBox {
 		@include mixins.justify_width(center, between);
-		margin-top: 18px;
+		margin: {
+			top: 18px;
+			bottom: 14px;
+		}
+
 		> span {
 			user-select:none;
 			color: variables.$textColorPoint;
 		}
 	}
-	.inputFlexGroup {
-		width: 100%;
-		margin-top: 14px;
+	.inputGroup {
+		.inputBox {
+			flex: 1;
+			align-items: center;
+			height: 40px;
+			padding-right: 14px;
+			border-radius: 4px;
 
-		.inputGroup {
-			.inputBox {
-				flex: 1;
-				align-items: center;
-				height: 40px;
-				padding-right: 14px;
-				border-radius: 4px;
-
-				&.hasValue {
-					.uiInput {
-						font-weight: variables.$fontWeightMedium;
-						color: variables.$textColorB;
-					}
-				}
+			&.hasValue {
 				.uiInput {
-					height: 38px;
-					padding-right: 6px;
-					text-align: right;
-				}
-
-				.sliderUnit {
-					flex-shrink: 0;
-					display: inline-block;
-					text-align: right;
-					vertical-align: top;
-					@include mixins.font_size_sm('md');
+					font-weight: variables.$fontWeightMedium;
 					color: variables.$textColorB;
-
-					&::placeholder {
-						font-weight: variables.$fontWeightMedium;
-					}
 				}
 			}
-		}
-		.gap {
-			margin-left: 5px;
+			.uiInput {
+				height: 38px;
+				padding-right: 6px;
+				text-align: right;
+			}
+
+			.sliderUnit {
+				flex-shrink: 0;
+				display: inline-block;
+				text-align: right;
+				vertical-align: top;
+				@include mixins.font_size_sm('md');
+				color: variables.$textColorB;
+
+				&::placeholder {
+					font-weight: variables.$fontWeightMedium;
+				}
+			}
 		}
 	}
 }

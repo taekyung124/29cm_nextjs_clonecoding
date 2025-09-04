@@ -3,83 +3,6 @@
 @use '../abstracts/mixins';
 
 // ===============================
-// Typography
-// ===============================
-
-// colors
-.fcSpot { color: variables.$colorGreen !important; }
-.fcRed { color: variables.$colorRed !important; }
-.fcBlack { color: variables.$colorBlack !important; }
-.fcDarkGray { color: variables.$textColorDG !important; }
-.fcGray { color: variables.$textColorG !important; }
-.fcWhite { color: variables.$colorWhite !important; }
-.fcSell { color: variables.$colorSell !important; }
-.fcBand { color: variables.$colorBand !important; }
-
-// font weight
-.fwLt { font-weight: variables.$fontWeightLight !important; }
-.fwMd { font-weight: variables.$fontWeightMedium !important; }
-.fwSb { font-weight: variables.$fontWeightSemibold !important; }
-
-// text align
-.taLeft { text-align: left !important; }
-.taCenter { text-align: center !important; }
-.taRight { text-align: right !important; }
-
-// ellipsis
-.multiEllipsis {
-	@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
-	font-weight: inherit;
-}
-
-// stext
-%textBreak { @include mixins.word_break; }
-
-.stextSm { //13px
-	color: variables.$textColorDG;
-	@include mixins.font_size_sm('body');
-	@extend %textBreak;
-}
-.stextSmBlack { //13px - B
-	width: 100%;
-	color: variables.$textColorB;
-	@include mixins.font_size_sm('body');
-	@extend %textBreak;
-}
-.stextSmSpot { //13px - Green
-	width: 100%;
-	color: variables.$textColorPoint;
-	@include mixins.font_size_sm;
-	@extend %textBreak;
-}
-.stextSmRed { //13px - red - bold
-	width: 100%;
-	color: variables.$textColorRed;
-	@include mixins.font_size_sm('md');
-	@extend %textBreak;
-}
-.stext { // 14px
-	color: variables.$textColorDG;
-	@include mixins.font_size_md('body');
-	@extend %textBreak;
-}
-.stextBlack { //14px - B
-	color: variables.$textColorB;
-	@include mixins.font_size_md('body');
-	@extend %textBreak;
-}
-.stextBold { //14px - B - bold
-	color: variables.$textColorB;
-	@include mixins.font_size_md('md');
-	@extend %textBreak;
-}
-.stextLg { // 16px
-	width: 100%;
-	@include mixins.font_size_xl;
-	@extend %textBreak;
-}
-
-// ===============================
 // BarGroup
 // ===============================
 .dotText, .dotTextRed, .dotTextLg,
@@ -277,14 +200,14 @@
 	@include mixins.justify_width(stretch);
 	flex-wrap: wrap;
 
-	.inputGroup, .uiSelect {
+	.__input, .__select {
 		flex: 1;
 
-		~ .uiSelect {
+		~ .__select {
 			margin-left: 10px;
 		}
 
-		~ .inputGroup {
+		~ .__input {
 			margin: {
 				top: 0;
 				left: 5px;
@@ -300,5 +223,11 @@
 		color: variables.$textColorB;
 		text-align: center;
 		vertical-align: top;
+	}
+
+	&:has(> .__input:last-child) {
+		.gap {
+			margin-left: 5px;
+		}
 	}
 }

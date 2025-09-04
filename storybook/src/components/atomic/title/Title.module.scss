@@ -64,3 +64,20 @@
 	}
 }
 /* e: stitle */
+
+.ctitleSub {
+	margin-bottom: 10px;
+	color: variables.$textColorG;
+	@include mixins.font_size_md('md');
+}
+
+.ctitleSubLg {
+	margin-bottom: 6px;
+	@include mixins.font_size_xl;
+}
+
+.ctitleSubSm {
+	margin-bottom: 6px;
+	@include mixins.font_size_sm;
+	color: variables.$textColorDG;
+}

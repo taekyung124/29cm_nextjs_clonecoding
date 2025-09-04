@@ -1,8 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/nextjs-vite';
-import styles from '@/styles/components.module.scss';
 
-import {SelectMenu} from '../../atomic/form/SelectMenu';
-import {Input} from '../../atomic/form/Input';
+import {SelectMenu} from '@/components/atomic/form/SelectMenu';
+import {Input} from '@/components/atomic/form/Input';
 
 const meta = {
 	title: 'CommonStyle/Form/InputFlexGroup',
@@ -12,7 +11,7 @@ const meta = {
 			description: {
 				component: `
 				Form 컴포넌트 요소들을 Flex 정렬하기 위한 Group 레벨의 스타일입니다.  
-				- \`styles.inputFlexGroup\` 클래스를 사용하세요. 
+				- \`.inputFlexGroup\` 클래스를 사용하세요. 
 				`,
 			},
 		},
@@ -30,7 +29,7 @@ const meta = {
 export default meta;
 
 export const InputFlexGroupTel: StoryFn = () => (
-	<div className={styles.inputFlexGroup}>
+	<div className={'inputFlexGroup'}>
 		<SelectMenu
 			onChange={() => {
 			}}
@@ -52,9 +51,9 @@ export const InputFlexGroupTel: StoryFn = () => (
 )
 
 export const InputFlexGroupEmail: StoryFn = () => (
-	<div className={styles.inputFlexGroup}>
+	<div className={'inputFlexGroup'}>
 		<Input boxType={undefined} type={'text'} title={'이메일 입력'} />
-		<span className={styles.gap}>@</span>
+		<span className={'gap'}>@</span>
 		<SelectMenu
 			onChange={() => {
 			}}
@@ -74,9 +73,9 @@ export const InputFlexGroupEmail: StoryFn = () => (
 )
 
 export const InputFlexGroupEmailLine: StoryFn = () => (
-	<div className={styles.inputFlexGroup}>
+	<div className={'inputFlexGroup'}>
 		<Input boxType={'line'} type={'text'} title={'이메일 입력'} />
-		<span className={styles.gap}>@</span>
+		<span className={'gap'}>@</span>
 		<SelectMenu
 			onChange={() => {
 			}}

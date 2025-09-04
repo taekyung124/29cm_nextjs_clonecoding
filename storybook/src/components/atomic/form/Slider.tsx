@@ -100,7 +100,7 @@ export const Slider: React.FC<SliderProps> = ({
 				<GoodsGroup size={'sizeSm'} val={minValue} unit={'만원'}/>
 				<GoodsGroup size={'sizeSm'} val={maxValue} unit={'만원'}/>
 			</div>
-			<div className={styles.inputFlexGroup}>
+			<div className={'inputFlexGroup'}>
 				<Input
 					boxType={undefined}
 					type={'number'} title={'slider 최소 금액 값'} placeholder={'slider 최소 금액 값'}
@@ -108,7 +108,7 @@ export const Slider: React.FC<SliderProps> = ({
 				>
 					<span className={styles.sliderUnit}>만원</span>
 				</Input>
-				<span className={styles.gap}>~</span>
+				<span className={'gap'}>~</span>
 				<Input boxType={undefined}
 					   type={'number'} title={'slider 최대 금액 값'} placeholder={'slider 최대 금액 값'}
 					   value={maxInput} onChange={(val: string) => handleInputChange('max', Number(val))}

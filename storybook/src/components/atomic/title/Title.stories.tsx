@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type {Meta, StoryFn, StoryObj} from '@storybook/nextjs-vite';
 import { Title } from './Title';
 
 const meta = {
@@ -9,12 +9,28 @@ const meta = {
     parameters: {
     	layout: 'padded',
     },
+	argTypes: {
+		type: {
+			control: 'inline-radio',
+			options: ['ctitle', 'ctitleSub', 'stitle']
+		},
+		size: {
+			control: 'inline-radio',
+			options: ['sm', 'md', 'lg', 'xl']
+		},
+		lang: {
+			control: 'inline-radio',
+			options: ['kor', 'eng']
+		},
+		text: {
+			control: 'text',
+		}
+	}
 } satisfies Meta<typeof Title>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// size
 export const Dafault: Story = {
 	args: {
 		type: 'ctitle',
