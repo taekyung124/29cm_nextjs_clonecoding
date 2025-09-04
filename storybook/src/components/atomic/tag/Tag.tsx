@@ -38,7 +38,7 @@ export const Tag: React.FC<TagProps> = ({
 					type={'button'}
 					className={styles.btnWish}
 					onClick={handleToggle}
-					style={{ background: `url('/assets/icons/comm_ico_heart_${isWished ? 'gray' : 'red'}.svg') center no-repeat`}}
+					style={{ background: `url('/assets/icons/comm_ico_heart_${isWished ? 'gray' : 'red'}.svg') no-repeat center/contain`}}
 				>
 					<span className={'offscreen'}>{isWished ? "관심 해제" : "관심 등록"}</span>
 				</button>
