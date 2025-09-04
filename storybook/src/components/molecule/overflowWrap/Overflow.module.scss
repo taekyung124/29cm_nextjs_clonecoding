@@ -1,0 +1,109 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.overflowWrap {
+	.textMulti {
+		@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
+		max-height: variables.$fontSizeSmLineHeight * 2;
+
+		.stext-sm-black {
+			word-break: inherit;
+			vertical-align: top;
+		}
+	}
+
+	.textSingle {
+		height: variables.$fontSizeMdLineHeight;
+		line-height: variables.$fontSizeMdLineHeight;
+
+		.stext-black, .stext {
+			word-break: inherit;
+		}
+
+		&.ellipsis {
+			@include mixins.multi_ellipsis(21px, 1);
+			height: auto;
+		}
+	}
+
+	.toggleCont {
+		display: none;
+	}
+
+	&.isActive {
+		.toggleCont {
+			display: block;
+		}
+
+		.textMulti {
+			display: block;
+			max-height: none;
+			overflow: initial;
+		}
+
+		.textSingle {
+			display: block;
+			max-height: initial;
+			overflow: initial;
+			height: auto;
+		}
+
+		.btnFold {
+			.icon {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&:has(.contBody), &:has(.textMulti) {
+		.btnFold {
+			width: 100%;
+			margin: {
+				top: 14px;
+				bottom: -20px;
+			}
+			padding: 14px 0;
+			border-top: 1px solid variables.$colorGray05;
+			font-size: 0;
+
+			.text {
+				display: inline-block;
+				margin-top: 2px;
+				@include mixins.font_size_xs;
+				color: variables.$colorBlack;
+				vertical-align: top;
+			}
+
+			.icon {
+				margin-left: 4px;
+			}
+		}
+	}
+
+	&:has(.textSingle) {
+		@include mixins.justify_width();
+
+		.btnFold {
+			width: 20px;
+			margin: {
+				top: 0;
+				left: 10px;
+			}
+			padding: 0;
+			border-top: 0;
+		}
+	}
+
+	.btnFold {
+		.icon {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background: url("/assets/icons/comm_ico_arw_down_gray.svg") center no-repeat;
+			background-size: contain;
+			vertical-align: top;
+			transition: transform 0.3s ease;
+		}
+	}
+}
