@@ -36,7 +36,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Dafault: Story = {
+export const Default: Story = {
 	args: {
 		text: 'stext size | color | fw'
 	},

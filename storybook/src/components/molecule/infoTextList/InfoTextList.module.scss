@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.infoTextList {
+	@include mixins.justify_width(start, start, column);
+	&.sm {
+		gap: 6px;
+	}
+	&.md {
+		gap: 8px;
+	}
+
+	.brandItem {
+		.brandName {
+			@include mixins.font_size_xl;
+		}
+		.brandSub {
+			margin-top: 2px;
+			@include mixins.font_size_sm;
+			color: variables.$textColorDG;
+		}
+	}
+}

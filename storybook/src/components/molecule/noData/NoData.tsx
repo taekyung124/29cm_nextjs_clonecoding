@@ -21,7 +21,6 @@ export const NoData: React.FC<NoDataProps> = ({
 	btnWrap
 }) => {
 	const typeCamel = type.charAt(0).toUpperCase() + type.slice(1);
-	console.log(typeCamel);
 	return (
 		<div
 			className={styles[`noData${typeCamel}`]}

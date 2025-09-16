@@ -1,0 +1,169 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+// foldWrap
+.foldList {
+	.foldItem {
+		.foldHeader {
+			@include mixins.justify_width(center);
+			position: relative;
+			padding: {
+				top: 20px;
+				bottom: 20px;
+			}
+
+			.iconArea {
+				flex-shrink: 0;
+				margin: {
+					top: 2px;
+					right: 10px;
+				}
+				width: 18px;
+				height: 18px;
+
+				.icon {
+					display: inline-block;
+					width: 18px;
+					height: 18px;
+					vertical-align: top;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+			}
+			.titleArea {
+				.title {
+					@include mixins.font_size_md('md');
+				}
+				.date {
+					margin-top: 6px;
+					@include mixins.font_size_sm;
+					color: variables.$textColorDG;
+				}
+			}
+			.rightArea {
+				flex-shrink: 0;
+				margin-left: auto;
+				padding-right: 30px;
+			}
+
+			&.md {
+				padding: {
+					top: 30px;
+					left: 20px;
+					right: 20px;
+				}
+				.titleArea {
+					.title {
+						@include mixins.font_size_lg;
+					}
+				}
+				.btnFold {
+					&:after {
+						margin-right: 20px;
+					}
+				}
+			}
+
+			.btnFold {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+				@include mixins.justify_width(center, end);
+				&:after {
+					content: '';
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					vertical-align: top;
+					@include mixins.ratio_images('/assets/icons/comm_ico_fold_arr_gray');
+					@include mixins.prefix(transform, rotateZ(0));
+					@include mixins.prefix(transition, transform 0.15s variables.$transEaseBounceBack);
+				}
+			}
+		}
+
+		.foldContent {
+			display: none;
+			&.bgWhite {
+				padding: 0 20px 30px;
+			}
+			&.bgGray {
+				padding: 20px;
+				border-top: 1px solid variables.$colorGray05;
+				background-color: variables.$colorGray06;
+			}
+		}
+
+		&.isActive {
+			.foldHeader {
+				.btnFold:after {
+					@include mixins.prefix(transform, rotateZ(180deg));
+				}
+			}
+			.foldContent {
+				display: block;
+			}
+		}
+	}
+
+	&.line {
+		border-top: 1px solid variables.$colorGray05;
+		.foldItem {
+			border-bottom: 1px solid variables.$colorGray05;
+		}
+	}
+	&.divider {
+		border-top: 10px solid variables.$colorGray06;
+		.foldItem {
+			border-bottom: 10px solid variables.$colorGray06;
+			.foldHeader {
+				.titleArea {
+					.title {
+						@include mixins.font_size_xl('heading');
+					}
+				}
+			}
+		}
+	}
+	&.box {
+		.foldItem {
+			.foldHeader {
+				padding: 10px 13px;
+				border: 1px solid variables.$colorGray05;
+				border-radius: 4px;
+				.titleArea {
+					.title {
+						@include mixins.font_size_sm('body');
+					}
+				}
+			}
+			.foldContent {
+				padding: 14px;
+				border-radius: 0 0 4px 4px;
+				border: {
+					right: 1px solid variables.$colorGray05;
+					bottom: 1px solid variables.$colorGray05;
+					left: 1px solid variables.$colorGray05;
+				}
+			}
+
+			&.isActive {
+				.foldHeader {
+					border-bottom: 0;
+					border-radius: 4px 4px 0 0;
+				}
+			}
+
+			.btnFold {
+				&:after {
+					margin-right: 13px;
+				}
+			}
+		}
+	}
+}
