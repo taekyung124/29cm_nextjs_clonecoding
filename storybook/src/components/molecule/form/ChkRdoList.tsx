@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/components/molecule/form/ChkRdoList.module.scss';
+import styles from '@/components/molecule/form/FormGroupList.module.scss';
 import {Checkbox} from "@/components/atomic/form/Checkbox";
 import {Radio} from "@/components/atomic/form/Radio";
 

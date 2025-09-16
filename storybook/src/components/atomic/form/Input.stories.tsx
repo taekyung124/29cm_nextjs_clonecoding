@@ -1,23 +1,34 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Input, InputProps } from './Input';
+import { Input } from '@/components/atomic/form/Input';
+import { Button } from '@/components/atomic/button/Button';
 
-const meta: Meta<InputProps> = {
+const meta = {
 	title: 'Atomic/Form/Input',
 	component: Input,
+	parameters: {
+		layout: 'padded',
+	},
 	tags: ['autodocs'],
+	decorators: [ // preview 500
+		(Story) => (
+			<div style={{ maxWidth: '500px', margin: '0 auto' }}>
+				<Story />
+			</div>
+		),
+	],
 	argTypes: {
 		boxType: {
-			control: { type: 'select' },
-			options: [undefined, 'line', 'gray-search'],
+			control: { type: 'inline-radio' },
+			options: ['', 'line', 'gray-search'],
 		},
 		type: {
-			control: { type: 'select' },
+			control: { type: 'inline-radio' },
 			options: ['text', 'number', 'password', 'search', 'tel'],
 		},
 		isValidCheck: {
-			control: { type: 'select' },
-			options: [undefined, 'fail', 'success'],
+			control: { type: 'inline-radio' },
+			options: ['', 'fail', 'success'],
 		},
 		disabled: { control: 'boolean' },
 		readonly: { control: 'boolean' },
@@ -26,20 +37,61 @@ const meta: Meta<InputProps> = {
 		value: { control: 'text' },
 		inputGuide: { control: 'text' },
 		validDesc: { control: 'text' },
+		slotBtn: {
+			table: {
+				disable: true,
+			},
+		},
+		children: {
+			table: {
+				disable: true,
+			},
+		},
+		onChange: {
+			table: {
+				disable: true,
+			},
+		},
+	},
+} satisfies Meta<typeof Input>;
+
+export default meta;
+type Story = StoryObj<typeof Input>;
+
+export const Default: Story = {
+	args: {
+		type: 'text',
+		title: 'input',
+		placeholder: 'placeholder',
+		inputGuide: 'inputGuide',
+		validDesc: 'validDesc',
+		value: 'value text',
+	},
+	render: (args) => {
+		return (
+			<Input {...args} />
+		)
 	},
 };
 
-export default meta;
-type Story = StoryObj<InputProps>;
-
-export const Default: Story = {
+export const SlotBtnInput: Story = {
 	render: () => {
 		return (
-			<>
-				<Input boxType={undefined} type={'text'} title={'input 기본형'} placeholder={'input 기본형'} />
-				<Input boxType={undefined} type={'text'} title={'input 기본형 비활성화'} placeholder={'input 기본형 비활성화'} disabled={true}/>
-				<Input boxType={undefined} type={'text'} title={'input 기본형 비활성화'} placeholder={'input 기본형 비활성화'} disabled={true} value={'input 기본형 비활성화 value 있는 경우'}/>
-			</>
+			<Input
+				type={'text'}
+				title={'input 기본형'}
+				placeholder={'input 기본형'}
+				timeCount={'02:59'}
+				slotBtn={
+					<Button
+						color="lineGray"
+						rounded
+						size="sm"
+						tag="button"
+						text="인증완료"
+					/>
+				}
+			/>
 		)
 	},
 };
@@ -47,9 +99,12 @@ export const Default: Story = {
 export const LineType: Story = {
 	render: () => {
 		return (
-			<>
-				<Input boxType={'line'} type={'text'} title={'input 라인형'} placeholder={'input 라인형'} />
-			</>
+			<Input
+				boxType={'line'}
+				type={'text'}
+				title={'input 라인형'}
+				placeholder={'input 라인형'}
+			/>
 		)
 	},
 };
@@ -58,8 +113,17 @@ export const PasswordWithToggle: Story = {
 	render: () => {
 		return (
 			<>
-				<Input boxType={undefined} type={'password'} title={'input 일반형 password'} placeholder={'input 일반형 password'} />
-				<Input boxType={'line'} type={'password'} title={'input 라인형 password'} placeholder={'input 라인형 password'} />
+				<Input
+					type={'password'}
+					title={'input 일반형 password'}
+					placeholder={'input 일반형 password'}
+				/>
+				<Input
+					boxType={'line'}
+					type={'password'}
+					title={'input 라인형 password'}
+					placeholder={'input 라인형 password'}
+				/>
 			</>
 		)
 	},
@@ -69,8 +133,17 @@ export const InputNumber: Story = {
 	render: () => {
 		return (
 			<>
-				<Input boxType={undefined} type={'number'} title={'input 일반형 number'} placeholder={'input 일반형 number'} />
-				<Input boxType={'line'} type={'number'} title={'input 라인형 number'} placeholder={'input 라인형 number'} />
+				<Input
+					type={'number'}
+					title={'input 일반형 number'}
+					placeholder={'input 일반형 number'}
+				/>
+				<Input
+					boxType={'line'}
+					type={'number'}
+					title={'input 라인형 number'}
+					placeholder={'input 라인형 number'}
+				/>
 			</>
 		)
 	},
@@ -79,9 +152,11 @@ export const InputNumber: Story = {
 export const InputSearch: Story = {
 	render: () => {
 		return (
-			<>
-				<Input boxType={undefined} type={'search'} title={'input 일반형 search'} placeholder={'input 일반형 search'} />
-			</>
+			<Input
+				type={'search'}
+				title={'input 일반형 search'}
+				placeholder={'input 일반형 search'}
+			/>
 		)
 	},
 };
@@ -89,9 +164,12 @@ export const InputSearch: Story = {
 export const InputSearchGray: Story = {
 	render: () => {
 		return (
-			<>
-				<Input boxType={'gray-search'} type={'search'} title={'input 일반형 search'} placeholder={'input 일반형 search'} />
-			</>
+			<Input
+				boxType={'gray-search'}
+				type={'search'}
+				title={'input 일반형 search'}
+				placeholder={'input 일반형 search'}
+			/>
 		)
 	},
 };

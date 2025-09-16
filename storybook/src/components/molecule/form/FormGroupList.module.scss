@@ -1,0 +1,175 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+// chkRdoList
+.chkRdoList {
+	&Sm, &Md {
+		&.colType {
+			@include mixins.justify_width(start, center,column);
+
+			.item {
+				width: 100%;
+			}
+		}
+		&.rowType {
+			@include mixins.justify_width(center, start);
+			flex-wrap: wrap;
+			row-gap: 14px;
+		}
+
+		&.taTop {
+			.uiChk, .uiRdo {
+				input {
+					+ label {
+						&:before {
+							top: 0;
+							transform: initial;
+						}
+					}
+				}
+			}
+			.uiChk {
+				input {
+					+ label {
+						&:after {
+							top: 0;
+							transform: initial;
+						}
+					}
+				}
+			}
+
+			.uiRdo {
+				input {
+					+ label {
+						&:after {
+							top: 7px;
+							transform: initial;
+						}
+					}
+				}
+			}
+		}
+	}
+	&Sm {
+		gap: 14px
+	}
+	&Md {
+		gap: 24px
+	}
+}
+
+// inputFlexGroup
+.inputFlexGroup {
+	.inputFlexBox {
+		@include mixins.justify_width;
+		&.gapMd {
+			gap: 5px;
+		}
+		&.gapLg {
+			gap: 10px;
+		}
+		> div {
+			flex: 1;
+			margin-top: 0;
+		}
+		.gap {
+			align-self: center;
+			display: inline-block;
+			@include mixins.font_size_md;
+			color: variables.$textColorB;
+			text-align: center;
+			vertical-align: top;
+		}
+	}
+
+	&.validCheck {
+		.validDesc {
+			display: none;
+			margin-top: 8px;
+			@include mixins.font_size_sm;
+		}
+
+		&.fail {
+			.inputBox, .inputLineBox {
+				border-color: variables.$colorRed;
+			}
+
+			.validDesc {
+				display: block;
+				color: variables.$colorRed;
+			}
+		}
+
+		&.success {
+			.inputBox, .inputLineBox {
+				border-color: variables.$colorGreen;
+			}
+
+			.validDesc   {
+				display: block;
+				color: variables.$colorGreen;
+			}
+		}
+	}
+
+	.inputGuide {
+		display: block;
+		width: 100%;
+		margin-top: 8px;
+		@include mixins.font_size_sm;
+		color: variables.$textColorDG;
+	}
+}
+
+// formList
+.formList {
+	@include mixins.justify_width(start, center,column);
+
+	&.gapMd {
+		gap: 30px;
+	}
+	&.gapLg {
+		gap: 40px;
+	}
+	.formItem {
+		width: 100%;
+
+		.formTitle {
+			@include mixins.justify_width(center, between);
+			margin-bottom: 12px;
+
+			.title {
+				flex: 1;
+				@include mixins.font_size_md('md');
+				color: variables.$colorBlack;
+
+				.required {
+					display: inline-block;
+					vertical-align: top;
+
+					&:before {
+						content: '';
+						overflow: hidden;
+						display: inline-block;
+						width: 4px;
+						height: 4px;
+						margin: 1px 0 0 2px;
+						border-radius: 4px;
+						background-color: variables.$colorGold;
+						vertical-align: top;
+					}
+				}
+			}
+		}
+		.formCont {
+			@include mixins.justify_width(start, center,column);
+			gap: 10px;
+			> div {
+				width: 100%;
+				margin-top: 0;
+			}
+		}
+	}
+}

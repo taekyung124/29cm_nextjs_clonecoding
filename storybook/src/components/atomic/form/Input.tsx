@@ -2,16 +2,18 @@ import * as React from 'react';
 import styles from '@/components/atomic/form/FormElemnent.module.scss';
 
 export interface InputProps {
-	boxType?: undefined | 'line' | 'gray-search';
+	boxType?: 'line' | 'gray-search';
 	type?: 'text' | 'number' | 'password' | 'search' | 'tel';
 	title?: string;
 	placeholder?: string;
 	disabled?: boolean;
 	readonly?: boolean;
 	value?: string | any;
-	isValidCheck?: undefined | 'fail' | 'success';
+	hideGuide?: boolean;
+	isValidCheck?: 'fail' | 'success';
 	inputGuide?: string;
 	validDesc?: string;
+	timeCount?: string;
 	slotBtn?: React.ReactNode;
 	children?: React.ReactNode;
 	onChange?: (value: string) => void;
@@ -24,9 +26,11 @@ export const Input: React.FC<InputProps> = ({
 	disabled = false,
 	readonly = false,
 	value='',
+	hideGuide,
 	isValidCheck,
 	inputGuide = '',
 	validDesc = '',
+	timeCount,
 	slotBtn,
 	children,
 	onChange,
@@ -113,8 +117,10 @@ export const Input: React.FC<InputProps> = ({
 				)}
 				{slotBtn && (
 					<>
-						<span className={styles.timerCount}>02:59</span>
+						{timeCount && <span className={styles.timerCount}>{timeCount}</span>}
+						<span className={styles.btnArea}>
 						{slotBtn}
+						</span>
 					</>
 				)}
 				{type === 'password' && (
@@ -141,11 +147,11 @@ export const Input: React.FC<InputProps> = ({
 				)}
 				{children}
 			</div>
-			{(inputGuide && !isValidCheck) && (
-				<div className="input-guide">{inputGuide}</div>
+			{(!hideGuide && inputGuide && !isValidCheck) && (
+				<div className={styles.inputGuide}>{inputGuide}</div>
 			)}
-			{(validDesc && isValidCheck) && (
-				<div className="valid-desc">{validDesc}</div>
+			{(!hideGuide && validDesc && isValidCheck) && (
+				<div className={styles.validDesc}>{validDesc}</div>
 			)}
 		</div>
 	)
