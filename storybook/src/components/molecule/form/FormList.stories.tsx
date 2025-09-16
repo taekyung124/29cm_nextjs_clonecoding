@@ -32,15 +32,77 @@ type Story = StoryObj<typeof FormList>;
 export const FormListDefault: Story = {
 	args: {
 		gap: 'Md',
-		items: [],
+		items: []
 	},
 	render: (args) => {
 		const [select1, setSelect1] = React.useState('');
 		const [select2, setSelect2] = React.useState('');
+		const [select3, setSelect3] = React.useState('');
 		const [phonePrefix, setPhonePrefix] = React.useState('');
 		const [emailDomain, setEmailDomain] = React.useState('');
 
 		const items = [
+			{
+				title: 'form title',
+				required: true,
+				rightArea: (
+					<Button
+						color="lineLightGray"
+						rounded
+						size="sm"
+						tag="button"
+						text="button"
+					/>
+				),
+				formCont: (
+					<Input
+						inputGuide="inputGuide"
+						placeholder="placeholder"
+						title="input"
+						type="text"
+						validDesc="validDesc"
+					/>
+				)
+			},
+			{
+				title: 'form title',
+				required: true,
+				formCont: (
+					<Input
+						inputGuide="inputGuide"
+						placeholder="placeholder"
+						title="input"
+						type="text"
+						validDesc="validDesc"
+						isValidCheck="success"
+					/>
+				)
+			},
+			{
+				title: 'form title',
+				required: true,
+				formCont: (
+					<Input
+						inputGuide="inputGuide"
+						placeholder="placeholder"
+						title="input"
+						type="text"
+						validDesc="validDesc"
+						isValidCheck="fail"
+					/>
+				)
+			},
+			{
+				title: 'password',
+				required: true,
+				formCont: (
+					<>
+						<Input type={'password'} title={'input 일반형 password'} placeholder={'input 일반형 password'} />
+						<Input boxType={'line'} type={'password'} title={'input 라인형 password'} placeholder={'input 라인형 password'} />
+
+					</>
+				)
+			},
 			{
 				title: 'select',
 				required: true,
@@ -70,6 +132,45 @@ export const FormListDefault: Story = {
 							title="라인형 셀렉트"
 							value={select2}
 							onChange={(val) => setSelect2(val)}
+						/>
+					</>
+				)
+			},
+			{
+				title: 'select + input',
+				required: false,
+				formCont: (
+					<>
+						<SelectMenu
+							options={[
+								{
+									label: 'option 01',
+									value: 'option 01'
+								},
+								{
+									label: 'option 02',
+									value: 'option 02'
+								},
+								{
+									label: 'option 03',
+									value: 'option 03'
+								},
+								{
+									label: 'option 04',
+									value: 'option 04'
+								}
+							]}
+							placeholder="Select an option"
+							title="기본 SelectMenu"
+							value={select3}
+							onChange={(val) => setSelect3(val)}
+						/>
+						<Input
+							inputGuide="inputGuide"
+							placeholder="placeholder"
+							title="input"
+							type="text"
+							validDesc="validDesc"
 						/>
 					</>
 				)
@@ -106,6 +207,42 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				title: '인증번호',
+				required: true,
+				formCont: (
+					<InputFlexGroup
+						formContents={<>
+							<Input
+								type={'text'}
+								title={'input 기본형'}
+								placeholder={'input 기본형'}
+								timeCount={'02:59'}
+								value={'123456'}
+								slotBtn={
+									<Button
+										color="lineGray"
+										rounded
+										size="sm"
+										tag="button"
+										text="인증완료"
+									/>
+								}
+							/>
+							<Button
+								color="lineGreen"
+								size="lg"
+								tag="button"
+								text="인증확인"
+							/>
+						</>}
+						gap="Md"
+						isValidCheck="fail"
+						inputGuide="guide text 입니다."
+						validDesc="valid check text 입니다."
+					/>
+				)
+			},
+			{
 				title: '이메일',
 				required: true,
 				formCont: (
@@ -131,9 +268,76 @@ export const FormListDefault: Story = {
 						}
 					/>
 				)
-			}
-		];
+			},
+			{
+				title: '주소입력',
+				required: true,
+				formCont: (
+					<>
+						<InputFlexGroup
+							formContents={<>
+								<Input
+									type={'text'}
+									title={'우편번호 입력'}
+									placeholder={'우편번호 입력'}
+									disabled={true}
+									readonly={true}
+								/>
+								<Button
+									color="lineGreen"
+									size="lg"
+									tag="button"
+									text="우편번호"
+								/>
+							</>}
+							gap="Md"
+						/>
+						<Input
+							type={'text'}
+							title={'기본주소가 등록됩니다.'}
+							placeholder={'기본주소가 등록됩니다.'}
+							disabled={true}
+							readonly={true}
+						/>
+						<Input
+							type={'text'}
+							title={'상세주소를 입력해 주세요.'}
+							placeholder={'상세주소를 입력해 주세요.'}
+						/>
+					</>
+				)
+			},
+			{
+				title: '문의 내용',
+				required: true,
+				formCont: (
+					<>
+						<Input
+							type={'text'}
+							title={'문의 제목을 입력해 주세요.'}
+							placeholder={'문의 제목을 입력해 주세요.'}
+						/>
+						<Textarea
+							max={1000}
+							placeholder="문의 내용을 입력해 주세요."
+							title="문의 내용을 입력해 주세요."
+						/>
+					</>
+				)
+			},
+			{
+				title: '파일첨부',
+				required: true,
+				formCont: (
+					<div style={{
+						width: '100%',
+						height: '30px',
+						background: 'rgba(255,0,0,.2)'
+					}}>//file attach box 컴포넌트 작업 이후 추가 예정</div>
+				)
+			},
+		]
 
 		return <FormList {...args} items={items} />;
 	}
-};
+}
