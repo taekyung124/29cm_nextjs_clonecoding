@@ -17,6 +17,7 @@ export interface InputProps {
 	slotBtn?: React.ReactNode;
 	children?: React.ReactNode;
 	onChange?: (value: string) => void;
+	ref?: React.Ref<HTMLInputElement>;
 }
 export const Input: React.FC<InputProps> = ({
 	boxType = undefined,
@@ -34,6 +35,7 @@ export const Input: React.FC<InputProps> = ({
 	slotBtn,
 	children,
 	onChange,
+	ref,
 }) => {
 	const [inputValue, setInputValue] = React.useState<string>('');
 	const [isFocused, setIsFocused] = React.useState(false);
@@ -90,8 +92,9 @@ export const Input: React.FC<InputProps> = ({
 			styles.validCheck,
 			styles[boxType ?? ''],
 			styles[isValidCheck ?? ''],
-			`__input`
-		].join(' ')}>
+			`__input`].join(' ')}
+			ref={ref}
+		>
 			<div className={wrapperClassName}>
 				<input
 					ref={inputRef}

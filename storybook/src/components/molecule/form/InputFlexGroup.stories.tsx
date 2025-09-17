@@ -51,30 +51,37 @@ type Story = StoryObj<typeof InputFlexGroup>;
 export const InputFlexGroupTel: Story = {
 	args: {
 		gap: 'Md',
-		formContents: (<>
-			<SelectMenu
-				onChange={() => {
-				}}
-				options={[
-					{label: '010', value: '010'},
-					{label: '011', value: '011'},
-					{label: '016', value: '016'},
-					{label: '017', value: '017'},
-					{label: '018', value: '018'},
-					{label: '019', value: '019'},
-				]}
-				placeholder="010"
-				title="휴대폰 번호"
-				value={''}
-			/>
-			<Input boxType={undefined} type={'number'} title={'휴대폰 번호 앞자리 입력'} hideGuide={true}/>
-			<Input boxType={undefined} type={'number'} title={'휴대폰 번호 뒷자리 입력'} hideGuide={true}/>
-		</>),
 		isValidCheck: 'fail',
 		inputGuide: 'guide text 입니다.',
 		validDesc: 'valid check text 입니다.'
 	},
-	render: (args) => <InputFlexGroup {...args} />
+	render: (args) => {
+		const [value, setValue] = React.useState('');
+		const contents = (
+			<>
+				<SelectMenu
+					options={[
+						{label: '010', value: '010'},
+						{label: '011', value: '011'},
+						{label: '016', value: '016'},
+						{label: '017', value: '017'},
+						{label: '018', value: '018'},
+						{label: '019', value: '019'},
+					]}
+					placeholder="010"
+					title="휴대폰 번호"
+					value={value}
+					onChange={setValue}
+				/>
+				<Input boxType={undefined} type={'number'} title={'휴대폰 번호 앞자리 입력'} hideGuide={true}/>
+				<Input boxType={undefined} type={'number'} title={'휴대폰 번호 뒷자리 입력'} hideGuide={true}/>
+			</>
+		)
+
+		return (
+			<InputFlexGroup {...args} formContents={contents}/>
+		)
+	}
 }
 
 export const InputFlexGroupEmail: Story = {
@@ -83,11 +90,12 @@ export const InputFlexGroupEmail: Story = {
 		midText: '@',
 		leftArea: (
 			<Input boxType={undefined} type={'text'} title={'이메일 입력'} />
-		),
-		rightArea: (
+		)
+	},
+	render: (args) => {
+		const [value, setValue] = React.useState('');
+		const contents = (
 			<SelectMenu
-				onChange={() => {
-				}}
 				options={[
 					{label: '직접입력', value: '직접입력'},
 					{label: 'option01', value: 'option01'},
@@ -98,11 +106,14 @@ export const InputFlexGroupEmail: Story = {
 				]}
 				placeholder="직접입력"
 				title="도메인"
-				value={''}
+				value={value}
+				onChange={setValue}
 			/>
-		),
-	},
-	render: (args) => <InputFlexGroup {...args} />
+		)
+		return (
+			<InputFlexGroup {...args} rightArea={contents}/>
+		)
+	}
 }
 
 export const InputFlexGroupEmailLine: Story = {
@@ -111,11 +122,12 @@ export const InputFlexGroupEmailLine: Story = {
 		midText: '@',
 		leftArea: (
 			<Input boxType={'line'} type={'text'} title={'이메일 입력'} />
-		),
-		rightArea: (
+		)
+	},
+	render: (args) => {
+		const [value, setValue] = React.useState('');
+		const contents = (
 			<SelectMenu
-				onChange={() => {
-				}}
 				options={[
 					{label: '직접입력', value: '직접입력'},
 					{label: 'option01', value: 'option01'},
@@ -126,10 +138,13 @@ export const InputFlexGroupEmailLine: Story = {
 				]}
 				placeholder="직접입력"
 				title="도메인"
-				value={''}
+				value={value}
+				onChange={setValue}
 				type={'line'}
 			/>
-		),
-	},
-	render: (args) => <InputFlexGroup {...args} />
+		)
+		return (
+			<InputFlexGroup {...args} rightArea={contents} />
+		)
+	}
 }

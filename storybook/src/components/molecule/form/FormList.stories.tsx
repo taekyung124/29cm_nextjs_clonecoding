@@ -43,6 +43,7 @@ export const FormListDefault: Story = {
 
 		const items = [
 			{
+				id: '001',
 				title: 'form title',
 				required: true,
 				rightArea: (
@@ -65,6 +66,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '002',
 				title: 'form title',
 				required: true,
 				formCont: (
@@ -79,6 +81,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '003',
 				title: 'form title',
 				required: true,
 				formCont: (
@@ -93,6 +96,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '004',
 				title: 'password',
 				required: true,
 				formCont: (
@@ -104,6 +108,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '005',
 				title: 'select',
 				required: true,
 				formCont: (
@@ -118,7 +123,7 @@ export const FormListDefault: Story = {
 							placeholder="Select an option"
 							title="기본 SelectMenu"
 							value={select1}
-							onChange={(val) => setSelect1(val)}
+							onChange={setSelect1}
 						/>
 						<SelectMenu
 							type="line"
@@ -131,12 +136,13 @@ export const FormListDefault: Story = {
 							placeholder="Select an option"
 							title="라인형 셀렉트"
 							value={select2}
-							onChange={(val) => setSelect2(val)}
+							onChange={setSelect2}
 						/>
 					</>
 				)
 			},
 			{
+				id: '006',
 				title: 'select + input',
 				required: false,
 				formCont: (
@@ -163,7 +169,7 @@ export const FormListDefault: Story = {
 							placeholder="Select an option"
 							title="기본 SelectMenu"
 							value={select3}
-							onChange={(val) => setSelect3(val)}
+							onChange={setSelect3}
 						/>
 						<Input
 							inputGuide="inputGuide"
@@ -176,6 +182,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '007',
 				title: '휴대폰 번호',
 				required: true,
 				formCont: (
@@ -194,7 +201,7 @@ export const FormListDefault: Story = {
 									placeholder="010"
 									title="휴대폰 번호"
 									value={phonePrefix}
-									onChange={(val) => setPhonePrefix(val)}
+									onChange={setPhonePrefix}
 								/>
 								<Input hideGuide title="앞자리 입력" type="number" />
 								<Input hideGuide title="뒷자리 입력" type="number" />
@@ -207,6 +214,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '008',
 				title: '인증번호',
 				required: true,
 				formCont: (
@@ -243,6 +251,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '009',
 				title: '이메일',
 				required: true,
 				formCont: (
@@ -263,13 +272,14 @@ export const FormListDefault: Story = {
 								placeholder="직접입력"
 								title="도메인"
 								value={emailDomain}
-								onChange={(val) => setEmailDomain(val)}
+								onChange={setEmailDomain}
 							/>
 						}
 					/>
 				)
 			},
 			{
+				id: '010',
 				title: '주소입력',
 				required: true,
 				formCont: (
@@ -308,6 +318,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '011',
 				title: '문의 내용',
 				required: true,
 				formCont: (
@@ -326,6 +337,7 @@ export const FormListDefault: Story = {
 				)
 			},
 			{
+				id: '012',
 				title: '파일첨부',
 				required: true,
 				formCont: (
