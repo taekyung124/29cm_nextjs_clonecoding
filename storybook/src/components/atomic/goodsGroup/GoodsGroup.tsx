@@ -6,6 +6,7 @@ interface GoodsGroupProps {
 	label? : React.ReactNode;
 	val? : React.ReactNode;
 	unit? : React.ReactNode;
+	addCommClass?: string;
 }
 
 export const GoodsGroup: React.FC<GoodsGroupProps> = ({
@@ -13,12 +14,14 @@ export const GoodsGroup: React.FC<GoodsGroupProps> = ({
 	label,
 	val,
 	unit,
+	addCommClass,
 }) => {
 	return (
 		<span
 			className={[
 				styles.goodsGroup,
 				styles[`goodsGroup-${size}`],
+				addCommClass,
 			].join(' ')}
 		>
 			<span

@@ -1,0 +1,105 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.thumbBox {
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+	background: variables.$colorGray06;
+	flex-shrink: 0;
+
+	// img
+	&.square, &.squareXs, &.squareSm, &.squareMd, &.squareLg,
+	&.classic {
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 50%;
+			left: 0;
+			@include mixins.prefix(transform, translateY(-50%));
+			-o-object-fit: cover;
+			object-fit: cover;
+		}
+	}
+
+	// type
+	&.square { // 1by1
+		width: 100%;
+		padding-top: variables.$thumbRatio1by1Height;
+
+		&Xs {
+			width: 80px;
+			padding-top: 80px;
+		}
+		&Sm {
+			width: 100px;
+			padding-top: 100px;
+		}
+		&Md {
+			width: 110px;
+			padding-top: 110px;
+		}
+		&Lg {
+			width: 120px;
+			padding-top: 120px;
+		}
+	}
+
+	&.classic { // 4by3
+		width: 100%;
+		padding-top: variables.$thumbRatio4by3Height;
+	}
+
+	&.fluid { // w100, height 유동적
+		width: 100%;
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// square - uiChk, btnWish, prodState
+	.uiChkArea {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		z-index: 7;
+	}
+
+	.btnWishArea {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 7;
+	}
+
+	.prodState {
+		@include mixins.justify_width(center, center);
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 36px;
+		background: rgba(variables.$colorBlack, 0.6);
+
+		.icon {
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			margin-right: 6px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			vertical-align: top;
+		}
+		.text {
+			display: inline-block;
+			@include mixins.font_size_xs('md');
+			color: variables.$colorWhite;
+			vertical-align: top;
+		}
+	}
+}

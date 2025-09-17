@@ -29,12 +29,17 @@
 .vaTop { vertical-align: top !important; }
 .vaMid { vertical-align: middle !important; }
 
+// text decoration
+.tdUdl { text-decoration: underline !important; }
+.tdLine { text-decoration: line-through !important; }
+
 // ellipsis
 .multiEllipsis {
 	@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
 	font-weight: inherit;
 }
 
+// offscreen
 .offscreen {
 	position: absolute !important;
 	display: block;
@@ -43,4 +48,15 @@
 	width: 1px;
 	clip: rect(1px, 1px, 1px, 1px);
 	font-size: 14px !important;
+}
+
+// btnLink
+.btnLink {
+	z-index: 1;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 }
