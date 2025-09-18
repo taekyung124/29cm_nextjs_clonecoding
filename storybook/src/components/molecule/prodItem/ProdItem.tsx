@@ -89,7 +89,7 @@ export const ProdItem: React.FC<ProdItemProps> = ({
 					</div>
 				)}
 
-				{direction === 'row' && btmBadgeText && (
+				{btmBadgeText && (
 					<div className={styles.badgeGroup}>
 						{Array.isArray(btmBadgeText) ? (
 							btmBadgeText.map((item, index) => (

@@ -11,7 +11,7 @@
 
 	// img
 	&.square, &.squareXs, &.squareSm, &.squareMd, &.squareLg,
-	&.classic {
+	&.classic, &.fixed {
 		img {
 			position: absolute;
 			width: 100%;
@@ -60,6 +60,10 @@
 		}
 	}
 
+	&.fixed {
+		width: 100%;
+	}
+
 	// square - uiChk, btnWish, prodState
 	.uiChkArea {
 		position: absolute;
@@ -101,5 +105,14 @@
 			color: variables.$colorWhite;
 			vertical-align: top;
 		}
+	}
+
+	// classic
+	.countProd {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 7px 14px;
+		background-color: rgba(variables.$colorGreen, 0.8);
 	}
 }

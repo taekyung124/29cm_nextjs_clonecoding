@@ -20,11 +20,14 @@ const meta = {
 	argTypes: {
 		type: {
 			control: 'inline-radio',
-			options: ['square', 'classic', 'fluid'],
+			options: ['square', 'classic', 'fluid', 'fixed'],
 		},
 		squareSize: {
 			control: 'inline-radio',
 			options: ['auto', 'Xs', 'Sm', 'Md', 'Lg'],
+		},
+		fixedHeight: {
+			control: 'text'
 		},
 		btnLink: {
 			control: 'boolean',
@@ -38,6 +41,12 @@ const meta = {
 		prodState: {
 			control: 'inline-radio',
 			options: ['stop', 'ongoing']
+		},
+		hasCountProd: {
+			control: 'boolean',
+		},
+		countProdVal: {
+			control: 'text',
 		},
 		imgSrc: {
 			control: 'select',
@@ -65,7 +74,8 @@ export const Default: Story = {
 		uiChk: true,
 		prodState: 'stop',
 		imgSrc: 'prod_5by5',
-		altText: '썸네일 이미지'
+		altText: '썸네일 이미지',
+
 	},
 	render: (args) => <Thumb {...args}/>,
 }

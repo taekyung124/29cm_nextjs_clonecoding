@@ -22,6 +22,12 @@ const meta = {
 		},
 		unit: {
 			control: 'text',
+		},
+		addCommClass: {
+			control: 'text',
+		},
+		valClass: {
+			control: 'text',
 		}
 	}
 } satisfies Meta<typeof GoodsGroup>;
@@ -36,6 +42,8 @@ export const SizeType: Story = {
 		label: '할인가',
 		val: '112,000,000',
 		unit: '원',
+		addCommClass: 'fwSb',
+		valClass: 'fcRed',
 	},
 
     render: (args) => <GoodsGroup {...args} />,

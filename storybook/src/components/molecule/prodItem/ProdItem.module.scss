@@ -5,6 +5,10 @@
 .prodItem {
 	position: relative;
 
+	.prodLank {
+		color: variables.$colorGreen;
+	}
+
 	.infoBox {
 		.badgeGroup {
 			@include mixins.justify_width;
@@ -12,13 +16,41 @@
 			gap: 4px 6px;
 		}
 		.prodInfo {
-			.brand {}
-			.uid {}
+			margin-bottom: 2px;
+
+			.brand {
+				@include mixins.font_size_md('sb');
+				@include mixins.ellipsis;
+			}
+			.uid {
+				@include mixins.font_size_md;
+				color: variables.$textColorDG;
+			}
 		}
-		.title {}
-		.sizeInfo {}
-		.prodPrice {}
-		.loanPrice {}
+		.sizeInfo {
+			margin-top: 4px;
+			@include mixins.font_size_sm('md');
+		}
+		.prodPrice {
+			@include mixins.justify_width(center);
+			@include mixins.font_size_md('sb');
+			flex-wrap: wrap;
+			word-break: break-all;
+			.origin {
+				width: 100%;
+			}
+			.percent {
+				@include mixins.font_size_md('sb');
+				color: variables.$textColorGold;
+			}
+		}
+
+		.badgeGroup {
+			&:not(:first-child) {
+				margin-top: 12px;
+				gap: 3px;
+			}
+		}
 	}
 
 	&.row {
@@ -29,12 +61,7 @@
 			top: 0;
 			left: 0;
 			z-index: 1;
-			font-size: 24px;
-			line-height: 26px;
-			color: variables.$colorGreen;
-			font-family: variables.$fontEngDefault;
-			letter-spacing: variables.$letterSpacing;
-			font-weight: variables.$fontWeightEngBold;
+			@include mixins.font_eng_size_xs;
 		}
 
 		&:has(.prodLank) {
@@ -50,17 +77,12 @@
 			.prodInfo {
 				@include mixins.justify_width;
 				gap: 4px;
-				margin-bottom: 2px;
 
 				.brand {
-					@include mixins.font_size_md('sb');
-					@include mixins.ellipsis;
 					width: auto;
 				}
 
 				.uid {
-					@include mixins.font_size_md;
-					color: variables.$textColorDG;
 					margin-bottom: 0;
 				}
 			}
@@ -70,34 +92,12 @@
 				@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
 			}
 
-			.sizeInfo {
-				margin-top: 4px;
-				@include mixins.font_size_sm('md');
-			}
-
 			.prodPrice {
-				@include mixins.justify_width(center);
-				@include mixins.font_size_md('sb');
 				gap: 4px 6px;
-				flex-wrap: wrap;
-				word-break: break-all;
 				margin-top: 4px;
-
-				.origin {
-					width: 100%;
-				}
-
-				.percent {
-					@include mixins.font_size_md('sb');
-					color: variables.$textColorGold;
-				}
 			}
 
 			.badgeGroup {
-				&:first-child {
-					margin-bottom: 4px;
-				}
-
 				&:not(:first-child) {
 					margin-top: 12px;
 					gap: 3px;
@@ -106,13 +106,11 @@
 		}
 	}
 	&.col {
-		position: relative;
 		width: 100%;
 
 		.prodLank {
-			@include mixins.font_eng_size_lg();
+			@include mixins.font_eng_size_lg;
 			margin-bottom: 10px;
-			color: variables.$colorGreen;
 		}
 
 		.infoBox {
@@ -123,18 +121,13 @@
 				flex-direction: column-reverse;
 				flex-wrap: wrap;
 				gap: 2px;
-				margin-bottom: 2px;
-
-				.uid {
-					width: 100%;
-					@include mixins.font_size_md;
-					color: variables.$textColorDG;
-				}
 
 				.brand {
 					width: 100%;
-					@include mixins.font_size_md('sb');
-					@include mixins.ellipsis;
+				}
+
+				.uid {
+					width: 100%;
 				}
 			}
 
@@ -142,27 +135,10 @@
 				@include mixins.font_size_md;
 				@include mixins.multi_ellipsis(variables.$fontSizeMdLineHeight);
 			}
-			.sizeInfo {
-				margin-top: 4px;
-				@include mixins.font_size_sm('md');
-			}
 
 			.prodPrice {
-				@include mixins.justify_width(center);
-				@include mixins.font_size_md('sb');
 				gap: 6px;
-				flex-wrap: wrap;
-				word-break: break-all;
 				margin-top: 10px;
-
-				.origin {
-					width: 100%;
-				}
-
-				.percent {
-					@include mixins.font_size_md('sb');
-					color: variables.$textColorGold;
-				}
 			}
 
 			.loanPrice {

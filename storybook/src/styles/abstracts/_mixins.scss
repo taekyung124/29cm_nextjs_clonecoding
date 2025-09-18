@@ -473,6 +473,23 @@
     }
 }
 
+//Design type: eng-xs || font-size: 24px
+@mixin font_eng_size_xs($type : 'body', $lineHeight : 'default') {
+    font-family: variables.$fontEngDefault;
+    font-size: variables.$fontSizeEngXs;
+    line-height: variables.$fontSizeEngXsLineHeight;
+    letter-spacing: variables.$letterSpacing;
+
+    @if ($type == 'body') {
+        font-weight: variables.$fontWeightEngBold;
+    }
+
+    @if not($lineHeight == 'default') {
+        line-height: $lineHeight;
+    }
+}
+
+
 // size : breakpoint mobile
 @mixin size_wrap_width {
     width: 100%;

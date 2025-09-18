@@ -3,22 +3,26 @@ import styles from '@/components/atomic/thumb/Thumb.module.scss';
 
 import {EtcButton} from "@/components/atomic/etcButton/EtcButton";
 import {Checkbox} from "@/components/atomic/form/Checkbox";
+import {GoodsGroup} from "@/components/atomic/goodsGroup/GoodsGroup";
 
 export interface ThumbProps {
-	type: 'square' | 'classic' | 'fluid'; // 1by1 , 4by3, w100:h가변
+	type: 'square' | 'classic' | 'fluid' | 'fixed'; // 1by1 , 4by3, w100:h가변, w100:h고정
 	squareSize?: 'Xs' | 'Sm' | 'Md' | 'Lg' | 'auto';
+	fixedHeight?: string,
 	thumbClass?: string;
 	btnLink?: boolean;
 	href?: string;
 	btnWish?: boolean;
 	uiChk?: boolean;
+	hasCountProd?: boolean;
+	countProdVal?: string;
 	prodState?: 'stop' | 'ongoing';
 	imgSrc?: string;
 	altText?: string;
 }
 
 export const Thumb: React.FC<ThumbProps> = ({
-	type, squareSize = 'auto', thumbClass, btnLink = false, href, btnWish = false, uiChk = false, prodState, imgSrc, altText
+	type, squareSize = 'auto', fixedHeight, thumbClass, btnLink = false, href, btnWish = false, uiChk = false, hasCountProd, countProdVal, prodState, imgSrc, altText
 }) => {
 	const iconName = prodState === 'stop' ? 'pause' : prodState === 'ongoing' ? 'deal' : '';
 	const squareSizeClass = type === "square" && squareSize !== 'auto' ? squareSize : ''
@@ -29,6 +33,11 @@ export const Thumb: React.FC<ThumbProps> = ({
 				styles[`${type}${squareSizeClass}`],
 				styles[thumbClass ? `${thumbClass}` : '']
 			].join(' ')}
+			style={{ paddingTop:
+					type === 'fixed' ? `${fixedHeight}` :
+					type === 'square' ? '100%' :
+					type === 'classic' ? '75%' : 'initial'
+			}}
 		>
 			<img src={`/assets/images/thumb_${imgSrc}.png`} alt={altText} />
 			{(type === 'square' && squareSize !== 'Xs' && uiChk) && (
@@ -53,6 +62,11 @@ export const Thumb: React.FC<ThumbProps> = ({
 						: ''}
 					</span>
 				</div>
+			)}
+			{(type !== 'square' && hasCountProd) && (
+				<span className={styles.countProd}>
+					<GoodsGroup size={'sizeXs'} val={countProdVal} unit={'개의 상품 보유'} valClass={'fcGold fwMd'} addCommClass={'fcWhite fwLt'} />
+				</span>
 			)}
 			{btnLink && (type !== 'square' || (type === 'square' && !btnWish && !uiChk)) && (
 				<a href={href ? href : 'javascript: alert("link");'} className="btnLink">

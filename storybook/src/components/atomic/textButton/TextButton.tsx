@@ -9,6 +9,7 @@ type CommonProps = {
 	text?: string | React.ReactNode;
 	disabled?: boolean;
 	udlLink?: boolean;
+	addCommClass?: string;
 	onClick?: () => void;
 }
 
@@ -33,6 +34,7 @@ export const TextButton = ({
 	tag = 'button',
 	disabled = false,
 	onClick,
+	addCommClass,
 	...rest}: tButtonProps
 ) => {
 	const renderBeforeIcon = (typeof beforeIcon === 'string') ? (<span className={styles.ico} style={{backgroundImage: `url("/assets/icons/comm_ico_${beforeIcon}.svg")`}}></span>) : (beforeIcon);
@@ -54,7 +56,7 @@ export const TextButton = ({
 				{...anchorProps}
 			>
 				{(beforeIcon && !udlLink) && renderBeforeIcon}
-				{text && <span className={styles.text}>{text}</span>}
+				{text && <span className={[styles.text, addCommClass].join(' ')}>{text}</span>}
 				{(afterIcon && !udlLink) && renderAfterIcon}
 			</a>
 		);
@@ -70,7 +72,7 @@ export const TextButton = ({
 			{...tButtonProps}
 		>
 			{(beforeIcon && !udlLink) && renderBeforeIcon}
-			{text && <span className={styles.text}>{text}</span>}
+			{text && <span className={[styles.text, addCommClass].join(' ')}>{text}</span>}
 			{(afterIcon && !udlLink) && renderAfterIcon}
 		</button>
 	)

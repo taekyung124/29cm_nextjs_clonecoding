@@ -3,10 +3,11 @@ import styles from '@/components/atomic/goodsGroup/GoodsGroup.module.scss';
 
 interface GoodsGroupProps {
 	size? : 'sizeXs' | 'sizeSm' | 'sizeMd' | 'sizeLg' | 'sizeXl' | "size2xl" | "size3xl" | "size4xl" | "size5xl";
-	label? : React.ReactNode;
-	val? : React.ReactNode;
-	unit? : React.ReactNode;
+	label? : string | React.ReactNode;
+	val? : string | React.ReactNode;
+	unit? : string | React.ReactNode;
 	addCommClass?: string;
+	valClass?: string;
 }
 
 export const GoodsGroup: React.FC<GoodsGroupProps> = ({
@@ -15,6 +16,7 @@ export const GoodsGroup: React.FC<GoodsGroupProps> = ({
 	val,
 	unit,
 	addCommClass,
+	valClass
 }) => {
 	return (
 		<span
@@ -32,7 +34,7 @@ export const GoodsGroup: React.FC<GoodsGroupProps> = ({
 			>
 				{label}
 			</span>
-			<span className={styles.val}>{val}</span>
+			<span className={[styles.val, valClass].join(' ')}>{val}</span>
 			<span className={styles.unit}>{unit}</span>
 		</span>
 	);

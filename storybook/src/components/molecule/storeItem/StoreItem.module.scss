@@ -1,0 +1,168 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.storeItem {
+	position: relative;
+	border: 1px solid variables.$colorGray05;
+
+	.infoBox {
+		width: 100%;
+		background-color: variables.$colorWhite;
+		padding: 20px 0 10px 0;
+
+		.storeInfo {
+			padding: {
+				left: 20px;
+				right: 23px;
+			}
+
+			.storeName {
+				@include mixins.justify_width(center);
+				gap: 6px;
+
+				.name {
+					@include mixins.font_size_xl;
+				}
+			}
+			.storeLocation {
+				margin-top: 4px;
+
+				.location {
+					width: 100%;
+					color: variables.$textColorDG;
+					@include mixins.font_size_sm('body');
+					@include mixins.word_break;
+				}
+			}
+		}
+		.barFlexGroup {
+			margin-top: 24px;
+			height: 100%;
+			@include mixins.justify_width(center, start);
+
+			.barBox {
+				position: relative;
+				width: 100%;
+				text-align: center;
+
+				.storeLink {
+					.icon {
+						width: 16px;
+						height: 16px;
+						margin-top: 1px;
+
+						&.store {
+							background-image: url('/assets/icons/comm_ico_store_info.svg');
+						}
+						&.chat {
+							background-image: url('/assets/icons/comm_ico_store_kakao_consulting_green.svg');
+						}
+						&.shop {
+							background-image: url('/assets/icons/comm_ico_store_held_prod.svg');
+						}
+					}
+					.text {
+						@include mixins.font_size_md;
+						margin-left: 6px;
+					}
+				}
+
+				.storeLink, .storeLinkLg {
+					display: inline-block;
+					width: 100%;
+					padding: 10px 0;
+					vertical-align: top;
+
+					.icon {
+						display: inline-block;
+						vertical-align: top;
+
+						background-repeat: no-repeat;
+						background-position: center;
+						background-size: contain;
+					}
+					.text {
+						display: inline-block;
+						color: variables.$textColorPoint;
+						vertical-align: top;
+					}
+				}
+
+				&:after {
+					content: '';
+					position: absolute;
+					right: 0;
+					top: 50%;
+					@include mixins.prefix(transform, translate(-50%, -50%));
+					width: 1px;
+					height: calc(100% - 20px);
+					background-color: variables.$colorGray05;
+				}
+				&:last-child {
+					&:after {
+						content: initial;
+					}
+				}
+			}
+		}
+	}
+
+	&.detail {
+		border: 0;
+
+		.infoBox {
+			padding: 30px 0;
+
+			.storeInfo {
+				.storeName {
+					.name {
+						@include mixins.font_size_4xl;
+					}
+				}
+				.storeLocation {
+					.location {
+						@include mixins.font_size_md;
+						font-weight: variables.$fontWeightLight;
+					}
+				}
+				&:not(:has(.storeLocation)) {
+					margin-bottom: 30px;
+				}
+			}
+
+			.storeDetailCont {
+				padding: 0 20px;
+			}
+			.barFlexGroup {
+				margin-top: 20px;
+
+				.barBox {
+					.storeLinkLg {
+						.icon {
+							width: 30px;
+							height: 30px;
+
+							&.chat {
+								background-image: url('/assets/icons/comm_ico_store_kakao_consulting_green.svg');
+							}
+							&.call {
+								background-image: url('/assets/icons/comm_ico_store_call_green.svg');
+							}
+							&.share {
+								background-image: url('/assets/icons/comm_ico_store_share_green.svg');
+							}
+						}
+						.text {
+							width: 100%;
+							margin: {
+								left: 0;
+								top: 8px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
