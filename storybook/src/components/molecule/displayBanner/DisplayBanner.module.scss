@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.displayBanner {
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: right top;
+
+	min-height: 165px;
+	padding: 90px 20px 40px;
+
+
+	&.prod {
+		&.newUpdate { background-image: url("/assets/images/bg_display_prod_update.svg")}
+		&.priceDown { background-image: url("/assets/images/bg_display_prod_price_down.svg")}
+		&.newItem { background-image: url("/assets/images/bg_display_prod_new_resell.svg")}
+		&.outlet { background-image: url("/assets/images/bg_display_prod_outlet.svg")}
+		&.gugusBest { background-image: url("/assets/images/bg_display_prod_best.svg")}
+	}
+	&.brand {
+		@include mixins.justify_width(end, start, cloumn);
+		height: 276px;
+		padding: 40px 20px;
+
+		.thumbBox {
+			overflow: hidden;
+			@include mixins.justify_width(center, center);
+			width: 46px;
+			height: 46px;
+			margin-bottom: 16px;
+			border-radius: 46px;
+			border: 1px solid rgba(variables.$colorWhite, 0.2);
+
+			img {
+				-o-object-fit: cover;
+				object-fit: cover;
+			}
+		}
+
+		&.chanel { background-image: url("/assets/images/bg_display_brand_chanel.png")}
+		&.rolex { background-image: url("/assets/images/bg_display_brand_rolex.png")}
+		&.hermes { background-image: url("/assets/images/bg_display_brand_hermes.png")}
+		&.louisVuitton { background-image: url("/assets/images/bg_display_brand_louis_vuitton.png")}
+	}
+
+	.imgBox {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			right: 0;
+			-o-object-fit: cover;
+			object-fit: cover;
+			-o-object-position: right top;
+			object-position: right top;
+		}
+	}
+
+}

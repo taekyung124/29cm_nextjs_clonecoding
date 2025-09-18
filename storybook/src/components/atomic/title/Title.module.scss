@@ -21,6 +21,10 @@
 		@include mixins.font_size_4xl;
 	}
 
+	&.xxl { // 26px
+		@include mixins.font_size_5xl;
+	}
+
 	//영문
 	&.eng {
 		&.sm { // 26px
@@ -69,6 +73,12 @@
 	margin-bottom: 10px;
 	color: variables.$textColorG;
 	@include mixins.font_size_md('md');
+}
+
+.ctitleSubMd {
+	margin-bottom: 6px;
+	color: variables.$textColorG;
+	@include mixins.font_size_md;
 }
 
 .ctitleSubLg {

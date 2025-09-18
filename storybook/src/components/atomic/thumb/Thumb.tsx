@@ -33,11 +33,7 @@ export const Thumb: React.FC<ThumbProps> = ({
 				styles[`${type}${squareSizeClass}`],
 				styles[thumbClass ? `${thumbClass}` : '']
 			].join(' ')}
-			style={{ paddingTop:
-					type === 'fixed' ? `${fixedHeight}` :
-					type === 'square' ? '100%' :
-					type === 'classic' ? '75%' : 'initial'
-			}}
+			style={{ paddingTop: (type === 'fixed' && fixedHeight) || undefined }}
 		>
 			<img src={`/assets/images/thumb_${imgSrc}.png`} alt={altText} />
 			{(type === 'square' && squareSize !== 'Xs' && uiChk) && (

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj, StoryFn } from '@storybook/nextjs-vite';
 
 import {Thumb} from "@/components/atomic/thumb/Thumb";
 
@@ -79,3 +79,64 @@ export const Default: Story = {
 	},
 	render: (args) => <Thumb {...args}/>,
 }
+
+export const Square1by1: StoryFn = () => (
+	<div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+		<Thumb altText="상품 이미지" btnWish imgSrc="prod_5by5" squareSize="Xs" type="square" uiChk />
+		<Thumb altText="상품 이미지" btnWish imgSrc="prod_5by5" squareSize="Sm" type="square" uiChk />
+		<Thumb altText="상품 이미지" btnWish imgSrc="prod_5by5" squareSize="Md" type="square" uiChk />
+		<Thumb altText="상품 이미지" btnWish imgSrc="prod_5by5" squareSize="Lg" type="square" uiChk />
+		<Thumb altText="상품 이미지" btnWish imgSrc="prod_5by5" prodState="stop" type="square" uiChk />
+		<Thumb altText="상품 이미지" btnWish imgSrc="prod_5by5" prodState="ongoing" type="square" uiChk />
+	</div>
+)
+
+export const Classic4by3: StoryFn = () => (
+	<>
+		<Thumb
+			altText="이벤트 썸네일 이미지"
+			btnLink
+			imgSrc="event_01"
+			type="classic"
+		/>
+		<Thumb
+			altText="이벤트 썸네일 이미지"
+			btnLink
+			imgSrc="event_02"
+			type="classic"
+		/>
+		<Thumb
+			altText="이벤트 썸네일 이미지"
+			btnLink
+			imgSrc="event_03"
+			type="classic"
+		/>
+		<Thumb
+			altText="이벤트 썸네일 이미지"
+			btnLink
+			imgSrc="event_04"
+			type="classic"
+		/>
+	</>
+)
+
+export const FluidW_100H_auto: StoryFn = () => (
+	<Thumb
+		altText="어바웃 구구스 썸네일 이미지"
+		btnLink
+		imgSrc="about_gugus_01"
+		type="fluid"
+	/>
+)
+
+export const FixedW_100H_fixed: StoryFn = () => (
+	<Thumb
+		altText="이벤트 썸네일 이미지"
+		btnLink
+		countProdVal="9,999"
+		hasCountProd
+		fixedHeight={'47.761%'}
+		imgSrc="store_detail_01"
+		type="fixed"
+	/>
+)

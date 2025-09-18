@@ -3,16 +3,18 @@ import styles from '@/components/atomic/title/Title.module.scss';
 
 interface TitleProps {
 	type? : 'ctitle' | 'ctitleSub' | 'stitle' ;
-	size? : 'sm' | 'md' | 'lg' | 'xl';
+	size? : 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 	lang? : 'kor' | 'eng';
 	text?: string | React.ReactNode;
+	addClass?: string;
 }
 
 export const Title: React.FC<TitleProps> = ({
 	size = 'medium',
 	lang = 'kor',
 	type = 'ctitle',
-	text
+	text,
+	addClass
 }) => {
 	return (
 		<div
@@ -20,6 +22,7 @@ export const Title: React.FC<TitleProps> = ({
 				styles[type ?? ''],
 				styles[size ?? ''],
 				styles[lang === 'eng'? lang : ''],
+				addClass
 			].join(' ')}>
 			{text}
 		</div>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type {Meta, StoryFn, StoryObj} from '@storybook/nextjs-vite';
 
 import {StoreItem} from "@/components/molecule/storeItem/StoreItem";
 
@@ -12,7 +12,7 @@ const meta = {
 	},
 	decorators: [ // preview 500
 		(Story) => (
-			<div style={{ maxWidth: '500px', margin: '0 auto' }}>
+			<div style={{ maxWidth: '540px', margin: '0 auto', background: '#000', padding: '0 20px'}}>
 				<Story />
 			</div>
 		),
@@ -90,3 +90,72 @@ export const Default: Story = {
 	},
 	render: (args) => <StoreItem {...args} />
 }
+
+export const List: StoryFn = () => (
+	<StoreItem
+		countProdVal="9,999"
+		grayBoxContents="매장 소식이 노출됩니다. 매장 소식이 노출됩니다. 매장 소식이 노출됩니다. 매장 소식이 노출됩니다. 매장 소식이 노출됩니다. 매장 소식이 노출됩니다."
+		imgSrc="store_detail_01"
+		storeLocation="store location store location store location store location"
+		storeName="stores"
+		type="list"
+	/>
+);
+
+export const DetailBox: StoryFn = () => (
+	<StoreItem
+		grayBoxContents="매장 소식이 노출됩니다. 매장 소식이 노출됩니다. 매장 소식이 노출됩니다. 매장 소식이 노출됩니다. 매장 소식이 노출됩니다. 매장 소식이 노출됩니다."
+		imgSrc="store_detail_01"
+		storeLocation="store location store location store location store location"
+		locationCopy={true}
+		storeName="stores"
+		type="detail"
+	/>
+);
+
+export const DetailTable: StoryFn = () => (
+	<StoreItem
+		btnWish
+		imgSrc="store_detail_01"
+		storeName="stores"
+		tableContents={[
+			[
+				{
+					className: 'fcBlack fwMd',
+					content: '전화번호',
+					scope: 'row',
+					type: 'th'
+				},
+				{
+					content: '070-8230-2410',
+					type: 'td'
+				}
+			],
+			[
+				{
+					className: 'fcBlack fwMd',
+					content: '영업시간',
+					scope: 'row',
+					type: 'th'
+				},
+				{
+					content: <>월~금 : 오전 10시~오후6시<br />토, 공휴일 휴무</>,
+					type: 'td'
+				}
+			],
+			[
+				{
+					className: 'fcBlack fwMd',
+					content: '주소',
+					scope: 'row',
+					type: 'th'
+				},
+				{
+					content: '서울시 강남구 청담동 78, 2층',
+					type: 'td'
+				}
+			]
+		]}
+		type="detail"
+	/>
+);
