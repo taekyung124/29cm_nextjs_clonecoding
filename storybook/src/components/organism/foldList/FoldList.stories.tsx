@@ -1,11 +1,11 @@
 import * as React from 'react';
 import type { Meta, StoryObj} from '@storybook/nextjs-vite';
 
-import { FoldWrap } from '@/components/organism/foldWrap/FoldWrap';
+import { FoldList } from '@/components/organism/FoldList/FoldList';
 
 const meta = {
-	title: 'Organism/FoldWrap',
-	component: FoldWrap,
+	title: 'Organism/FoldList',
+	component: FoldList,
 	tags: ['autodocs'],
 	parameters: {
 		layout: 'padded',
@@ -27,10 +27,10 @@ const meta = {
 			control: 'object'
 		}
 	}
-} satisfies Meta<typeof FoldWrap>;
+} satisfies Meta<typeof FoldList>;
 
 export default meta;
-type Story = StoryObj<typeof FoldWrap>;
+type Story = StoryObj<typeof FoldList>;
 
 export const Default: Story = {
 	args: {
@@ -51,5 +51,5 @@ export const Default: Story = {
 			}
 		]),
 	},
-	render: (args) => <FoldWrap {...args} />,
+	render: (args) => <FoldList {...args} />,
 }

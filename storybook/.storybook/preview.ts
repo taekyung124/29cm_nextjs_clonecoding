@@ -21,10 +21,14 @@ const preview: Preview = {
       storySort: {
         order: [
           'CommonStyle',
+            ['Typography', 'BarGroup'],
           'Atomic',
+            ['Title', 'Stext', 'GoodsGroup', 'Badge', 'Tag', 'Button', 'TextButton', 'EtcButton', 'Form', 'Box', 'BubbleBox', 'Thumb'],
           'Molecule',
-          // 'ORGANISM',
-          // 'TEMPLATE',
+            ['InfoTextList', 'TitleWrap', 'FlexInfoWrap', 'BtnWrap', 'NoData', 'InfoGuide', 'Form', 'OverflowWrap', 'prodItem', 'StoreItem', 'DisplayBanner', 'Table'],
+          'Organism',
+            ['FoldList'],
+          'Templates',
           'Layouts',
         ],
       },

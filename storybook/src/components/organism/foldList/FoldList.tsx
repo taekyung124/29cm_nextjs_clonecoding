@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@/components/organism/foldWrap/FoldWrap.module.scss';
+import styles from '@/components/organism/FoldList/FoldList.module.scss';
 
 interface FoldItem {
 	title?: string;
@@ -11,14 +11,14 @@ interface FoldItem {
 	onClick?: () => void;
 }
 
-interface FoldWrapProps {
+interface FoldListProps {
 	type?: 'line' | 'divider' | 'box';
 	color?: 'white' | 'gray';
 	innerPadded?: 'none' | 'md';
 	items: FoldItem[];
 }
 
-export const FoldWrap: React.FC<FoldWrapProps> = ({
+export const FoldList: React.FC<FoldListProps> = ({
 	type = 'line',
 	color = 'gray',
 	innerPadded = 'none',

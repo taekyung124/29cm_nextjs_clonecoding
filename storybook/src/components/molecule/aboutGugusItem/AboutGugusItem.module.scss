@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.aboutGugusItem {
+	position: relative;
+	width: 100%;
+
+	.infoBox {
+		position: relative;
+		margin-top: 30px;
+
+		.stepNumber {
+			position: absolute;
+			display: inline-block;
+			left: 0;
+			top: -49px;
+			font-family: variables.$fontEngDefault;
+			font-weight: variables.$fontWeightEngBold;
+			font-size: 36px;
+			letter-spacing: variables.$letterSpacing;
+			line-height: 46px;
+			color: variables.$colorGold;
+			vertical-align: top;
+		}
+		.title {
+			@include mixins.font_size_2xl;
+		}
+		.desc {
+			margin-top: 14px;
+			color: variables.$textColorDG;
+			@include mixins.font_size_md('body');
+			@include mixins.word_break;
+		}
+	}
+}

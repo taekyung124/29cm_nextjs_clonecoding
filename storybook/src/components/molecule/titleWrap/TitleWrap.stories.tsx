@@ -6,7 +6,7 @@ import {Title} from "@/components/atomic/title/Title";
 import {Stext} from "@/components/atomic/stext/Stext";
 
 const meta = {
-	title: 'Atomic/TitleWrap',
+	title: 'Molecule/TitleWrap',
 	component: TitleWrap,
 	tags: ['autodocs'],
 	parameters: {
