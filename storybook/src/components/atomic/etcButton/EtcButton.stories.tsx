@@ -117,3 +117,12 @@ export const Add: StoryFn = () => (
 		</>
 	} />
 )
+
+export const Icon: StoryFn = () => (
+	<BtnWrap align={'auto'} buttons={
+		<>
+			<EtcButton name={'icon'} offscreen="삭제" icon={'delete'} iconSize={18}/>
+			<EtcButton name={'icon'} offscreen="수정" icon={'edit'} iconSize={18}/>
+		</>
+	} />
+)
