@@ -25,7 +25,7 @@ export const Thumb: React.FC<ThumbProps> = ({
 	type, squareSize = 'auto', fixedHeight, thumbClass, btnLink = false, href, btnWish = false, uiChk = false, hasCountProd, countProdVal, prodState, imgSrc, altText
 }) => {
 	const iconName = prodState === 'stop' ? 'pause' : prodState === 'ongoing' ? 'deal' : '';
-	const squareSizeClass = type === "square" && squareSize !== 'auto' ? squareSize : ''
+	const squareSizeClass = type === "square" && squareSize !== 'auto' ? squareSize : '';
 	return (
 		<div
 			className={[
@@ -38,7 +38,7 @@ export const Thumb: React.FC<ThumbProps> = ({
 			<img src={`/assets/images/thumb_${imgSrc}.png`} alt={altText} />
 			{(type === 'square' && squareSize !== 'Xs' && uiChk) && (
 				<div className={styles.uiChkArea}>
-					<Checkbox align="default" idx="checkbox" />
+					<Checkbox align="default" idx={React.useId()} />
 				</div>
 			)}
 			{(type === 'square' && squareSize !== 'Xs' && btnWish) && (

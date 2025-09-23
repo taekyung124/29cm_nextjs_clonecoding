@@ -1,0 +1,80 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.listHeader {
+	width: 100%;
+
+	.gridFilterWrap {
+		@include mixins.justify_width(center, between);
+		width: 100%;
+
+		.toggleWrap { // TODO : swiper 컴포넌트 작업 후 구조 변경 필요
+			@include mixins.justify_width;
+			gap: 14px;
+		}
+
+		.rightArea {
+			margin-left: auto;
+			padding-left: 13px;
+
+			.btnListView {
+				display: block;
+				width: 18px;
+				height: 18px;
+				padding: 1px;
+				background: url('/assets/icons/comm_ico_prod_list_col2.svg') center no-repeat;
+				background-size: contain;
+
+				&.isActive {
+					background-image: url('/assets/icons/comm_ico_prod_list_col1.svg');
+				}
+			}
+		}
+	}
+
+	.countWrap {
+		@include mixins.justify_width(center, between);
+		width: 100%;
+
+		.rightArea {
+			@include mixins.justify_width(center);
+			margin-left: auto;
+			padding-left: 13px;
+
+			.btnWrap {
+				@include mixins.justify_width;
+				gap: 4px;
+			}
+
+			.btnFilter {
+				position: relative;
+				display: block;
+				width: 36px;
+				height: 36px;
+				margin-left: 13px;
+				background-color: variables.$colorGreen;
+				border-radius: 4px;
+
+				&:after {
+					content: '';
+					position: absolute;
+					top: 10px;
+					left: 10px;
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					background: url('/assets/icons/comm_ico_filter_white.svg') center no-repeat;
+					background-size: contain;
+					vertical-align: top;
+				}
+			}
+		}
+
+		&:not(:first-child) {
+			padding-top: 20px;
+			margin-top: 20px;
+			border-top: 1px solid variables.$colorGray05;
+		}
+	}
+}

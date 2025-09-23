@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.gridList {
+	// gap
+	&.gapXs { --gap: 6px; gap: var(--gap); }
+	&.gapSm { --gap: 10px; gap: var(--gap); }
+	&.gapMd { --gap: 20px; gap: var(--gap); }
+	&.gapLg { --gap: 40px; gap: var(--gap); }
+	&.gapXl { --gap: 50px; gap: var(--gap); }
+	&.gapProd { --gap: 10px; gap: 40px var(--gap); }
+
+	// type
+	&.row {
+		@include mixins.justify_width(stretch);
+		flex-wrap: wrap;
+		.gridItem {
+			width: 100%;
+		}
+	}
+
+	&.col2 {
+		@include mixins.justify_width;
+		flex-wrap: wrap;
+		.gridItem {
+			flex: 1 0 calc(50% - (var(--gap) / 2));
+			width: calc(50% - (var(--gap) / 2));;
+		}
+	}
+}
