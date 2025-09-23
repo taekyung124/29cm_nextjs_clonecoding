@@ -175,7 +175,6 @@
 .barGroup {
 	@include mixins.justify_width(center, start, row, true);
 	flex-wrap: wrap;
-	margin-top: 10px;
 
 	.barText {
 		@extend %barStyle;
@@ -190,5 +189,9 @@
 			@include mixins.font_size_md('md');
 			color: variables.$textColorB;
 		}
+	}
+
+	&:not(:first-child) {
+		margin-top: 10px;
 	}
 }

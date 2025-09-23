@@ -47,7 +47,7 @@ export const Default: Story = {
 		stepNumber: '02',
 		title: '전국 직영 오프라인 매장 운영',
 		description: '전국 26개 직영 매장을 운영하고 있으며, 프리미엄 보고 구매 서비스를 통해 가까운 매장으로 상품 이동하여 직접 시착 및 확인 가능',
-		btnSlot: (<Button size={'lg'} color={'lineLightGray'} text={'가까운 매장 안내'} tag={'a'} />),
+		btnSlot: (<Button size={'lg'} color={'lineLightGray'} text={'가까운 매장 안내'} tag={'a'} href={'javascript:'} />),
 		imgSrc: 'about_gugus_01',
 	},
 	render: (args) => <AboutGugusItem {...args} />,
@@ -62,7 +62,7 @@ export const AboutGugusSteps: StoryFn = () => (
 			title="사전 감정 100% 안심 거래"
 		/>
 		<AboutGugusItem
-			btnSlot={<Button color="lineGray" size="lg" tag="a" text="가까운 매장 안내"/>}
+			btnSlot={<Button color="lineGray" size="lg" tag="a" href={'javascript:'} text="가까운 매장 안내"/>}
 			description="전국 26개 직영 매장을 운영하고 있으며, 프리미엄 보고 구매 서비스를 통해 가까운 매장으로 상품 이동하여 직접 시착 및 확인 가능"
 			imgSrc="about_gugus_02"
 			stepNumber="02"
@@ -81,14 +81,14 @@ export const AboutGugusSteps: StoryFn = () => (
 			title="보유 상품 업계 No.1"
 		/>
 		<AboutGugusItem
-			btnSlot={<Button color="lineGray" size="lg" tag="a" text="명품 A/S서비스"/>}
+			btnSlot={<Button color="lineGray" size="lg" tag="a" href={'javascript:'} text="명품 A/S서비스"/>}
 			description="35년 이상 숙련된 명장들이 상주하고 있으며, 보증 기간 내 의뢰 시 장인을 통해 무상 명품 케어 서비스 제공"
 			imgSrc="about_gugus_05"
 			stepNumber="05"
 			title="명품 케어 서비스 제공"
 		/>
 		<AboutGugusItem
-			btnSlot={<Button color="green" size="lg" tag="a" text="명품 A/S서비스"/>}
+			btnSlot={<Button color="green" size="lg" tag="a" href={'javascript:'} text="명품 A/S서비스"/>}
 			description="온/오프라인 통해 객관적인 시세 및 업계 최저 판매 수수료 기반으로 최고 수준의 판매가를 제공하며 매장 방문 거래 시 당일 현금 지급 서비스 제공"
 			imgSrc="about_gugus_06"
 			stepNumber="06"

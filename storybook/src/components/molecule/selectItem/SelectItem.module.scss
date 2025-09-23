@@ -3,5 +3,153 @@
 @use '../../../styles/abstracts/mixins';
 
 .selectItem {
+	.selectHeader {
+		position: relative;
+		@include mixins.justify_width(center, between);
 
+		.thumbBox {
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			top: 0;
+			left: 0;
+			border-radius: 4px 0 0 4px;
+			overflow: hidden;
+			margin: {
+				top: -21px;
+				left: -21px;
+				bottom: -21px;
+			}
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			~ .headerTit {
+				padding-left: 60px;
+
+				.storeName {
+					@include mixins.font_size_md('md');
+					line-height: 18px;
+				}
+				.storeRegion {
+					margin-left: 6px;
+					@include mixins.font_size_md;
+					line-height: 18px;
+					color: variables.$textColorDG;
+					flex-shrink: 0;
+				}
+			}
+		}
+		.headerTit {
+			@include mixins.justify_width(center);
+
+			.iconBox {
+				flex-shrink: 0;
+				&:has(.iconMd) {
+					margin-right: 8px;
+				}
+				&:has(.iconLg) {
+					margin-right: 12px;
+				}
+				.icon {
+					&Md {
+						display: inline-block;
+						width: 30px;
+						height: 30px;
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-position: center;
+						vertical-align: top;
+						&.address {
+							background-image: url('/assets/icons/comm_ico_address_marker.svg');
+						}
+						&.account {
+							background-image: url('/assets/icons/comm_ico_account_gold_sm.svg');
+						}
+						&.store {
+							background-image: url('/assets/icons/comm_ico_address_store.svg');
+						}
+					}
+					&Lg {
+						display: inline-block;
+						width: 50px;
+						height: 50px;
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-position: center;
+						vertical-align: top;
+						&.account {
+							background-image: url('/assets/icons/comm_ico_account_green.svg');
+						}
+						&.card {
+							background-image: url('/assets/icons/comm_ico_card_gold.svg');
+						}
+					}
+				}
+			}
+			.titleArea {
+				.title {
+					@include mixins.font_size_xl;
+					color: variables.$textColorB;
+				}
+				.accountNumber {
+					margin-top: 4px;
+					@include mixins.font_size_sm;
+					color: variables.$textColorDG;
+					word-break: break-all;
+				}
+
+				&:has(.accountNumber) {
+					.title {
+						@include mixins.font_size_md('md');
+					}
+				}
+			}
+		}
+		.headerRight {
+			@include mixins.justify_width(start, center);
+			gap: 12px;
+			margin-left: 10px;
+		}
+	}
+
+	.selectBody {
+		margin-top: 20px;
+
+		.userInfo {
+			.name {
+				@include mixins.font_size_xl;
+				~ div {
+					margin-top: 4px;
+				}
+			}
+		}
+
+		.formWrap {
+			margin-top: 20px;
+			@include mixins.justify_width(center, start, column);
+			gap: 10px;
+			> div {
+				width: 100%;
+			}
+		}
+		.tableWrap {}
+	}
+
+	.descArea {
+		.desc {
+			margin-top: 8px;
+			@include mixins.font_size_sm;
+			color: variables.$textColorB;
+			word-break: break-word;
+		}
+		.subDesc {
+			margin-top: 4px;
+			color: variables.$textColorDG;
+			@include mixins.font_size_sm('body');
+			word-break: break-word;
+		}
+	}
 }

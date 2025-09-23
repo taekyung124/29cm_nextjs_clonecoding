@@ -1,0 +1,72 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.contBox {
+	// size
+	&Sm {
+		padding: {
+			top: 20px;
+			bottom: 20px;
+		}
+	}
+	&Md {
+		padding: {
+			top: 30px;
+			bottom: 30px;
+		}
+	}
+	&Lg {
+		padding: {
+			top: 50px;
+			bottom: 50px;
+		}
+	}
+	&Xl {
+		padding: {
+			top: 60px;
+			bottom: 60px;
+		}
+	}
+}
+
+.contBox, .contBoxSm, .contBoxMd, .contBoxLg, .contBoxXl {
+	// utils
+	&.ptSm { padding-top: 20px !important;}
+	&.ptMd { padding-top: 30px !important;}
+	&.ptLg { padding-top: 50px !important;}
+	&.ptXl { padding-top: 60px !important;}
+
+	&.pbSm { padding-bottom: 20px !important;}
+	&.pbMd { padding-bottom: 30px !important;}
+	&.pbLg { padding-bottom: 50px !important;}
+	&.pbXl { padding-bottom: 60px !important;}
+
+	// type
+	&.line {
+		border-top: 1px solid variables.$colorGray05;
+		&.last {
+			border-bottom: 1px solid variables.$colorGray05;
+		}
+	}
+	&.divider {
+		border-top: 10px solid variables.$colorGray06;
+		&.last {
+			border-bottom: 10px solid variables.$colorGray06;
+		}
+	}
+	&.gray {
+		background-color: variables.$colorGray06;
+	}
+	&.green {
+		background-color: #EFF6F6;
+	}
+
+	// inner
+	.contInner {
+		padding: {
+			left: 20px;
+			right: 20px;
+		}
+	}
+}

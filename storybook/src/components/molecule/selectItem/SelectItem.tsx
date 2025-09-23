@@ -64,28 +64,30 @@ export const SelectItem: React.FC<SelectItemProps> = ({
 									<>
 										<div className={styles.iconBox}>
 											<span className={[
-												styles.icon,
-												styles.addressMd
+												styles.iconMd,
+												styles.address
 											].join(' ')}></span>
 										</div>
-										<div className={styles.titleArea}>{title}</div>
+										<div className={styles.titleArea}>
+											<div className={styles.title}>{title}</div>
+										</div>
 									</>
 								) : type === 'account' ? (
 									<>
 										<div className={styles.iconBox}>
 											<span className={[
-												styles.icon,
-												styles[`${icon}${iconSize}`]
+												styles[`icon${iconSize}`],
+												styles[`${icon}`]
 											].join(' ')}></span>
 										</div>
 										<div className={styles.titleArea}>
 											{iconSize === 'Lg' ? (
 												<>
-													<span className={styles.title}>{title}</span>
-													<span className={styles.accountNumber}>{accountNumber}</span>
+													<div className={styles.title}>{title}</div>
+													<div className={styles.accountNumber}>{accountNumber}</div>
 												</>
 											) : (
-												<span className={styles.title}>{title}</span>
+												<div className={styles.title}>{title}</div>
 											)}
 										</div>
 									</>
@@ -93,8 +95,8 @@ export const SelectItem: React.FC<SelectItemProps> = ({
 									<>
 										<div className={styles.iconBox}>
 											<span className={[
-												styles.icon,
-												styles.storeMd
+												styles.iconMd,
+												styles.store
 											].join(' ')}></span>
 										</div>
 										<div className={styles.titleArea}>
@@ -103,9 +105,9 @@ export const SelectItem: React.FC<SelectItemProps> = ({
 									</>
 								) : ''}
 							</div>
-							{headerRight &&
-								<div className={styles.HeaderRight}>
-									{type === 'account' && iconSize === 'Lg' ? renderSelectBtn : headerRight}
+							{(headerRight || iconSize === 'Lg') &&
+								<div className={styles.headerRight}>
+									{type === 'account' && !hasSelectBody ? renderSelectBtn : headerRight}
 								</div>
 							}
 						</>
@@ -137,10 +139,12 @@ export const SelectItem: React.FC<SelectItemProps> = ({
 								<div className={styles.selectInfo}>
 									<FlexInfoWrap
 										align={subDesc ? 'end' : 'center'}
-										leftArea={<>
-											<div className={styles.desc}>{desc}</div>
-											{subDesc && <div className={styles.subDesc}>{subDesc}</div>}
-										</>}
+										leftArea={
+											<div className={styles.descArea}>
+												<div className={styles.desc}>{desc}</div>
+												{subDesc && <div className={styles.subDesc}>{subDesc}</div>}
+											</div>
+										}
 										rightArea={
 											type === 'address' && !formContents ? (renderSelectBtnGreen) : type === 'account' ? (renderSelectBtn) : null
 										}
@@ -154,7 +158,9 @@ export const SelectItem: React.FC<SelectItemProps> = ({
 							</div>
 						}
 						{(type === 'store' && tableContents) &&
-							<Table wapperType={'Info'} tblType={'InfoSm'} caption={'매장 정보'} colWidth={['70px', 'auto']} tbody={tableContents} />
+							<div className={styles.tableWrap}>
+								<Table wapperType={'Info'} tblType={'InfoSm'} caption={'매장 정보'} colWidth={['70px', 'auto']} tbody={tableContents} />
+							</div>
 						}
 					</div>
 				)}
