@@ -20,7 +20,6 @@ export const Toggle: React.FC<ToggleProps> = ({
 			) : (
 				<label htmlFor={idx}>{text}</label>
 			)}
-
 		</div>
 	)
 }
