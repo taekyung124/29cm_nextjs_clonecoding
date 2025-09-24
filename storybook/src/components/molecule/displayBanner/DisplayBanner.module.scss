@@ -7,10 +7,9 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: right top;
-
+	width: 100%;
 	min-height: 165px;
 	padding: 90px 20px 40px;
-
 
 	&.prod {
 		&.newUpdate { background-image: url("/assets/images/bg_display_prod_update.svg")}
@@ -47,6 +46,7 @@
 
 	.imgBox {
 		position: absolute;
+		width: 100%;
 		top: 0;
 		left: 0;
 		right: 0;

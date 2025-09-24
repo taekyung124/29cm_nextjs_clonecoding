@@ -10,6 +10,7 @@
 	}
 
 	.infoBox {
+		width: 100%;
 		.badgeGroup {
 			@include mixins.justify_width;
 			flex-wrap: wrap;
@@ -20,6 +21,7 @@
 			}
 		}
 		.prodInfo {
+			width: 100%;
 			margin-bottom: 2px;
 
 			.brand {

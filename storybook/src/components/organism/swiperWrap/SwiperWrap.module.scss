@@ -1,0 +1,158 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.swiper {
+	position: relative;
+	overflow: hidden;
+
+	.swiperWrapper {
+		.swiperSlide {
+			width: 100%;
+		}
+	}
+	&.auto {
+		padding: {
+			left: 20px;
+			right: 20px;
+		}
+		margin: {
+			left: -20px;
+			right: -20px;
+		}
+		.swiperWrapper {
+			.swiperSlide {
+				width: auto !important;
+			}
+		}
+	}
+	&.dot {
+		.pagination {
+			position: relative;
+			top: auto;
+			bottom: auto;
+			left: auto;
+			height: 4px;
+			margin-top: 20px;
+			text-align: center;
+
+			.bullet, .bulletActive {
+				display: inline-block;
+				width: 4px;
+				height: 4px;
+				margin: 0 3px;
+				opacity: 1;
+				vertical-align: top;
+				background: variables.$colorGray04;
+				border-radius: 2px;
+				@include mixins.prefix(transition, background 0.2s ease-out);
+			}
+			.bulletActive {
+				background: variables.$colorBlack;
+			}
+		}
+	}
+	&.fraction {
+		.paginationWrap {
+			overflow: hidden;
+			position: absolute;
+			z-index: 10;
+			top: auto;
+			bottom: 20px;
+			right: 20px;
+			left: auto;
+
+			&.lg {
+				bottom: 30px;
+			}
+			&.sm {
+				bottom: 12px;
+				right: 12px;
+			}
+			&.center {
+				left: 50%;
+				bottom: 30px;
+				right: auto;
+				@include mixins.prefix(transform, translateX(-50%));
+			}
+
+			.pagination {
+				padding: 5px 10px;
+				background: rgba(variables.$colorBlack, 30%);
+				border-radius: 25px;
+				height: 25px;
+				color: variables.$textColorW;
+				width: auto;
+				@include mixins.font_size_2xs;
+
+				.current, .total {
+					@include mixins.font_size_2xs;
+				}
+
+				.current {
+					font-weight: variables.$fontWeightMedium !important;
+				}
+			}
+
+			&:has(.btnPreview) {
+				z-index: 10;
+				position: absolute;
+				bottom: 30px;
+				left: 50%;
+				right: auto;
+				@include mixins.prefix(transform, translateX(-50%));
+				@include mixins.justify_width(center);
+
+				.pagination {
+					height: 32px;
+					padding: 7px 14px 6px;
+					background: rgba(variables.$colorWhite, 80%);
+					color: variables.$textColorDG;
+
+					.current, .total {
+						@include mixins.font_size_sm;
+					}
+
+					.current {
+						color: variables.$textColorPoint;
+					}
+				}
+			}
+			.btnPreview {
+				position: relative;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				margin-left: 6px;
+				border-radius: 16px;
+				background-color: rgba(variables.$colorWhite, 80%);
+				vertical-align: top;
+				&:after {
+					position: absolute;
+					content: '';
+					top: 8px;
+					left: 8px;
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					background: url('/assets/icons/ico_preview.svg') center no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+	}
+	&.card {
+		width: 100%;
+		margin: {
+			left: -20px;
+			right: -20px;
+		}
+
+		.swiperWrapper {
+			width: 100%;
+			.swiperSlide {
+				width: calc(100% - 40px);
+			}
+		}
+	}
+}

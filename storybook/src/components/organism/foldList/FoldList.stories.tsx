@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { Meta, StoryObj} from '@storybook/nextjs-vite';
 
-import { FoldList } from '@/components/organism/FoldList/FoldList';
+import { FoldList } from '@/components/organism/foldList/FoldList';
 
 const meta = {
 	title: 'Organism/FoldList',

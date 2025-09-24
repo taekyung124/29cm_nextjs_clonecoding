@@ -10,9 +10,9 @@ interface DisplayBannerProps {
 	// type?: 'prod' | 'brand' | 'default';
 	prod?: 'newUpdate' | 'priceDown' | 'newItem' | 'outlet' | 'gugusBest';
 	brand?: 'chanel' | 'rolex' | 'hermes' | 'louisVuitton';
-	supTitle?: string;
-	title?: string;
-	subText?: string;
+	supTitle?: string | React.ReactNode;
+	title?: string | React.ReactNode;
+	subText?: string | React.ReactNode;
 	btnText?: string;
 	imgSrc?: string;
 }

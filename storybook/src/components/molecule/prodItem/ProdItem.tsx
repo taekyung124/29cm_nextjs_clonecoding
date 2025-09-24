@@ -40,12 +40,15 @@ export const ProdItem: React.FC<ProdItemProps> = ({
 		squareSize === 'Lg' ? '120' : '0';
 
 	return (
-		<div className={[styles.prodItem, styles[`${direction}`]].join(' ')}>
+		<div
+			className={[styles.prodItem, styles[`${direction}`]].join(' ')}
+			style={{ width: direction === 'col' && squareSize !=='auto' ? `${infoBoxWidth}px` : '100%' }}
+		>
 			{prodLank && <div className={styles.prodLank}>{prodLank}</div>}
 
 			<Thumb
 				type={'square'} btnLink={false} altText={`${title} 상품 이미지`}
-				squareSize={direction === 'row' ? squareSize : 'auto'} imgSrc={imgSrc} btnWish={btnWish} uiChk={uiChk} prodState={prodState} thumbClass={thumbClass}
+				squareSize={squareSize} imgSrc={imgSrc} btnWish={btnWish} uiChk={uiChk} prodState={prodState} thumbClass={thumbClass}
 			/>
 
 			<div
