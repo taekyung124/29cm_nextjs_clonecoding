@@ -110,6 +110,17 @@ a, button {
 		vertical-align: top;
 	}
 }
+
+.iconBtn {
+	position: relative;
+	.icon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
 .sortBtn {
 	@extend %btnCommon;
 	.text {

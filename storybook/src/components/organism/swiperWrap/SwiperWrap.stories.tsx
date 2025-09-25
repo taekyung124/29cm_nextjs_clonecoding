@@ -2,9 +2,16 @@ import * as React from "react";
 import type { Meta, StoryObj, StoryFn } from "@storybook/react";
 
 import { SwiperWrap } from "@/components/organism/swiperWrap/SwiperWrap";
+import {GridList} from "@/components/molecule/gridList/GridList";
 import {DisplayBanner} from "@/components/molecule/displayBanner/DisplayBanner";
-import {Thumb} from "@/components/atomic/thumb/Thumb";
 import {ProdItem} from "@/components/molecule/prodItem/ProdItem";
+import {FlexInfoWrap} from "@/components/molecule/flexInfoWrap/FlexInfoWrap";
+import {TitleWrap} from "@/components/molecule/titleWrap/TitleWrap";
+import {Thumb} from "@/components/atomic/thumb/Thumb";
+import {Box} from "@/components/atomic/box/Box";
+import {Title} from "@/components/atomic/title/Title";
+import {TextButton} from "@/components/atomic/textButton/TextButton";
+import {EtcButton} from "@/components/atomic/etcButton/EtcButton";
 
 const meta = {
 	title: "Organism/SwiperWrap",
@@ -127,7 +134,75 @@ export const ProdSwiper:StoryFn = () => ( // auto
 
 export const RecentSearchKeyword: StoryFn = () => ( // dot
 	<div style={{width: '500px', margin: '0 auto'}}>
-
+		<Box size={'md'} color={'grayLine'} child={
+			<>
+				<FlexInfoWrap
+					align={'center'}
+					leftArea={
+						<TitleWrap child={<>
+							<Title type={'ctitle'} size={'md'} text={'최근 검색어'} />
+						</>}/>
+					}
+					rightArea={
+						<TextButton color={'gray'} size={'md'} text={'전체삭제'} udlLink={true} />
+					}
+				/>
+				<SwiperWrap type={'dot'} items={[
+					<GridList type="row" gap="md" mt={20}
+						items={[
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="프라다" />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>,
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="에르메스" />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>,
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="
+										  메종 마르지엘라메종 마르지엘라 메종 마르지엘라 메종 마르지엘라 메종 마르지엘라
+										  " />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>,
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="롤렉스" />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>,
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="샤넬" />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>
+						]}
+					/>,
+					<GridList type="row" gap="md" mt={20}
+						items={[
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="프라다" />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>,
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="에르메스" />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>,
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="
+										  메종 마르지엘라 메종 마르지엘라 메종 마르지엘라 메종 마르지엘라메종 마르지엘라 메종 마르지엘라 메종 마르지엘라 메종 마르지엘라메종 마르지엘라 메종 마르지엘라 메종 마르지엘라 메종 마르지엘라
+										  " />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>,
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="롤렉스" />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>,
+							<FlexInfoWrap align={'center'} marginLeft={14}
+										  leftArea={<TextButton tag={'a'} href={'javascript:'} addCommClass="ellipsis fwLt" color="black" size="lg" text="샤넬" />}
+										  rightArea={<EtcButton name={'icon'} offscreen={'삭제'} icon={'close'} iconSize={10} btnSize={18}/>}
+							/>
+						]}
+					/>
+				]} />
+			</>
+		}/>
 	</div>
 )
 

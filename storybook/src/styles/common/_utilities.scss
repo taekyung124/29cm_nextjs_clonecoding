@@ -34,6 +34,10 @@
 .tdUdl { text-decoration: underline !important; }
 .tdLine { text-decoration: line-through !important; }
 
+.ellipsis {
+	@include mixins.ellipsis;
+}
+
 // ellipsis
 .multiEllipsis {
 	@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
@@ -63,3 +67,18 @@
 }
 
 // spacing
+
+// sticky
+.stickyWrap {
+	position: relative;
+	width: 100%;
+	height: auto;
+
+	.sticky {
+		position: sticky;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+	}
+}

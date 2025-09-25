@@ -4,6 +4,7 @@
 
 // FlexInfoWrap
 .flexInfoWrap {
+	width: 100%;
 	@include mixins.justify_width;
 
 	&.center {
@@ -13,9 +14,14 @@
 		align-items: flex-end;
 	}
 
+	.leftArea {
+		flex: 1 1 auto;
+		min-width: 0;
+		 > * { width: 100% }
+	}
 	.rightArea {
 		margin-left: auto;
-		flex-shrink: 0;
+		flex: 0 0 auto;
 		text-align: right;
 
 		&.clear {

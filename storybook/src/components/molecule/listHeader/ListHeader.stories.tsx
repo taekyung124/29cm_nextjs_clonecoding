@@ -24,9 +24,6 @@ const meta = {
 		selectSlots: {
 			control: 'object',
 		},
-		isSticky: {
-			control: 'boolean',
-		},
 		hasFilter: {
 			control: 'boolean',
 		},
@@ -130,5 +127,5 @@ export const CountSelectFilter: StoryFn = () => {
 }
 
 export const Toggle: StoryFn = () => (
-	<ListHeader toggle={['거래 진행중 제외', '보고구매 가능']} />
+	<ListHeader toggle={['거래 진행중 제외', '보고구매 가능', '거래 진행중 제외', '보고구매 가능']} />
 )

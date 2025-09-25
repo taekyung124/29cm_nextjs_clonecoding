@@ -7,6 +7,7 @@ type CommonProps = {
 	color?: 'white' | 'green' | 'gray' | 'red';
 	icon?: string | React.ReactNode;
 	iconSize?: number;
+	btnSize?: number;
 	text?: string | React.ReactNode;
 	offscreen?: string;
 	addClass?: string;
@@ -26,7 +27,7 @@ type EtcButtonAsAnchor = {
 
 export type EtcButtonProps = CommonProps & (EtcButtonAsButton | EtcButtonAsAnchor);
 
-export const EtcButton = ({name, color = 'white', icon, iconSize, text, offscreen, onClick, tag = 'button', addClass, ...rest}: EtcButtonProps) => {
+export const EtcButton = ({name, color = 'white', icon, iconSize, btnSize, text, offscreen, onClick, tag = 'button', addClass, ...rest}: EtcButtonProps) => {
 	const renderIcon =(typeof icon === 'string') ? (<span className={styles.icon} style={{backgroundImage: `url("/assets/icons/comm_ico_${icon}.svg")`}}></span>) : (icon);
 	const renderCustom = name !== 'wish' &&
 		<>
@@ -69,7 +70,7 @@ export const EtcButton = ({name, color = 'white', icon, iconSize, text, offscree
 				onClick={handleToggle}
 				href={href}
 				{...anchorProps}
-				style={{width: `${iconSize}px`, height: `${iconSize}px`}}
+				style={{width: btnSize ? `${btnSize}px` : `${iconSize}px`, height: btnSize ? `${btnSize}px` : `${iconSize}px`}}
 			>
 				<span
 					className={styles.icon}
@@ -121,6 +122,7 @@ export const EtcButton = ({name, color = 'white', icon, iconSize, text, offscree
 			<button
 				className={styles[`${name}Btn`]}
 				onClick={handleToggle}
+				style={{width: btnSize ? `${btnSize}px` : `${iconSize}px`, height: btnSize ? `${btnSize}px` : `${iconSize}px`}}
 			>
 				<span
 					className={styles.icon}

@@ -13,7 +13,9 @@ export const FlexInfoWrap: React.FC<FlexInfoWrapProps> = ({
 }) => {
 	return (
 		<div className={[styles.flexInfoWrap, styles[align !== 'start' ? `${align}` : '']].join(' ')}>
-			{leftArea}
+			<div className={styles.leftArea}>
+				{leftArea}
+			</div>
 			<div
 				className={styles.rightArea}
 				style={{marginLeft: `${marginLeft}px`}}

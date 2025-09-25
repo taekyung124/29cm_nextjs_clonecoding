@@ -9,11 +9,6 @@
 		@include mixins.justify_width(center, between);
 		width: 100%;
 
-		.toggleWrap { // TODO : swiper 컴포넌트 작업 후 구조 변경 필요
-			@include mixins.justify_width;
-			gap: 14px;
-		}
-
 		.rightArea {
 			margin-left: auto;
 			padding-left: 13px;
