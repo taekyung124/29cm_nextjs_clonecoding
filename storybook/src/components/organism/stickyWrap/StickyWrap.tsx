@@ -9,12 +9,12 @@ interface StickyWrapProps {
 }
 
 export const StickyWrap: React.FC<StickyWrapProps> = ({
-														  top = 0,
-														  zIndex = 10,
-														  background = "#fff",
-														  className,
-														  children,
-													  }) => {
+	top = 0,
+	zIndex = 10,
+	background = "#fff",
+	className,
+	children,
+}) => {
 	const ref = React.useRef<HTMLDivElement>(null);
 	const offsetTopRef = React.useRef(0); // 원래 위치를 ref로 저장
 	const [isFixed, setIsFixed] = React.useState(false);
