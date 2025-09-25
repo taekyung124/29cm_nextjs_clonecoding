@@ -1,0 +1,381 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+%boxStyle {
+	.tabs {
+		margin: {
+			right: 0;
+			left: 0;
+		}
+		.tabItem {
+			min-width: 90px;
+			background: variables.$colorWhite;
+
+			.tabLink {
+				@include mixins.justify_width(center, center, column);
+				width: 100%;
+				height: 100%;
+				padding: 10px 20px;
+				font-size: 0;
+
+				.text {
+					@include mixins.font_size_md;
+					color: variables.$textColorDG;
+				}
+
+				.val {
+					color: variables.$textColorDG;
+				}
+
+				~ .tabItem {
+					border-left: 1px solid #E6E6E6;
+				}
+			}
+			&:has(.active) {
+				min-width: 91px;
+				margin-left: -1px;
+				border-color: transparent;
+				box-shadow: 0 10px 20px rgba(variables.$colorBlack, 12%);
+
+				.active {
+					background-color: variables.$colorGold;
+
+					.text {
+						font-weight: variables.$fontWeightSemibold;
+						color: variables.$colorWhite;
+					}
+
+					.val {
+						font-weight: variables.$fontWeightSemibold;
+						color: variables.$colorWhite;
+					}
+				}
+			}
+		}
+	}
+}
+
+.tabWrap {
+	width: 100%;
+	padding: 0;
+
+	// common
+	.tabs {
+		overflow: hidden;
+		padding: 0;
+		.tabItem {
+			width: auto;
+			position: relative;
+			margin: 0;
+
+			.tabLink {
+				display: inline-block;
+				vertical-align: top;
+				cursor: pointer;
+				padding: 0;
+
+				.text {
+					display: inline-block;
+					position: relative;
+					vertical-align: top;
+				}
+				.val {}
+
+				&.disabled {
+					opacity: 0.5;
+				}
+				&.active {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	.tabContent {
+		padding: 0;
+	}
+
+	// align
+	&.auto {
+		.tabs {
+			padding: 0;
+			margin: 0;
+		}
+	}
+	&.justify {
+		.tabs {
+			@include mixins.justify_width(center);
+			padding: {
+				right: 0;
+				left: 0;
+			}
+			.tabItem {
+				flex: 1;
+				overflow: hidden;
+
+				.tabLink {
+					text-align: center;
+					width: 100%;
+					//padding: 12px 5px;
+
+					&:has(.val) {
+						.text {
+							@include mixins.font_size_md;
+						}
+					}
+
+					.text {
+						@include mixins.ellipsis;
+					}
+					&.active {
+						.text {
+							font-weight: variables.$fontWeightMedium;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.col2, &.col3 {
+		.tabs {
+			@include mixins.justify_width;
+			align-items: stretch;
+			flex-wrap: wrap;
+			gap: 6px 4px;
+
+			.tabItem {
+				.tabLink {
+					width: 100%;
+					text-align: center;
+				}
+			}
+		}
+	}
+	&.col2 {
+		.tabs {
+			.tabItem {
+				width: calc((100% - 4px) / 2);
+			}
+		}
+	}
+	&.col3 {
+		.tabs {
+			.tabItem {
+				width: calc((100% - 8px) / 3);
+			}
+		}
+	}
+
+	// type
+	&.line {
+		.tabs {
+			position: relative;
+			background: variables.$colorWhite;
+			padding: 0;
+			margin: 0;
+
+			&:after {
+				content: '';
+				display: inline-block;
+				width: 100%;
+				height: 1px;
+				background-color: variables.$colorGray05;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+
+			.tabItem {
+				min-height: 50px;
+				.tabLink {
+					padding: 13px 15px 13px;
+					font-size: 0;
+					.val {
+						display: inline-block;
+						margin-left: 3px;
+						@include mixins.font_size_lg('lt');
+						color: variables.$textColorGold;
+						vertical-align: top;
+					}
+
+					.text {
+						@include mixins.font_size_lg('lt');
+						color: variables.$textColorDG;
+					}
+					&.active {
+						.text {
+							color: variables.$textColorPoint;
+							font-weight: variables.$fontWeightSemibold;
+						}
+						.val {
+							position: relative;
+						}
+						&:after {
+							content: '';
+							display: inline-block;
+							width: calc(100% - 26px);
+							height: 2px;
+							position: absolute;
+							bottom: 0;
+							left: 13px;
+							right: 0;
+							z-index: 1;
+							background-color: variables.$colorGreen;
+						}
+					}
+				}
+			}
+		}
+		&.justify {
+			.tabs {
+				@include mixins.justify_width(end, stretch);
+				border-bottom: 0;
+
+				.tabItem {
+					.tabLink {
+						@include mixins.justify_width(center, center, column-reverse);
+
+						min-height: 50px;
+						padding: {
+							top: 9px;
+							bottom: 9px;
+						}
+
+						.val {
+							display: block;
+							margin-left: 0;
+							@include mixins.font_size_3xl('lt');
+							color: variables.$textColorDG;
+						}
+
+						&.active {
+							.val {
+								color: variables.$textColorPoint;
+								font-weight: variables.$fontWeightSemibold;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.justify, &.col2, &.col3 {
+			.tabs {
+				.tabItem {
+					.tabLink {
+						&:after {
+							width: 100%;
+							left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.pill {
+		.tabs {
+			font-size: 0;
+
+			.tabItem {
+				display: inline-block;
+				min-height: 32px;
+				background: variables.$colorGray06;
+				border-radius: 16px;
+				vertical-align: top;
+				overflow: hidden;
+
+				.tabLink {
+					padding: 7px 12px;
+					font-size: 0;
+					width: 100%;
+					height: 100%;
+					@include mixins.justify_width(center, center);
+					text-align: center;
+
+					.text {
+						@include mixins.font_size_sm;
+						color: variables.$textColorDG;
+						flex-shrink: 0;
+						@include mixins.ellipsis;
+						width: auto;
+					}
+
+					.val {
+						display: inline-block;
+						margin-left: 3px;
+						@include mixins.font_size_sm('md');
+						color: variables.$textColorGold;
+						vertical-align: top;
+					}
+
+					&.active {
+						background: variables.$colorGreen;
+						.text {
+							color: variables.$colorWhite;
+							font-weight: variables.$fontWeightMedium;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.boxSm {
+		@extend %boxStyle;
+		.tabs {
+			padding-bottom: 20px;
+			margin-bottom: -20px;
+			box-sizing: content-box;
+
+			.tabItem {
+				min-width: 90px;
+				height: 50px;
+
+				.tabLink {
+					flex-direction: row;
+
+					.text {
+						display: inline-block;
+						vertical-align: top;
+					}
+
+					.val {
+						display: inline-block;
+						margin-left: 6px;
+						@include mixins.font_size_lg;
+						vertical-align: top;
+					}
+				}
+
+				&:has(.active) {
+					box-shadow: 0 10px 10px rgba(variables.$colorBlack, 12%);
+				}
+			}
+		}
+	}
+	&.boxLg {
+		@extend %boxStyle;
+		.tabs {
+			padding-bottom: 30px;
+			margin-bottom: -30px;
+
+			.tabItem {
+				height: 90px;
+
+				.tabLink {
+					.text {
+						display: block;
+						text-align: center;
+					}
+					.val {
+						display: block;
+						margin-top: 4px;
+						@include mixins.font_size_2xl;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}

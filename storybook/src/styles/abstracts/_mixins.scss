@@ -155,6 +155,14 @@
         -ms-flex-direction: column;
         -webkit-flex-direction: column;
         flex-direction: column;
+    } @else if ($direction == column-reverse) {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -moz-box-orient: vertical;
+        -moz-box-direction: normal;
+        -ms-flex-direction: column-reverse;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
     }
 }
 

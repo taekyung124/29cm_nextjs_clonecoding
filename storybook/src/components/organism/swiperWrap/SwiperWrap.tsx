@@ -16,6 +16,8 @@ interface SwiperWrapProps {
 	centeredSlides?: boolean
 	hasPreview?: boolean;
 	items?: React.ReactNode[];
+	addClass?: string;
+	slideClass?: string;
 }
 
 export const SwiperWrap: React.FC<SwiperWrapProps> = ({
@@ -26,9 +28,10 @@ export const SwiperWrap: React.FC<SwiperWrapProps> = ({
 	centeredSlides = false,
 	hasPreview = false,
 	items = [],
+	addClass, slideClass
 }) => {
 	return (
-		<div className={[styles.swiper, styles[type]].join(' ')}>
+		<div className={[styles.swiper, styles[type], addClass ? addClass : ''].join(' ')}>
 			<Swiper
 				className={styles.swiperWrapper}
 				slidesPerView="auto"
@@ -52,7 +55,7 @@ export const SwiperWrap: React.FC<SwiperWrapProps> = ({
 				}
 			>
 				{items.map((content, idx) => (
-					<SwiperSlide key={idx} className={styles.swiperSlide}>
+					<SwiperSlide key={idx} className={[styles.swiperSlide, slideClass ? slideClass : ''].join(' ')}>
 						{content}
 					</SwiperSlide>
 				))}

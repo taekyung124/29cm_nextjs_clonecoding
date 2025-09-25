@@ -10,6 +10,9 @@ const meta = {
 	title: "Organism/SwiperWrap",
 	component: SwiperWrap,
 	tags: ['autodocs'],
+	parameters: {
+		layout: 'padded',
+	},
 	argTypes: {
 		type: {
 			control: "inline-radio",
