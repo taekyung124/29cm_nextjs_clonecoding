@@ -1,0 +1,76 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.boardList {
+	.boardItem {
+		position: relative;
+		@include mixins.justify_width(center, between);
+		width: 100%;
+		padding: 20px 0;
+		border-bottom: 1px solid variables.$colorGray05;
+
+		&:has(.qnaType) {
+			@include mixins.justify_width(start, start);
+			.qnaType {
+				display: inline-block;
+				font-family: variables.$fontEngDefault;
+				@include mixins.font_size_3xl;
+				font-weight: variables.$fontWeightEngBold;
+				vertical-align: top;
+			}
+			.boardInfo {
+				width: 100%;
+				margin-left: 14px;
+			}
+		}
+
+		.boardInfo {
+			.title {
+				@include mixins.font_size_md('md');
+				color: variables.$textColorB;
+				word-break: break-word;
+			}
+			.orderNumber {
+				margin-top: 8px;
+				@include mixins.font_size_sm;
+				color: variables.$textColorDG;
+			}
+			.desc {
+				margin-top: 2px;
+				@include mixins.font_size_sm;
+				color: variables.$textColorDG;
+				@include mixins.multi_ellipsis(variables.$fontSizeSmLineHeight);
+			}
+			.barGroup {
+				margin-top: 6px;
+			}
+		}
+		.rightArea {
+			flex-shrink: 0;
+			margin-left: 20px;
+			text-align: right;
+
+			.pointDesc {
+				@include mixins.font_size_sm;
+				text-align: right;
+
+				&.earn {
+					color: variables.$textColorRed;
+				}
+				&.use {
+					color: variables.$colorGreen;
+				}
+				&.expired {
+					color: variables.$textColorDG;
+				}
+			}
+		}
+	}
+
+	&.hasTopLine {
+		.boardItem:first-child {
+			border-top: 1px solid variables.$colorGray05;
+		}
+	}
+}

@@ -66,6 +66,7 @@ export const ListHeaderCase: StoryFn = () => {
 	return (
 		<>
 			<StickyWrap
+				paddingY={10}
 				children={<ListHeader
 					countNum="9,999"
 					hasFilter
@@ -100,7 +101,8 @@ export const ListHeaderCase: StoryFn = () => {
 				<ProdItem direction="col" imgSrc="prod_5by5" squareSize="auto" prodLank={4} brand="BRAND NAME BRAND NAME BRAND NAME BRAND NAME BRAND NAME BRAND NAME" btmBadgeText={['badge01', 'badge02', 'badge03']} btnLink btnWish uiChk discount={12} loanPrice="300,000" price="112,000,000" priceBadge="A" priceOrigin="4,000,000" prodState="ongoing" sizeInfo="230" uid={123456} title="prod title prod title prod title prod title prod title prod title prod title prod title prod title" topBadgeText={['badge01', 'badge02']} />]} />
 
 			<StickyWrap
-				top={36}
+				paddingY={10}
+				top={56}
 				children={<ListHeader
 					countNum="9,999"
 					hasFilter

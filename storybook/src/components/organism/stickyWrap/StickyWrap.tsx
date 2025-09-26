@@ -4,6 +4,8 @@ interface StickyWrapProps {
 	top?: number;
 	zIndex?: number;
 	background?: string;
+	paddingX?: number;
+	paddingY?: number;
 	className?: string;
 	children: React.ReactNode;
 }
@@ -12,6 +14,8 @@ export const StickyWrap: React.FC<StickyWrapProps> = ({
 	top = 0,
 	zIndex = 10,
 	background = "#fff",
+	paddingX,
+	paddingY,
 	className,
 	children,
 }) => {
@@ -60,6 +64,7 @@ export const StickyWrap: React.FC<StickyWrapProps> = ({
 			width: parentRect.width,
 			zIndex,
 			background,
+			padding: `${paddingY ?? 0}px ${paddingX ?? 0}px`
 		};
 	}, [isFixed, top, zIndex, background]);
 
