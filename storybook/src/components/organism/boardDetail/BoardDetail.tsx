@@ -32,7 +32,7 @@ export const BoardDetail: React.FC<BoardDetailProps> = ({
 							</div>
 						}
 						rightArea={
-							<BtnWrap align={'auto'} buttons={
+							<BtnWrap align={'auto'} gap={7} buttons={
 								<>
 									<EtcButton name={'icon'} offscreen="수정" icon={'edit'} iconSize={18} />
 									<EtcButton name={'icon'} offscreen="삭제" icon={'delete'} iconSize={18} />
