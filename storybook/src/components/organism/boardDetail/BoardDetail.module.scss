@@ -1,0 +1,42 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.boardDetail {
+	.boardDetailHeader {
+		@include mixins.justify_width(start, start);
+		padding: 20px;
+		border-bottom: 1px solid variables.$colorGray05;
+		.boardInfo {
+			width: 100%;
+			margin-left: 28px;
+			.title {
+				@include mixins.font_size_md('md');
+				color: variables.$textColorB;
+				word-break: break-word;
+				margin-bottom: 8px;
+			}
+		}
+	}
+	.boardDetailBody {
+		.replyInfo {
+			@include mixins.justify_width(start, start);
+
+			.qnaReply {
+				width: 100%;
+				margin-left: 28px;
+				@include mixins.font_size_md('md');
+				color: variables.$textColorB;
+				word-break: break-word;
+			}
+		}
+	}
+
+	.qnaType {
+		display: inline-block;
+		font-family: variables.$fontEngDefault;
+		@include mixins.font_size_3xl;
+		font-weight: variables.$fontWeightEngBold;
+		vertical-align: top;
+	}
+}
