@@ -1,53 +1,118 @@
-import styles from '@/components/layouts/pages/Layouts.module.scss';
+import * as React from 'react';
+import styles from "@/components/layouts/header/Header.module.scss";
 
-type User = {
-  name: string;
-};
+import {StickyWrap} from "@/components/organism/stickyWrap/StickyWrap";
+import {EtcButton} from "@/components/atomic/etcButton/EtcButton";
+import {TextButton} from "@/components/atomic/textButton/TextButton";
+import {Gnb, GnbProps} from "@/components/layouts/gnb/Gnb";
 
-export interface HeaderProps {
-  user?: User;
-  onLogin?: () => void;
-  onLogout?: () => void;
-  onCreateAccount?: () => void;
+type HeaderGnbProps = Pick<GnbProps, 'items'>
+
+interface SubList {
+	title?: string;
+	href?: string;
 }
 
-export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
-  <header>
-    <div className={styles.storybookHeader}>
-      <div>
-        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" fillRule="evenodd">
-            <path
-              d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-              fill="#FFF"
-            />
-            <path
-              d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-              fill="#555AB9"
-            />
-            <path
-              d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-              fill="#91BAF8"
-            />
-          </g>
-        </svg>
-        <h1>Acme</h1>
-      </div>
-      <div>
-        {user ? (
-          <>
-            <span className={styles.welcome}>
-              Welcome, <b>{user.name}</b>!
-            </span>
-            {/*<Button size="small" onClick={onLogout} label="Log out" />*/}
-          </>
-        ) : (
-          <>
-            {/*<Button size="small" onClick={onLogin} label="Log in" />*/}
-            {/*<Button primary size="small" onClick={onCreateAccount} label="Sign up" />*/}
-          </>
-        )}
-      </div>
-    </div>
-  </header>
-);
+interface HeaderProps extends HeaderGnbProps {
+	type: 'main' | 'sub';
+	title?: string;
+	subDepth?: SubList[];
+	btnHomeUrl?: string;
+	btnSearchUrl?: string;
+	btnShareUrl?: string;
+	btnSettingUrl?: string;
+	btnAlarmUrl?: string;
+	btnCloseUrl?: string;
+	btnFindIdUrl?: string;
+	hasGnb?: boolean;
+	bgTransparent?: boolean;
+	hasNewAlarm?: boolean;
+}
+
+export const Header: React.FC<HeaderProps> = ({
+	type, title, subDepth, hasGnb, items = [], bgTransparent = false, hasNewAlarm = false,
+	btnHomeUrl = 'javascript:', btnSearchUrl = 'javascript:', btnShareUrl = 'javascript:', btnSettingUrl = 'javascript:',
+	btnAlarmUrl = 'javascript:', btnCloseUrl = 'javascript:', btnFindIdUrl = 'javascript:',
+}) => {
+	const renderHeader =
+		<>
+			{type === 'sub' && (
+				<div className={styles.headerLeft}>
+					<EtcButton name={'icon'} icon={'header_back'} iconSize={24} offscreen={'이전 화면으로 이동'} />
+					<div className={styles.pageTitle}>{title}</div>
+					{subDepth && <>
+						<EtcButton name={'icon'} icon={'header_sub_depth'} iconSize={14} btnSize={22} offscreen={'서브 카테고리 메뉴 열기'} />
+						<div className={styles.subDepthLayer}>
+							<ul className={styles.subDepthList}>
+								{subDepth.map((item, idx) => (
+									<li key={idx} className={styles.subDepthItem}>
+										<a href={item.href ? item.href : 'javascript:'} className={styles.subLink}>
+											<span className={styles.text}>{item.title}</span>
+										</a>
+									</li>
+								))}
+							</ul>
+							<div className={styles.subLayerDim}></div>
+						</div>
+					</>}
+				</div>
+			)}
+			{type === 'main' && (
+				<h1 className={styles.logo}>
+					<a href="javascript:" className={styles.btnLogo}>
+						<span className="offscreen">GUGUS</span>
+					</a>
+				</h1>
+			)}
+			<div className={styles.headerRight}>
+				{btnHomeUrl &&
+					<EtcButton tag={'a'} href={btnHomeUrl} name={'icon'} icon={'header_home'} iconSize={24} offscreen={'홈'} />
+				}
+				{btnSearchUrl &&
+					<EtcButton tag={'a'} href={btnSearchUrl} name={'icon'} icon={'header_search'} iconSize={24} offscreen={'검색'}
+							   addClass={styles.btnSearch} />
+				}
+				{btnShareUrl &&
+					<EtcButton tag={'a'} href={btnShareUrl} name={'icon'} icon={'header_share'} iconSize={24} offscreen={'공유'} />
+				}
+				{btnAlarmUrl &&
+					<EtcButton tag={'a'} href={btnAlarmUrl} name={'icon'} icon={'header_alarm'} iconSize={24} offscreen={'알림'}
+							   addClass={[styles.btnAlarm, hasNewAlarm ? styles.new : ''].join(' ')} />
+				}
+				{btnSettingUrl &&
+					<EtcButton tag={'a'} href={btnSettingUrl} name={'icon'} icon={'header_setting'} iconSize={24} offscreen={'설정'} />
+				}
+				{btnCloseUrl &&
+					<EtcButton tag={'a'} href={btnCloseUrl} name={'icon'} icon={'header_close'} iconSize={24} offscreen={'닫기'} />
+				}
+				{btnFindIdUrl &&
+					<TextButton tag={'a'} href={btnFindIdUrl} text={'아이디 찾기'} />
+				}
+			</div>
+		</>;
+
+	const [gnbActive, setGnbActive] = React.useState(false);
+
+	return (
+		<div className={[styles.headerWrapper, styles[type], bgTransparent ? styles.transparent : ''].join(' ')}>
+			{(hasGnb && type ==='sub') && (
+				<Gnb items={items} />
+			)}
+			<div className={[styles.headerWrap, gnbActive ? styles.gnbActive : ''].join(' ')}>
+				{type === 'sub' && (
+					<StickyWrap
+						children={renderHeader}
+					/>
+				)}
+				{type === 'main' && (
+					<>renderHeader</>
+				)}
+			</div>
+			{(hasGnb && type ==='main') && (
+				<StickyWrap children={
+					<Gnb items={items} isActive={gnbActive} onToggle={setGnbActive} />
+				} />
+			)}
+		</div>
+	)
+}
