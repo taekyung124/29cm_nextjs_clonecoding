@@ -111,6 +111,37 @@
 		}
 	}
 
+	&.auto {
+		.foldItem {
+			.foldHeader {
+				display: inline-block;
+				padding: {
+					top: 0;
+					left: 0;
+					right: 25px;
+					bottom: 0;
+				}
+				position: relative;
+				vertical-align: top;
+
+				.titleArea {
+					.title {
+						@include mixins.font_size_lg;
+					}
+				}
+				.btnFold {
+					&:after {
+						@include mixins.ratio_images('/assets/icons/comm_ico_fold_arr_black');
+					}
+				}
+			}
+
+			.foldContent {
+				padding: 0;
+			}
+		}
+	}
+
 	&.line {
 		border-top: 1px solid variables.$colorGray05;
 		.foldItem {

@@ -5,6 +5,7 @@ import {ContentBox} from "@/components/layouts/contentBox/ContentBox";
 
 const meta = {
 	title: 'Layouts/Contents/ContentBox',
+	component: ContentBox,
 	tags: ['autodocs'],
 	parameters: {
 		layout: 'padded',

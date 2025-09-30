@@ -1,0 +1,167 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.footerWrapper {
+	position: relative;
+	padding: 40px 20px 60px;
+	border-top: 1px solid variables.$colorGray05;
+
+	.footerCi {
+		width: 98px;
+		height: 21px;
+
+		.linkCi {
+			display: block;
+		}
+	}
+
+	.ciSlogan {
+		margin-top: 10px;
+		@include mixins.font_size_xs;
+		color: variables.$textColorDG;
+	}
+
+	.footerInfoWrap {
+		margin-top: 30px;
+
+		.infoRow {
+			@include mixins.font_size_sm;
+			color: variables.$textColorDG;
+
+			+ .infoRow {
+				margin-top: 2px;
+			}
+
+			&:has(.csLinkUdl) {
+				@include mixins.font_size_lg;
+				color: variables.$colorBlack;
+
+				a {
+					display: inline-block;
+					@include mixins.font_size_lg;
+					color: variables.$colorBlack;
+					vertical-align: top;
+				}
+
+				.csLinkUdl {
+					text-decoration: underline;
+					margin-top: -1px;
+					margin-right: 4px;
+				}
+			}
+		}
+	}
+
+	.foldWrap {
+		margin-top: 30px;
+
+		.businessInfo {
+			@include mixins.font_size_sm('body', 22px);
+			color: variables.$textColorDG;
+			@include mixins.word_break;
+			margin-top: 10px;
+
+			.linkTextUdl {
+				margin-left: 4px;
+				.text {
+					display: inline-block;
+					vertical-align: top;
+					line-height: variables.$fontSize4xl;
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.linkTextUdl {
+			.text {
+				display: inline-block;
+				vertical-align: top;
+				@include mixins.font_size_xs('md');
+				color: variables.$textColorDG;
+				text-decoration: underline;
+			}
+		}
+
+		.footerDesc {
+			@include mixins.font_size_sm;
+			color: variables.$textColorDG;
+			margin-top: 10px;
+		}
+	}
+
+	.csInfoList {
+		margin: {
+			top: 30px;
+			bottom: -2px;
+		}
+
+		.csInfoItem {
+			display: inline-block;
+			margin: {
+				right: 20px;
+				bottom: 2px;
+			}
+			vertical-align: top;
+
+			.csLink {
+				display: inline-block;
+				@include mixins.font_size_md('md', variables.$fontSizeLgLineHeight);
+				vertical-align: top;
+				&.udl {
+					text-decoration: underline;
+				}
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.snsLinkList {
+		font-size: 0;
+		margin: {
+			top: 30px;
+			bottom: -8px;
+		}
+
+		.snsLinkItem {
+			display: inline-block;
+			vertical-align: top;
+			margin-bottom: 8px;
+
+			.snsLink {
+				display: inline-block;
+				width: 38px;
+				height: 38px;
+				border-radius: 38px;
+
+				&.youtube {
+					@include mixins.ratio_images('/assets/icons/comm_footer_sns_youtube', 18px 14px, center, #F0F0F0);
+				}
+				&.navertv {
+					@include mixins.ratio_images('/assets/icons/comm_footer_sns_naver_tv', 20px, center, #F0F0F0);
+				}
+				&.facebook {
+					@include mixins.ratio_images('/assets/icons/comm_footer_sns_fb', 20px, center, #F0F0F0);
+				}
+				&.instagram {
+					@include mixins.ratio_images('/assets/icons/comm_footer_sns_insta', 20px, center, #F0F0F0);
+				}
+				&.kakaotalk {
+					@include mixins.ratio_images('/assets/icons/comm_footer_sns_kakao', 20px, center, #F0F0F0);
+				}
+			}
+			&:not(:last-child) {
+				margin-right: 14px;
+			}
+		}
+	}
+
+	.copyright {
+		margin-top: 20px;
+		@include mixins.font_size_2xs;
+		color: variables.$textColorG;
+	}
+}

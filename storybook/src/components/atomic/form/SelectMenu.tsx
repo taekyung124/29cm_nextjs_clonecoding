@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styles from '@/components/atomic/form/FormElemnent.module.scss';
 
-
 export interface SelectOption {
 	label?: string;
 	value?: string;

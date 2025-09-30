@@ -1,0 +1,136 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.termsWrap {
+	position: relative;
+
+	.contBox {
+		position: relative;
+
+		~ .contBox {
+			padding-top: 30px;
+		}
+		.hTitle {
+			margin-bottom: 20px;
+			padding-bottom: 19px;
+			border-bottom: 1px solid variables.$colorGray05;
+			@include mixins.font_size_2xl;
+			color: variables.$textColorB;
+		}
+		.cTitle {
+			margin-bottom: 14px;
+			@include mixins.font_size_xl('lt');
+			color: variables.$textColorB;
+			~ .cSubText {
+				margin-top: 30px;
+			}
+		}
+		.cSubText {
+			@include mixins.font_size_xl('lt');
+			color: variables.$textColorB;
+		}
+		.sTitle {
+			position: relative;
+			margin-bottom: 14px;
+			@include mixins.font_size_lg;
+			color: variables.$textColorB;
+
+			~ .sTitle {
+				margin-top: 30px;
+			}
+		}
+		.sText {
+			@include mixins.font_size_md;
+			color: variables.$textColorB;
+			~ .sText {
+				margin-top: 10px;
+			}
+			~ .termsAnchorList {
+				margin-top: 14px;
+			}
+		}
+		.anchorPos {
+			position: absolute;
+			top: var(--posTop);
+			left: 0;
+			display: block;
+			overflow: hidden;
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+
+		.termsTable {
+			margin-top: 20px;
+		}
+	}
+
+	.termsAnchorList {
+		margin-top: 30px;
+		.termsAnchorItem {
+			@include mixins.font_size_lg;
+			color: variables.$textColorB;
+
+			a {
+				display: inline-block;
+				@include mixins.font_size_lg('lt');
+				color: variables.$textColorB;
+				vertical-align: top;
+			}
+		}
+	}
+
+	.termsSubList {
+		.termsItem {
+			@include mixins.font_size_md;
+			color: variables.$textColorB;
+
+			.termsItem, .dotTermsItem, .dashTermsItem {
+				@include mixins.font_size_sm;
+				color: variables.$textColorDG;
+			}
+			~ .termsItem {
+				margin-top: 10px;
+			}
+		}
+
+		.termsSubList {
+			padding-left: 10px;
+			.termsItem, .dotTermsItem, .dashTermsItem {
+				margin-top: 6px;
+			}
+		}
+
+		.dotTermsItem {
+			position: relative;
+			padding-left: 8px;
+
+			&:before {
+				display: block;
+				position: absolute;
+				left: 0;
+				content: '';
+				top: 8px;
+				width: 2px;
+				height: 2px;
+				border-radius: 2px;
+				background-color: variables.$textColorDG;
+			}
+		}
+		.dashTermsItem {
+			position: relative;
+			padding-left: 8px;
+
+			&:before {
+				display: block;
+				position: absolute;
+				left: 0;
+				content: '-';
+				top: 0;
+			}
+		}
+	}
+
+	.termsSelect {
+		margin-top: 30px;
+	}
+}

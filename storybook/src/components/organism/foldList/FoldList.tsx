@@ -12,7 +12,7 @@ interface FoldItem {
 }
 
 interface FoldListProps {
-	type?: 'line' | 'divider' | 'box';
+	type?: 'auto' | 'line' | 'divider' | 'box';
 	color?: 'white' | 'gray';
 	innerPadded?: 'none' | 'md';
 	items: FoldItem[];

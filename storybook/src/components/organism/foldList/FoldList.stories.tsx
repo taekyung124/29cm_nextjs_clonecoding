@@ -13,7 +13,7 @@ const meta = {
 	argTypes: {
 		type: {
 			control: 'inline-radio',
-			options: ['line', 'divider', 'box']
+			options: ['auto', 'line', 'divider', 'box']
 		},
 		color: {
 			control: 'inline-radio',
