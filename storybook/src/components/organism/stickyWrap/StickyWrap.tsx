@@ -8,6 +8,7 @@ interface StickyWrapProps {
 	paddingY?: number;
 	className?: string;
 	children: React.ReactNode;
+	onFixedChange?: (isFixed: boolean) => void;
 }
 
 export const StickyWrap: React.FC<StickyWrapProps> = ({
@@ -18,6 +19,7 @@ export const StickyWrap: React.FC<StickyWrapProps> = ({
 	paddingY,
 	className,
 	children,
+	onFixedChange
 }) => {
 	const ref = React.useRef<HTMLDivElement>(null);
 	const offsetTopRef = React.useRef(0); // 원래 위치를 ref로 저장
@@ -37,6 +39,7 @@ export const StickyWrap: React.FC<StickyWrapProps> = ({
 			const scrollTop = window.scrollY || window.pageYOffset;
 			const shouldFix = scrollTop + top >= offsetTopRef.current;
 			setIsFixed(shouldFix);
+			onFixedChange?.(shouldFix);
 		};
 
 		const handleResize = () => {

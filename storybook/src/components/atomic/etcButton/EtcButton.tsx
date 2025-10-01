@@ -66,8 +66,8 @@ export const EtcButton = ({name, color = 'white', icon, iconSize, btnSize, text,
 			</a>
 		) : (name === 'icon') ? (
 			<a
-				className={styles[`${name}Btn`]}
-				onClick={handleToggle}
+				className={[styles[`${name}Btn`], addClass ? addClass : ''].join(' ')}
+				onClick={onClick}
 				href={href}
 				{...anchorProps}
 				style={{width: btnSize ? `${btnSize}px` : `${iconSize}px`, height: btnSize ? `${btnSize}px` : `${iconSize}px`}}
@@ -120,8 +120,8 @@ export const EtcButton = ({name, color = 'white', icon, iconSize, btnSize, text,
 			</button>
 		) : (name === 'icon') ? (
 			<button
-				className={styles[`${name}Btn`]}
-				onClick={handleToggle}
+				className={[styles[`${name}Btn`], addClass ? addClass : ''].join(' ')}
+				onClick={onClick}
 				style={{width: btnSize ? `${btnSize}px` : `${iconSize}px`, height: btnSize ? `${btnSize}px` : `${iconSize}px`}}
 			>
 				<span

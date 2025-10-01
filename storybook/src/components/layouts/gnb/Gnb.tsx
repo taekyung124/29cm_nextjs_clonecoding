@@ -12,10 +12,11 @@ export interface GnbProps {
 	items: GnbItem[];
 	isActive?: boolean;
 	onToggle?: (active: boolean) => void;
+	addClass?: string;
 }
 
 export const Gnb: React.FC<GnbProps> = ({
-	items = [], isActive = false, onToggle,
+	items = [], isActive = false, onToggle, addClass
 }) => {
 	const handleToggle = () => {
 		onToggle?.(!isActive);
@@ -58,7 +59,7 @@ export const Gnb: React.FC<GnbProps> = ({
 
 	return (
 		<div
-			className={[styles.gnbWrap, isActive ? styles.isActive : ''].join(' ')}
+			className={[styles.gnbWrap, isActive ? styles.isActive : '', addClass ? addClass : ''].join(' ')}
 		>
 			<div className={styles.gnbBox}>
 				<div className={styles.gnbSwiperWrap}>

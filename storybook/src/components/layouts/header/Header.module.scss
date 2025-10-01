@@ -3,7 +3,212 @@
 @use '../../../styles/abstracts/mixins';
 
 .headerWrapper {
-	.headerWrap {
+	position: relative;
+	z-index: 27;
+	&.main {
+		.headerWrap {
+			@include mixins.justify_width(center);
+			padding: 18px 20px;
 
+			.logo {
+				width: 101px;
+				height: 22px;
+				.btnLogo {
+					display: block;
+					width: 100%;
+					height: 100%;
+					@include mixins.ratio_images('/assets/icons/comm_logo_white');
+				}
+			}
+			.headerRight {
+				margin-left: auto;
+				padding-left: 20px;
+				@include mixins.justify_width(center);
+				gap: 14px;
+
+				.new {
+					// position: relative;
+					&::after {
+						overflow: hidden;
+						position: absolute;
+						top: 1px;
+						right: 1px;
+						display: none;
+						width: 4px;
+						height: 4px;
+						border-radius: 4px;
+						background: variables.$colorWhite;
+					}
+				}
+			}
+
+			&.gnbActive {
+				background-color: variables.$colorWhite;
+				.logo {
+					.btnLogo {
+						@include mixins.ratio_images_change('/assets/icons/comm_logo_green');
+					}
+				}
+				.headerRight {
+					.new {
+						// position: relative;
+						&::after {
+							background-color: variables.$colorRed;
+						}
+					}
+				}
+			}
+			.transparentGnb {
+				> div { // gnbBox
+					background-color: transparent;
+					border-bottom: 0;
+
+					> div:first-child li a span { // gnbLink > text
+						color: rgba(#fff, 0.7);
+					}
+
+					> div > button { // gnbToggle
+						background-color: rgba(#fff, 0.2);
+						@include mixins.ratio_images_change('../images/common/comm_ico_gnb_toggle_arr_white');
+					}
+				}
+			}
+		}
+	}
+
+	&.sub {
+		.headerWrap {
+			@include mixins.justify_width(center);
+			height: variables.$headerHeight;
+			padding: {
+				top: 16px;
+				right: 20px;
+				left: 20px;
+				bottom: 16px;
+			}
+			background: variables.$colorWhite;
+
+			.headerLeft {
+				width: 100%;
+				overflow: hidden;
+				flex: 1;
+				@include mixins.justify_width(center);
+				a, button {
+					flex-shrink: 0;
+				}
+
+				.pageTitle {
+					padding-top: 1px;
+					margin-left: 14px;
+					@include mixins.font_size_2xl;
+					@include mixins.ellipsis(false);
+				}
+
+				.btnSubDepth {
+					width: 14px;
+					height: 14px;
+					box-sizing: content-box;
+					padding: 4px;
+					@include mixins.prefix(transform, rotateZ(0));
+					@include mixins.prefix(transition, transform 0.15s variables.$transEaseBounceBack);
+					&.isActive {
+						@include mixins.prefix(transform, rotate(180deg));
+					}
+				}
+
+				.subDepthLayer {
+					display: none;
+					height: calc(100vh - 60px);
+					overflow-y: auto;
+					position: absolute;
+					top: 60px;
+					left: 0;
+					right: 0;
+					z-index: 10;
+					border-top: 10px solid variables.$colorGray06;
+
+					.subDepthList {
+						position: relative;
+						z-index: 1;
+						background: variables.$colorWhite;
+						.subDepthItem {
+							border-bottom: 1px solid variables.$colorGray05;
+							.subLink {
+								display: block;
+								padding: 16px 20px;
+
+								.text {
+									@include mixins.font_size_xl(lt);
+									color: variables.$textColorDG;
+
+									span {
+										font-weight: inherit;
+									}
+								}
+							}
+						}
+					}
+
+					.subLayerDim {
+						width: 100%;
+						height: calc(100vh - 70px);
+						background-color: rgba(variables.$colorBlack, 0.5);
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+					}
+
+					&.isActive {
+						display: block;
+					}
+				}
+			}
+
+			.headerRight {
+				margin-left: auto;
+				padding-left: 20px;
+				@include mixins.justify_width(center);
+				gap: 14px;
+
+				.new {
+					// position: relative;
+					&::after {
+						overflow: hidden;
+						position: absolute;
+						top: 1px;
+						right: 1px;
+						display: none;
+						width: 4px;
+						height: 4px;
+						border-radius: 4px;
+						background-color: variables.$colorRed;
+					}
+				}
+			}
+
+		}
+	}
+
+	&.transparent {
+		.headerWrap {
+			.headerBox {
+				background: transparent;
+
+				.headerLeft {
+					.pageTitle {
+						color: variables.$colorWhite;
+					}
+				}
+
+				.headerRight {
+					.new {
+						&::after {
+							background-color: variables.$colorWhite;
+						}
+					}
+				}
+			}
+		}
 	}
 }
