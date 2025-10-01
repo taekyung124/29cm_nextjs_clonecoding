@@ -1,0 +1,95 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.dockerWrapper {
+	margin: 0 auto;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 15;
+	background: variables.$colorWhite;
+	padding-bottom: env(safe-area-inset-bottom);
+	border-top: 1px solid rgba(0, 0, 0, 6%);
+	@include mixins.size_wrap_width;
+
+	.dockerList {
+		height: variables.$dockerHeight;
+		padding: {
+			right: 15px;
+			left: 15px;
+		};
+		@include mixins.justify_width(start, around);
+
+		.dockerItem {
+			@include mixins.justify_width(stretch);
+			text-align: center;
+			flex: 1 0 0;
+			height: 100%;
+
+			.dockerLink {
+				@include mixins.justify_width(center, start, column);
+				width: 100%;
+				padding-top: 13px;
+				position: relative;
+
+				.icon {
+					display: block;
+					width: 24px;
+					height: 24px;
+					margin: 0 auto;
+
+					&.home {
+						@include mixins.ratio_images('/assets/icons/comm_dock_home_def');
+					}
+					&.search {
+						@include mixins.ratio_images('/assets/icons/comm_dock_search_def');
+					}
+					&.wish {
+						@include mixins.ratio_images('/assets/icons/comm_dock_wish_def');
+					}
+					&.sell {
+						@include mixins.ratio_images('/assets/icons/comm_dock_sell_def');
+					}
+					&.my {
+						@include mixins.ratio_images('/assets/icons/comm_dock_my_def');
+					}
+				}
+				.text {
+					display: block;
+					margin-top: 6px;
+					@include mixins.font_size_xs;
+					color: variables.$textColorDG;
+				}
+			}
+
+			&.isActive {
+				.dockerLink {
+					.text {
+						color: variables.$textColorPoint;
+						font-weight: variables.$fontWeightSemibold;
+					}
+
+					.icon {
+						&.home {
+							@include mixins.ratio_images_change('/assets/icons/comm_dock_home_active');
+						}
+						&.search {
+							@include mixins.ratio_images_change('/assets/icons/comm_dock_search_active');
+						}
+						&.wish {
+							@include mixins.ratio_images_change('/assets/icons/comm_dock_wish_active');
+						}
+						&.sell {
+							@include mixins.ratio_images_change('/assets/icons/comm_dock_sell_active');
+						}
+						&.my {
+							@include mixins.ratio_images_change('/assets/icons/comm_dock_my_active');
+						}
+					}
+				}
+			}
+		}
+	}
+}
