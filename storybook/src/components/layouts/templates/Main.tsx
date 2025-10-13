@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/components/layouts/pages/Layouts.module.scss"
+// import styles from "@/components/layouts/templates/Layouts.module.scss"
 import {Header} from "@/components/organism/header/Header";
 import {Footer} from "@/components/organism/footer/Footer";
 import {Docker} from "@/components/organism/docker/Docker";
@@ -18,9 +18,9 @@ export const Main: React.FC<MainProps> = ({
 }) => {
 	return (
 		<div className={[
-			styles.wrapper, styles.main,
+			'wrapper', 'main',
 		].join(' ')}>
-			<div className={styles.skipNav}>
+			<div className={'skipNav'}>
 				<a href={'#docker'}>도커 바로가기</a>
 				<a href={'#container'}>본문으로 가기</a>
 			</div>
@@ -46,8 +46,8 @@ export const Main: React.FC<MainProps> = ({
 					{text: '명품케어서비스', href: 'javascript:',}
 				]}
 			/>
-			<div className={styles.containerWrapper} id="container">
-				<div className={styles.contentWrapper}>
+			<div className={'containerWrapper'} id="container">
+				<div className={'contentWrapper'}>
 					{children}
 				</div>
 			</div>

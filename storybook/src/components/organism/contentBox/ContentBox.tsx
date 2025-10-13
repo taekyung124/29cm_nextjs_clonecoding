@@ -21,6 +21,7 @@ export const ContentBox: React.FC<ContentBoxProps> = ({
 			pt && styles[`pt${pt}`],
 			pb && styles[`pb${pb}`],
 			bottomLine ? styles.last : '',
+			'__contBox'
 		].join(' ')}>
 			{hasInner ? (
 				<div className={styles.contInner}>

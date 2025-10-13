@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styles from "@/components/layouts/pages/Layouts.module.scss"
-import { Header, HeaderProps} from "@/components/organism/header/Header";
+// import styles from "@/components/layouts/templates/Layouts.module.scss"
+import {Header, HeaderProps} from "@/components/organism/header/Header";
 import {Footer} from "@/components/organism/footer/Footer";
 import {Docker} from "@/components/organism/docker/Docker";
 import {WingBanner, WingBannerProps} from "@/components/organism/wingBanner/WingBanner";
@@ -16,25 +16,25 @@ interface SubProps extends SubWingBannerProps {
 }
 
 export const Sub: React.FC<SubProps> = ({
-	headerProps ,hasGnb, hasDocker, hasFooter, children,
+	headerProps ,hasGnb = false, hasDocker = true, hasFooter = true, children,
 	// wingBanner
 	prodImg, prodUrl, recentProd
 }) => {
 	return (
 		<div className={[
-			styles.wrapper,
-			styles.sub,
-			!hasDocker && styles.noDocker,
+			'wrapper',
+			'sub',
+			!hasDocker && 'noDocker',
 		].join(' ')}>
-			<div className={styles.skipNav}>
+			<div className={'skipNav'}>
 				{hasDocker && (
 					<a href={'#docker'}>도커 바로가기</a>
 				)}
 				<a href={'#container'}>본문으로 가기</a>
 			</div>
 			{headerProps && <Header hasGnb={hasGnb} {...headerProps} />}
-			<div className={styles.containerWrapper} id="container">
-				<div className={styles.contentWrapper}>
+			<div className={'containerWrapper'} id="container">
+				<div className={'contentWrapper'}>
 					{children}
 				</div>
 			</div>
@@ -42,8 +42,8 @@ export const Sub: React.FC<SubProps> = ({
 			<WingBanner prodImg={prodImg} prodUrl={prodUrl} recentProd={recentProd} bottomPos={hasDocker ? '90px' : '20px'} />
 			{hasFooter && (
 				<Footer style={{
-					marginTop: `${hasDocker ? 'initial' : 'calc(-1 * env(safe-area-inset-bottom))'}`,
-					paddingBottom: `${hasDocker ? 'initial' : '60px'}`,
+					marginTop: `${hasDocker ? undefined : 'calc(-1 * env(safe-area-inset-bottom))'}`,
+					paddingBottom: `${hasDocker ? undefined : '60px'}`,
 				}} />
 			)}
 		</div>

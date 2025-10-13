@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import {Main} from "@/components/layouts/pages/Main";
+import {Main} from "@/components/layouts/templates/Main";
 
 const meta = {
-	title: 'Layouts/Page/Main',
+	title: 'Layouts/Templates/Main',
 	component: Main,
 	parameters: {
 		layout: 'fullscreen',

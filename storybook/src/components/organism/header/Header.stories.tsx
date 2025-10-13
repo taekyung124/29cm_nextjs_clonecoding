@@ -48,18 +48,18 @@ export const MainHeader: StoryFn = () => (
 			]}
 			hasGnb={true} hasNewAlarm={true}
 			items={[
-				{text: '업데이트', href: '', isNew: true,},
-				{text: '가격인하', href: '',},
-				{text: '미사용신품', href: '',},
-				{text: '핫딜', href: '',},
-				{text: '아울렛', href: '',},
-				{text: '롤렉스', href: '',},
-				{text: '에르메스', href: '',},
-				{text: '샤넬', href: '',},
-				{text: '이벤트', href: '',},
-				{text: '내명품팔기', href: '',},
-				{text: '전국직영매장', href: '',},
-				{text: '명품케어서비스', href: '',}
+				{text: '업데이트', href: 'javascript:', isNew: true,},
+				{text: '가격인하', href: 'javascript:',},
+				{text: '미사용신품', href: 'javascript:',},
+				{text: '핫딜', href: 'javascript:',},
+				{text: '아울렛', href: 'javascript:',},
+				{text: '롤렉스', href: 'javascript:',},
+				{text: '에르메스', href: 'javascript:',},
+				{text: '샤넬', href: 'javascript:',},
+				{text: '이벤트', href: 'javascript:',},
+				{text: '내명품팔기', href: 'javascript:',},
+				{text: '전국직영매장', href: 'javascript:',},
+				{text: '명품케어서비스', href: 'javascript:',}
 			]}
 		/>
 		<div style={{height: "600px", background: "#ccc", textAlign: "center"}}>
@@ -91,18 +91,18 @@ export const SubHeader: StoryFn = () => (
 			]}
 			hasGnb={true}
 			items={[
-				{text: '업데이트', href: '', isNew: true,},
-				{text: '가격인하', href: '',},
-				{text: '미사용신품', href: '',},
-				{text: '핫딜', href: '',},
-				{text: '아울렛', href: '',},
-				{text: '롤렉스', href: '',},
-				{text: '에르메스', href: '',},
-				{text: '샤넬', href: '',},
-				{text: '이벤트', href: '',},
-				{text: '내명품팔기', href: '',},
-				{text: '전국직영매장', href: '',},
-				{text: '명품케어서비스', href: '',}
+				{text: '업데이트', href: 'javascript:', isNew: true,},
+				{text: '가격인하', href: 'javascript:',},
+				{text: '미사용신품', href: 'javascript:',},
+				{text: '핫딜', href: 'javascript:',},
+				{text: '아울렛', href: 'javascript:',},
+				{text: '롤렉스', href: 'javascript:',},
+				{text: '에르메스', href: 'javascript:',},
+				{text: '샤넬', href: 'javascript:',},
+				{text: '이벤트', href: 'javascript:',},
+				{text: '내명품팔기', href: 'javascript:',},
+				{text: '전국직영매장', href: 'javascript:',},
+				{text: '명품케어서비스', href: 'javascript:',}
 			]}
 		/>
 		<div style={{height: "600px", background: "#ccc", textAlign: "center"}}>
