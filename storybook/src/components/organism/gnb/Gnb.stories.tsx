@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj, StoryFn } from '@storybook/nextjs-vite';
 
-import {Gnb} from "@/components/layouts/gnb/Gnb";
+import {Gnb} from "@/components/organism/gnb/Gnb";
 
 const meta = {
-	title: 'Layouts/Header/Gnb',
+	title: 'Organism/Header/Gnb',
 	component: Gnb,
 	tags: ['autodocs'],
 	parameters: {

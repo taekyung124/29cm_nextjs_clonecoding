@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj, StoryFn } from '@storybook/nextjs-vite';
 
-import {Footer} from "@/components/layouts/footer/Footer";
+import {Footer} from "@/components/organism/footer/Footer";
 
 const meta = {
-	title: 'Layouts/Footer',
+	title: 'Organism/Footer',
 	component: Footer,
 	tags: ['autodocs'],
 	parameters: {

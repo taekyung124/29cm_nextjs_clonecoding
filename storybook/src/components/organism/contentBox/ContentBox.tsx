@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/components/layouts/contentBox/ContentBox.module.scss";
+import styles from "@/components/organism/contentBox/ContentBox.module.scss";
 
 interface ContentBoxProps {
 	type?: 'default' | 'line' | 'divider' | 'gray' | 'green';

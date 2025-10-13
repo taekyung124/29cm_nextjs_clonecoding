@@ -33,6 +33,7 @@ const preview: Preview = {
             ['FoldList', 'BoardList', 'BoardDetail', 'TabWrap', 'SwiperWrap', 'StickyWrap'],
           'Templates',
           'Layouts',
+            ['Pages']
         ],
       },
     },

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj, StoryFn } from '@storybook/nextjs-vite';
 
-import {ContentBox} from "@/components/layouts/contentBox/ContentBox";
+import {ContentBox} from "@/components/organism/contentBox/ContentBox";
 
 const meta = {
-	title: 'Layouts/Contents/ContentBox',
+	title: 'Organism/Contents/ContentBox',
 	component: ContentBox,
 	tags: ['autodocs'],
 	parameters: {

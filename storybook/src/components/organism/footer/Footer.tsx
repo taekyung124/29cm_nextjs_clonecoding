@@ -1,10 +1,12 @@
 import * as React from 'react';
-import styles from "@/components/layouts/footer/Footer.module.scss";
+import styles from "@/components/organism/footer/Footer.module.scss";
 import {FoldList} from "@/components/organism/foldList/FoldList";
 
-// interface FooterProps {}
+interface FooterProps {
+	style?: React.CSSProperties;
+}
 
-export const Footer: React.FC = ({}) => {
+export const Footer: React.FC<FooterProps> = ({style}) => {
 	const renderCsItem = [
 		{text : '회사소개', href: 'javascript:void(0);', udl: false},
 		{text : '전국직영매장', href: 'javascript:void(0);', udl: false},
@@ -21,7 +23,7 @@ export const Footer: React.FC = ({}) => {
 	];
 
 	return (
-		<div className={styles.footerWrapper}>
+		<div className={styles.footerWrapper} style={style}>
 			<div className={styles.footerCi}>
 				<a href="javascript:void(0);" className={styles.linkCi}>
 					<img src="/assets/images/comm_footer_logo.svg" alt="GUGUS" />

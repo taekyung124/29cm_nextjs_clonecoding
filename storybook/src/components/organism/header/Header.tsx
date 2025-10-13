@@ -1,19 +1,19 @@
 import * as React from 'react';
-import styles from "@/components/layouts/header/Header.module.scss";
+import styles from "@/components/organism/header/Header.module.scss";
 
 import {StickyWrap} from "@/components/organism/stickyWrap/StickyWrap";
 import {EtcButton} from "@/components/atomic/etcButton/EtcButton";
 import {TextButton} from "@/components/atomic/textButton/TextButton";
-import {Gnb, GnbProps} from "@/components/layouts/gnb/Gnb";
+import {Gnb, GnbProps} from "@/components/organism/gnb/Gnb";
 
-type HeaderGnbProps = Pick<GnbProps, 'items'>
+export type { GnbProps };
 
-interface SubList {
+export interface SubList {
 	title?: string;
 	href?: string;
 }
 
-interface HeaderProps extends HeaderGnbProps {
+export interface HeaderProps extends Pick<GnbProps, 'items'> {
 	type: 'main' | 'sub';
 	title?: string;
 	subDepth?: SubList[];
@@ -31,12 +31,24 @@ export const Header: React.FC<HeaderProps> = ({
 	const [subActive, setSubActive] = React.useState(false);
 	const [isSticky, setIsSticky] = React.useState(false);
 
+	console.log("Sticky", isSticky);
+
 	const handleSubToggle = () => {
 		setSubActive((prev) => !prev);
 	};
 
 	React.useEffect(() => {
 		console.log("subActive changed:", subActive);
+
+		if (subActive) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
+
+		return () => {
+			document.body.style.overflow = '';
+		};
 	}, [subActive]);
 
 	// const renderIconColor = bgTransparent || type === 'main' ? 'white' : type !== 'sub' && gnbActive ? 'black' : 'black';
@@ -126,8 +138,8 @@ export const Header: React.FC<HeaderProps> = ({
 				</>
 			)}
 			{type === 'main' && (
-				<StickyWrap>
-					<Gnb items={items} isActive={gnbActive} onToggle={setGnbActive} addClass={isSticky ? '' : styles.transparentGnb} />
+				<StickyWrap onFixedChange={setIsSticky}>
+					<Gnb items={items} isActive={gnbActive} onToggle={setGnbActive} isTransparent={!isSticky} />
 				</StickyWrap>
 			)}
 		</div>

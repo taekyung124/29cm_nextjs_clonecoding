@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/components/layouts/gnb/Gnb.module.scss";
+import styles from "@/components/organism/gnb/Gnb.module.scss";
 import {SwiperWrap} from "@/components/organism/swiperWrap/SwiperWrap";
 
 interface GnbItem {
@@ -13,10 +13,11 @@ export interface GnbProps {
 	isActive?: boolean;
 	onToggle?: (active: boolean) => void;
 	addClass?: string;
+	isTransparent?: boolean;
 }
 
 export const Gnb: React.FC<GnbProps> = ({
-	items = [], isActive = false, onToggle, addClass
+	items = [], isActive = false, onToggle, addClass, isTransparent = false,
 }) => {
 	const handleToggle = () => {
 		onToggle?.(!isActive);
@@ -59,7 +60,12 @@ export const Gnb: React.FC<GnbProps> = ({
 
 	return (
 		<div
-			className={[styles.gnbWrap, isActive ? styles.isActive : '', addClass ? addClass : ''].join(' ')}
+			className={[
+				styles.gnbWrap,
+				isActive ? styles.isActive : '',
+				addClass ? addClass : '',
+				isTransparent ? styles.transparentGnb : '',
+			].join(' ')}
 		>
 			<div className={styles.gnbBox}>
 				<div className={styles.gnbSwiperWrap}>

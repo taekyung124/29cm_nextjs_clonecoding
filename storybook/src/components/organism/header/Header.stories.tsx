@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj, StoryFn } from '@storybook/nextjs-vite';
 
-import {Header} from "@/components/layouts/header/Header";
+import {Header} from "@/components/organism/header/Header";
 
 const meta = {
-	title: 'Layouts/Header',
+	title: 'Organism/Header',
 	component: Header,
 	parameters: {
 		layout: 'padded',

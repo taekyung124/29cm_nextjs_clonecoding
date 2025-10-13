@@ -1,0 +1,73 @@
+@use 'sass:map';
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/mixins';
+
+.wingBanner {
+	overflow: hidden;
+	z-index: 20;
+	position: fixed;
+	width: 44px;
+	min-height: 44px;
+	padding: 3px;
+	// bottom: calc(#{variables.$dockerHeight + 20px} + env(safe-area-inset-bottom));
+	right: calc(50% - 240px);
+	background: variables.$colorWhite;
+	border: 1px solid variables.$colorGray04;
+	border-radius: 22px;
+	height: 44px;
+
+	.btnRecentProd {
+		display: block;
+		width: 36px;
+		height: 36px;
+		border-radius: 18px;
+		overflow: hidden;
+		margin: auto;
+		.thumbBox {
+			position: relative;
+			display: block;
+			width: 36px;
+			height: 36px;
+			box-sizing: border-box;
+
+			img {
+				position: absolute;
+				width: 100%;
+				top: 50%;
+				left: 0;
+				@include mixins.prefix(transform, translateY(-50%));
+			}
+		}
+	}
+	.btnGoTop {
+		position: relative;
+		display: block;
+		margin: auto;
+
+		.icon {
+			display: inline-block;
+			width: 36px;
+			height: 36px;
+			@include mixins.ratio_images('/assets/icons/comm_ico_top');
+			vertical-align: top;
+		}
+	}
+
+	&:has(.btnRecentProd) {
+		.btnGoTop {
+			margin-top: 6px;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: -3px;
+				left: -4px;
+				right: -4px;
+				display: block;
+				width: 44px;
+				height: 1px;
+				background: variables.$colorGray04;
+			}
+		}
+	}
+}

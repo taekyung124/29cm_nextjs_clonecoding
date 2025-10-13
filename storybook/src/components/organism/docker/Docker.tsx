@@ -1,7 +1,11 @@
 import * as React from 'react';
-import styles from "@/components/layouts/docker/Docker.module.scss";
+import styles from "@/components/organism/docker/Docker.module.scss";
 
-export const Docker = () => {
+interface DockerProps {
+	id?: string;
+}
+
+export const Docker:React.FC<DockerProps> = ({id}) => {
 	const DockerMenu = [
 		{href: 'javascript:', icon: 'home', text: '홈', isActive: true},
 		{href: 'javascript:', icon: 'search', text: '검색', isActive: false},
@@ -10,7 +14,7 @@ export const Docker = () => {
 		{href: 'javascript:', icon: 'my', text: '마이포켓', isActive: false},
 	];
 	return (
-		<div className={styles.dockerWrapper}>
+		<div className={styles.dockerWrapper} id={id}>
 			<ul className={styles.dockerList}>
 				{DockerMenu.map((item, index) => (
 					<li key={index} className={[styles.dockerItem, item.isActive ? styles.isActive : ''].join(' ')}>

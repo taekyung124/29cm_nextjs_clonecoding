@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj, StoryFn } from '@storybook/nextjs-vite';
 
-import {Docker} from "@/components/layouts/docker/Docker";
+import {Docker} from "@/components/organism/docker/Docker";
 
 const meta = {
-	title: 'Layouts/Docker',
+	title: 'Organism/Docker',
 	component: Docker,
 	parameters: {
 		layout: 'padded',
