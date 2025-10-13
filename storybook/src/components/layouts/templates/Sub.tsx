@@ -20,12 +20,29 @@ export const Sub: React.FC<SubProps> = ({
 	// wingBanner
 	prodImg, prodUrl, recentProd
 }) => {
+	// 최초 진입 시 GNB 영역 숨기기
+	const gnbRef = React.useRef<HTMLDivElement>(null);
+
+	React.useEffect(() => {
+		if (!hasGnb || !gnbRef.current) return;
+
+		// const yValue = gnbRef.current.clientHeight;
+		// console.log(yValue);
+
+		setTimeout(() => {
+			window.scrollTo({ top: 50, behavior: 'instant' });
+		}, 50);
+	}, [hasGnb]);
+
 	return (
-		<div className={[
-			'wrapper',
-			'sub',
-			!hasDocker && 'noDocker',
-		].join(' ')}>
+		<div
+			ref={gnbRef}
+			className={[
+				'wrapper',
+				'sub',
+				!hasDocker && 'noDocker',
+			].join(' ')}
+		>
 			<div className={'skipNav'}>
 				{hasDocker && (
 					<a href={'#docker'}>도커 바로가기</a>

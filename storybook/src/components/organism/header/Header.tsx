@@ -21,10 +21,11 @@ export interface HeaderProps extends Pick<GnbProps, 'items'> {
 	bgTransparent?: boolean;
 	hasNewAlarm?: boolean;
 	headerButtonOrder?: Record<string, string>[];
+	gnbRef?: React.RefObject<HTMLDivElement>;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-	type, title, subDepth, hasGnb, items = [],
+	type, title, subDepth, hasGnb, items = [], gnbRef,
 	bgTransparent = false, hasNewAlarm = false, headerButtonOrder = [],
 }) => {
 	const [gnbActive, setGnbActive] = React.useState(false);
@@ -122,7 +123,14 @@ export const Header: React.FC<HeaderProps> = ({
 			</div>
 		</div>
 	return (
-		<div className={[styles.headerWrapper, styles[type], (bgTransparent && !isSticky) ? styles.transparent : ''].join(' ')}>
+		<div
+			ref={type === 'sub' && hasGnb ? gnbRef : undefined}
+			className={[
+				styles.headerWrapper,
+				styles[type],
+				(bgTransparent && !isSticky) ? styles.transparent : ''
+			].join(' ')}
+		>
 			{type === 'sub' && (
 				<>
 					{hasGnb && (
