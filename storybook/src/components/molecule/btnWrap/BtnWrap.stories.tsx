@@ -17,7 +17,7 @@ const meta = {
 		},
 		align: {
 			control: 'inline-radio',
-			options: ['default', 'auto', 'center', 'right', 'full'],
+			options: ['default', 'auto', 'center', 'right', 'full', 'between'],
 		},
 		divider: {
 			control: 'boolean',

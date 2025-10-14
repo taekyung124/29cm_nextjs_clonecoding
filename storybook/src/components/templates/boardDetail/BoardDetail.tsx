@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/components/organism/boardDetail/BoardDetail.module.scss";
+import styles from "@/components/templates/boardDetail/BoardDetail.module.scss";
 import {FlexInfoWrap} from "@/components/molecule/flexInfoWrap/FlexInfoWrap";
 import {BtnWrap} from "@/components/molecule/btnWrap/BtnWrap";
 import {EtcButton} from "@/components/atomic/etcButton/EtcButton";

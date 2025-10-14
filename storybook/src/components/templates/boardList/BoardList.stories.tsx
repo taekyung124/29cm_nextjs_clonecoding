@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj, StoryFn } from '@storybook/nextjs-vite';
 
-import {BoardList} from "@/components/organism/boardList/BoardList";
+import {BoardList} from "@/components/templates/boardList/BoardList";
 
 const meta = {
-	title: 'Organism/BoardList',
+	title: 'Templates/BoardList',
 	component: BoardList,
 	tags: ['autodocs'],
 	parameters: {

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj, StoryFn } from '@storybook/nextjs-vite';
 
-import {TermsWrap} from "@/components/organism/termsWrap/TermsWrap";
+import {TermsWrap} from "@/components/templates/termsWrap/TermsWrap";
 
 const meta = {
-	title: 'Organism/TermsWrap',
+	title: 'Templates/TermsWrap',
 	component: TermsWrap,
 	parameters: {
 		layout: 'padded',

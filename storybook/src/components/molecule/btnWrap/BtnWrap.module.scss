@@ -83,6 +83,14 @@
 			}
 		}
 	}
+	&.between {
+		@include mixins.justify_width(center, between);
+
+		[class^=_btn], [class*=Btn_] {
+			flex: none;
+			width: auto;
+		}
+	}
 }
 
 .btnDividerWrap {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/components/organism/boardList/BoardList.module.scss";
+import styles from "@/components/templates/boardList/BoardList.module.scss";
 import {GoodsGroup} from "@/components/atomic/goodsGroup/GoodsGroup";
 
 interface BoardItem {

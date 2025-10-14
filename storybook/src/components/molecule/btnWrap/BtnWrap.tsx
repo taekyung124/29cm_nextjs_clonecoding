@@ -3,7 +3,7 @@ import styles from '@/components/molecule/btnWrap/BtnWrap.module.scss';
 
 interface BtnWrapProps {
 	mt?: 'zero' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-	align?: 'default' | 'auto' | 'center' | 'right' | 'full';
+	align?: 'default' | 'auto' | 'center' | 'right' | 'full' | 'between';
 	divider?: boolean;
 	buttons?: React.ReactNode;
 	gap?: number;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from "@/components/organism/termsWrap/TermsWrap.module.scss";
+import styles from "@/components/templates/termsWrap/TermsWrap.module.scss";
 
 import {SelectMenu, SelectOption} from "@/components/atomic/form/SelectMenu";
 import {Table} from "@/components/molecule/table/Table";
