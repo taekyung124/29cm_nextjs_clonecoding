@@ -2,106 +2,135 @@
 @use '../../../styles/abstracts/variables';
 @use '../../../styles/abstracts/mixins';
 
-.dialog {
-	// common
+
+.dialogContainer {
 	overflow: hidden;
-	@include mixins.justify_width(normal, start, column);
-	background-color: variables.$colorWhite;
-	-webkit-overflow-scrolling: auto;
-	width: 100%;
-	max-width: variables.$wrapperMaxWidth;
-	max-height: calc(var(--reVh) - 40px);
-	padding: 0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	@include mixins.size_wrap_width;
+	margin: 0;
+	z-index: 100;
+	background: #fff;
 
-	// dialogHeader
-	.dialogHeader {
-		.dialogTitle {
-			@include mixins.font_size_2xl('heading');
-		}
-		.dialogClose {
-			position: absolute;
-			top: 18px;
-			right: 20px;
-			width: 24px;
-			height: 24px;
-			@include mixins.ratio_images('/assets/icons/comm_ico_close_black');
-		}
-	}
+	.dialog {
+		-webkit-align-self: flex-end;
+		align-self: self-end;
+		position: relative;
+		width: 100% !important;
+		padding: 0;
 
-	&.bottom, &.full {
-		.dialogHeader {
-			padding: 17px 64px 16px 20px;
-		}
-	}
-
-	// dialogBody
-	.dialogBody {
-		flex: 1 1 auto;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		padding-top: 20px;
-		-webkit-touch-callout: none;
-
-		.dialogInner {
-			overflow-x: hidden;
-			overflow-y: auto;
-		}
-	}
-
-	&:not(:has(.dialogFooter)) {
-		.dialogBody {
-			padding-bottom: env(safe-area-inset-bottom);
-		}
-	}
-
-	// alert
-	&.alert {
-		.dialogHeader {
-			padding: 30px 30px 14px 30px;
-		}
-
-		&:not(:has(.dialogHeader)) {
-			.dialogBody {
-				padding-top: 30px;
-			}
-		}
-		.dialogFooter {
-			padding: 21px 30px 22px;
-		}
-	}
-
-	// bottom
-	&.bottom {
-		&:not(:has(.dialogHeader)) {
-			.dialogBody {
-				padding-top: 20px;
-			}
-		}
-
-		.dialogFooter {
-			padding: 10px 20px 20px;
-		}
-	}
-
-	// full
-	&.full {
-		&:has(.dialogFooter) {
-			.dialogBody {
-				padding-bottom: 73px;
-			}
-		}
-		.dialogFooter {
-			position: relative;
-			padding: {
-				top: 10px;
-				right: 10px;
-				bottom: calc(22px + env(safe-area-inset-bottom));
-				left: 10px;
-			};
-			border-top: 1px solid variables.$colorGray04;
+		.dialogContent {
+			// common
+			overflow: hidden;
+			@include mixins.justify_width(normal, start, column);
 			background-color: variables.$colorWhite;
-			box-shadow: 0 -10px 10px 0 rgba(0, 0, 0, .06);
+			-webkit-overflow-scrolling: auto;
+			width: 100%;
+			max-width: variables.$wrapperMaxWidth;
+			max-height: calc(var(--reVh) - 40px);
+			padding: 0;
+
+			// dialogHeader
+			.dialogHeader {
+				.dialogTitle {
+					@include mixins.font_size_2xl('heading');
+				}
+				.dialogClose {
+					position: absolute;
+					top: 18px;
+					right: 20px;
+					width: 24px;
+					height: 24px;
+					@include mixins.ratio_images('/assets/icons/comm_ico_close_black');
+				}
+			}
+
+			&.bottom, &.full {
+				.dialogHeader {
+					padding: 17px 64px 16px 20px;
+				}
+			}
+
+			// dialogBody
+			.dialogBody {
+				flex: 1 1 auto;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				padding-top: 20px;
+				-webkit-touch-callout: none;
+
+				.dialogInner {
+					overflow-x: hidden;
+					overflow-y: auto;
+				}
+			}
+
+			&:not(:has(.dialogFooter)) {
+				.dialogBody {
+					padding-bottom: env(safe-area-inset-bottom);
+				}
+			}
+
+			// alert
+			&.alert {
+				.dialogHeader {
+					padding: 30px 30px 14px 30px;
+				}
+
+				&:not(:has(.dialogHeader)) {
+					.dialogBody {
+						padding-top: 30px;
+					}
+				}
+				.dialogFooter {
+					padding: 21px 30px 22px;
+				}
+			}
+
+			// bottom
+			&.bottom {
+				&:not(:has(.dialogHeader)) {
+					.dialogBody {
+						padding-top: 20px;
+					}
+				}
+
+				.dialogFooter {
+					padding: 10px 20px 20px;
+				}
+			}
+
+			// full
+			&.full {
+				&:has(.dialogFooter) {
+					.dialogBody {
+						padding-bottom: 73px;
+					}
+				}
+				.dialogFooter {
+					position: relative;
+					padding: {
+						top: 10px;
+						right: 10px;
+						bottom: calc(22px + env(safe-area-inset-bottom));
+						left: 10px;
+					};
+					border-top: 1px solid variables.$colorGray04;
+					background-color: variables.$colorWhite;
+					box-shadow: 0 -10px 10px 0 rgba(0, 0, 0, .06);
+				}
+			}
 		}
 	}
+}
+
+.dim {
+	background-color: variables.$colorBlack;
+	opacity: .5;
+	overflow: hidden;
+	height: var(--reVh, 1vh);
 }

@@ -14,28 +14,36 @@ export const FullPopup: React.FC<FullPopupProps> = ({
 	hasFooter, btnSlot, children,
 	isShow, onClose
 }) => {
+	if (!isShow) return null;
 	return (
-		<div className={[styles.dialog, styles.full].join(' ')}>
-			{hasHeader && (
-				<div className={styles.dialogHeader}>
-					<h1 className={styles.dialogTitle}>{popTitle}</h1>
-					<button type={'button'} className={styles.dialogClose}>
-						<span className="offscreen">팝업 닫기</span>
-					</button>
-				</div>
-			)}
-			<div className={styles.dialogBody}>
-				<div className={styles.dialogInner}>
-					{children}
-				</div>
-			</div>
-			{hasFooter && (
-				<div className={styles.dialogFooter}>
-				{btnSlot && (
-						<BtnWrap buttons={btnSlot} />
+		<div className={styles.dialogContainer}>
+			<div className={styles.dialog}>
+				<div className={[styles.dialogContent, styles.full].join(' ')}>
+					{hasHeader && (
+						<div className={styles.dialogHeader}>
+							<h1 className={styles.dialogTitle}>{popTitle}</h1>
+							<button
+								type={'button'} className={styles.dialogClose}
+								onClick={onClose}
+							>
+								<span className="offscreen">팝업 닫기</span>
+							</button>
+						</div>
+					)}
+					<div className={styles.dialogBody}>
+						<div className={styles.dialogInner}>
+							{children}
+						</div>
+					</div>
+					{hasFooter && (
+						<div className={styles.dialogFooter}>
+							{btnSlot && (
+								<BtnWrap buttons={btnSlot} />
+							)}
+						</div>
 					)}
 				</div>
-			)}
+			</div>
 		</div>
 	)
 }

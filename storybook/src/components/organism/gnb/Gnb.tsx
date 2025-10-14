@@ -9,7 +9,7 @@ interface GnbItem {
 }
 
 export interface GnbProps {
-	items: GnbItem[];
+	items?: GnbItem[];
 	isActive?: boolean;
 	onToggle?: (active: boolean) => void;
 	addClass?: string;
