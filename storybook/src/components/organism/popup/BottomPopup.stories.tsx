@@ -49,12 +49,17 @@ export const BottomPopupDefault: Story = {
 	},
 	render: (args) => {
 		const [isPopupOpen, setPopupOpen] = React.useState(false);
+		const [isNestedOpen, setNestedOpen] = React.useState(false);
 		const [isFullPopupOpen, setFullPopupOpen] = React.useState(false);
 
 		const handleOpen = () => setPopupOpen(true);
-		const handle2DepthOpen = () => setFullPopupOpen(true);
 		const handleClose = () => setPopupOpen(false);
-		const handle2DepthClose = () => setFullPopupOpen(false);
+
+		const handleNestedOpen = () => setNestedOpen(true);
+		const handleNestedClose = () => setNestedOpen(false);
+
+		const handleFullPopupOpen = () => setFullPopupOpen(true);
+		const handleFullPopupClose = () => setFullPopupOpen(false);
 
 		const subHeaderProps: HeaderProps = {
 			type: "sub",
@@ -80,12 +85,32 @@ export const BottomPopupDefault: Story = {
 							text="bottom popup 열기"
 							onClick={handleOpen}
 						/>
+						<Button
+							color="green"
+							rounded
+							size="md"
+							tag="button"
+							text="bottom popup 내 full popup 예제"
+							onClick={handleNestedOpen}
+						/>
 					</ContentBox>
 				</Sub>
 				<BottomPopup  {...args} isShow={isPopupOpen} onClose={handleClose}
+							  btnSlot={<>
+								  <Button color="green" size="md" tag="button" text="확인" onClick={handleClose} />
+								  <Button color="lineGreen" size="md" tag="button" text="닫기" onClick={handleClose} />
+							  </>}
+				>
+					<ContentBox size={'zero'} pb={'Sm'}>
+						<div style={{width: '100%', height: '600px', background: 'floralwhite'}}>
+							bottom popup 내용 ~~
+						</div>
+					</ContentBox>
+				</BottomPopup>
+				<BottomPopup  {...args} isShow={isNestedOpen} onClose={handleNestedClose}
 					btnSlot={<>
-						<Button color="green" size="md" tag="button" text="확인" onClick={handleClose} />
-						<Button color="lineGreen" size="md" tag="button" text="닫기" onClick={handleClose} />
+						<Button color="green" size="md" tag="button" text="확인" onClick={handleNestedClose} />
+						<Button color="lineGreen" size="md" tag="button" text="닫기" onClick={handleNestedClose} />
 					</>}
 				>
 					<ContentBox size={'zero'} pb={'Sm'}>
@@ -97,7 +122,7 @@ export const BottomPopupDefault: Story = {
 									size="md"
 									tag="button"
 									text="full popup 열기"
-									onClick={handle2DepthOpen}
+									onClick={handleFullPopupOpen}
 								/>
 							</div>
 							bottom popup 내용 ~~
@@ -107,11 +132,11 @@ export const BottomPopupDefault: Story = {
 				<FullPopup
 					hasHeader={true}
 					popTitle={'full popup title ~~'}
-					onClose={handle2DepthClose} isShow={isFullPopupOpen}
+					onClose={handleFullPopupClose} isShow={isFullPopupOpen}
 					hasFooter={true}
 					btnSlot={<>
-						<Button color="green" size="md" tag="button" text="확인" onClick={handle2DepthClose} />
-						<Button color="lineGreen" size="md" tag="button" text="닫기" onClick={handle2DepthClose} />
+						<Button color="green" size="md" tag="button" text="확인" onClick={handleFullPopupClose} />
+						<Button color="lineGreen" size="md" tag="button" text="닫기" onClick={handleFullPopupClose} />
 					</>}
 				>
 					<ContentBox size={'zero'} pb={'Sm'}>

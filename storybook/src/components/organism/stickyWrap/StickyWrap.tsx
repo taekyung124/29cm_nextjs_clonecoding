@@ -60,10 +60,11 @@ export const StickyWrap: React.FC<StickyWrapProps> = ({
 	const fixedStyle: React.CSSProperties = React.useMemo(() => {
 		if (!ref.current || !ref.current.parentElement) return {};
 		const parentRect = ref.current.parentElement.getBoundingClientRect();
+		console.log(parentRect.left + window.scrollX, parentRect.left);
 		return {
 			position: "fixed" as const,
 			top,
-			left: parentRect.left,
+			left: parentRect.left + window.scrollX,
 			width: parentRect.width,
 			zIndex,
 			background,
