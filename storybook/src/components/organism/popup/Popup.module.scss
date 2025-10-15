@@ -11,9 +11,10 @@
 	right: 0;
 	bottom: 0;
 	@include mixins.size_wrap_width;
+	@include mixins.justify_width(center, center);
+	flex-wrap: wrap;
 	margin: 0;
-	z-index: 100;
-	background: #fff;
+	z-index: 111;
 
 	.dialog {
 		-webkit-align-self: flex-end;
@@ -21,6 +22,8 @@
 		position: relative;
 		width: 100% !important;
 		padding: 0;
+		z-index: 99;
+		@include mixins.prefix(animation, bottomPopAnimation .25s variables.$easeInOutQuad forwards);
 
 		.dialogContent {
 			// common
@@ -30,7 +33,6 @@
 			-webkit-overflow-scrolling: auto;
 			width: 100%;
 			max-width: variables.$wrapperMaxWidth;
-			max-height: calc(var(--reVh) - 40px);
 			padding: 0;
 
 			// dialogHeader
@@ -48,19 +50,12 @@
 				}
 			}
 
-			&.bottom, &.full {
-				.dialogHeader {
-					padding: 17px 64px 16px 20px;
-				}
-			}
-
 			// dialogBody
 			.dialogBody {
 				flex: 1 1 auto;
 				overflow: hidden;
 				display: flex;
 				flex-direction: column;
-				padding-top: 20px;
 				-webkit-touch-callout: none;
 
 				.dialogInner {
@@ -74,28 +69,34 @@
 					padding-bottom: env(safe-area-inset-bottom);
 				}
 			}
+		}
 
-			// alert
-			&.alert {
+		&.bottom, &.full {
+			.dialogContent {
 				.dialogHeader {
-					padding: 30px 30px 14px 30px;
+					padding: 17px 64px 16px 20px;
 				}
-
-				&:not(:has(.dialogHeader)) {
-					.dialogBody {
-						padding-top: 30px;
+				.dialogBody {
+					.dialogInner {
+						padding-top: 20px;
 					}
 				}
-				.dialogFooter {
-					padding: 21px 30px 22px;
-				}
 			}
+		}
 
-			// bottom
-			&.bottom {
+		// bottom
+		&.bottom {
+			height: auto;
+
+			.dialogContent {
+				// max-height: calc(var(--reVh) - 40px);
+				max-height: calc(100dvh - 40px);
+
 				&:not(:has(.dialogHeader)) {
 					.dialogBody {
-						padding-top: 20px;
+						.dialogInner {
+							padding-top: 20px;
+						}
 					}
 				}
 
@@ -103,14 +104,33 @@
 					padding: 10px 20px 20px;
 				}
 			}
+		}
 
-			// full
-			&.full {
-				&:has(.dialogFooter) {
-					.dialogBody {
-						padding-bottom: 73px;
+		// full
+		&.full {
+			align-self: self-start;
+			height: 100dvh;
+			max-height: 100dvh;
+
+			.dialogContent {
+				// height: var(--reVh, 1vh);
+				// max-height: var(--reVh, 1vh);
+				height: 100dvh;
+				max-height: 100dvh;
+
+				.dialogBody {
+					.dialogInner {
+						min-height: 100%;
+						@include mixins.justify_width(stretch, start, column);
 					}
 				}
+
+				&:has(.dialogFooter) {
+					.dialogBody {
+						// padding-bottom: 73px;
+					}
+				}
+
 				.dialogFooter {
 					position: relative;
 					padding: {
@@ -125,12 +145,51 @@
 				}
 			}
 		}
+
+		&.alert {
+			position: relative;
+			max-width: 375px;
+			max-height: calc(var(--reVh) - 80px);
+			margin: 0 auto;
+			padding: 0 30px;
+			align-self: center;
+
+			.dialogContent {
+				max-width: 315px;
+				max-height: calc(var(--reVh) - 80px);
+
+				.dialogHeader {
+					padding: 30px 30px 14px 30px;
+				}
+
+				.dialogBody {
+					padding: 0 10px;
+				}
+
+				&:not(:has(.dialogHeader)) {
+					.dialogBody {
+						padding-top: 30px;
+					}
+				}
+				.dialogFooter {
+					padding: 21px 30px 22px;
+				}
+			}
+		}
 	}
 }
 
 .dim {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	background-color: variables.$colorBlack;
 	opacity: .5;
 	overflow: hidden;
-	height: var(--reVh, 1vh);
+	width: 100%;
+	height: 100dvh;
+	// height: var(--reVh, 1vh);
+	z-index: 10;
 }

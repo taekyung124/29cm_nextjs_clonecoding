@@ -1,6 +1,8 @@
 import * as React from 'react';
 
+import { useBodyLock } from "@/hooks/useBodyLock";
 import type { PopupBaseProps } from "@/components/organism/popup/index";
+
 import styles from "@/components/organism/popup/Popup.module.scss";
 
 import {BtnWrap} from "@/components/molecule/btnWrap/BtnWrap";
@@ -15,44 +17,46 @@ export const BottomPopup: React.FC<BottomPopupProps> = ({
 	hasFooter, btnSlot,
 	isShow, onClose ,dimClose, children
 }) => {
+	useBodyLock(isShow);
 	if (!isShow) return null;
 
 	return (
 		<>
 			<div className={styles.dialogContainer}>
-				<div className={styles.dialog}></div>
-				<div className={[styles.dialogContent, styles.bottom].join(' ')}>
-					{hasHeader && (
-						<div className={styles.dialogHeader}>
-							<h1 className={styles.dialogTitle}>{popTitle}</h1>
-							<button
-								type={'button'} className={styles.dialogClose}
-								onClick={onClose}
-							>
-								<span className="offscreen">팝업 닫기</span>
-							</button>
+				<div className={[styles.dialog, styles.bottom].join(' ')}>
+					<div className={styles.dialogContent}>
+						{hasHeader && (
+							<div className={styles.dialogHeader}>
+								<h1 className={styles.dialogTitle}>{popTitle}</h1>
+								<button
+									type={'button'} className={styles.dialogClose}
+									onClick={onClose}
+								>
+									<span className="offscreen">팝업 닫기</span>
+								</button>
+							</div>
+						)}
+						<div className={styles.dialogBody}>
+							<div className={styles.dialogInner}>
+								{children}
+							</div>
 						</div>
-					)}
-					<div className={styles.dialogBody}>
-						<div className={styles.dialogInner}>
-							{children}
-						</div>
+						{hasFooter && (
+							<div className={styles.dialogFooter}>
+								{btnSlot && (
+									<BtnWrap buttons={btnSlot} />
+								)}
+							</div>
+						)}
 					</div>
-					{hasFooter && (
-						<div className={styles.dialogFooter}>
-							{btnSlot && (
-								<BtnWrap buttons={btnSlot} />
-							)}
-						</div>
-					)}
 				</div>
+				<div
+					className={styles.dim}
+					onClick={() => {
+						if (dimClose) onClose();
+					}}
+				/>
 			</div>
-			<div
-				className={styles.dim}
-				onClick={() => {
-					if (dimClose) onClose();
-				}}
-			/>
 		</>
 	)
 }
