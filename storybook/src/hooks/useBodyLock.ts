@@ -15,12 +15,12 @@ export function useBodyLock(isActive: boolean) {
 		const id = idRef.current!;
 		const addLock = () => {
 			bodyLockSet.add(id);
-			document.body.classList.add("popup-open");
+			document.body.classList.add("popupOpen");
 		};
 		const removeLock = () => {
 			bodyLockSet.delete(id);
 			if (bodyLockSet.size === 0) {
-				document.body.classList.remove("popup-open");
+				document.body.classList.remove("popupOpen");
 			}
 		};
 
